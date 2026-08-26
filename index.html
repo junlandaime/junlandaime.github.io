@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jundi Abdullah · Sains Astronomi ITB, Manajemen Dakwah & Web Development</title>
+    <meta
+      name="description"
+      content="Situs personal Jundi Abdullah — Manager Bidang Dakwah Masjid Salman ITB, Sarjana Astronomi ITB, pengembang web Laravel, penyadur materi Bayyinah TV, serta edukator Kalender Hijriah."
+    />
+    <meta name="author" content="Jundi Abdullah" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    
+    <!-- Theme Detection (No-Flash Script) -->
+    <script>
+      if (
+        localStorage.getItem('theme') === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['"Cormorant Garamond"', "Georgia", "serif"],
+              sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+              arabic: ['"Amiri"', "serif"],
+            },
+            colors: {
+              ink: {
+                DEFAULT: "#0d1e16",
+                soft: "#1e382b",
+                muted: "#52685e",
+              },
+              moss: {
+                DEFAULT: "#154d36",
+                dark: "#0b2b1e",
+                light: "#236d4f",
+              },
+              emerald: {
+                brand: "#0f766e",
+                light: "#10b981",
+                soft: "#d1fae5",
+              },
+              paper: {
+                DEFAULT: "#fbf9f4",
+                soft: "#f4efe4",
+                card: "#ffffff",
+              },
+              sand: "#ede6d6",
+              gold: {
+                DEFAULT: "#c59b27",
+                dark: "#9c791b",
+                light: "#e5b945",
+                soft: "#fef3c7",
+              },
+              saweria: {
+                DEFAULT: "#faae2b",
+                dark: "#d98e16",
+              },
+              bayyinah: {
+                DEFAULT: "#7a1b1b",
+                dark: "#571111",
+                light: "#9c2828",
+                soft: "#fdf2f2",
+              }
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./css/app.css" />
+    <script src="./js/hijriah-data.js"></script>
+    <script src="./js/site.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  </head>
+  <body
+    class="font-sans geom-bg text-ink dark:text-[#f1f5f3] antialiased selection:bg-emerald-light selection:text-white transition-colors duration-300"
+    x-data="{
+      open: false,
+      isDark: document.documentElement.classList.contains('dark'),
+      activeTab: 'slides',
+      filter: 'all',
+      site: window.SITE,
+      hijriData: window.HIJRI_DATA,
+      todayHijri: null,
+      todaySeries: 218,
+
+      init() {
+        if (this.hijriData) {
+          this.todayHijri = this.hijriData.getHijriDateFromMasehi(new Date());
+          this.todaySeries = this.hijriData.getTikTokSeriesDay();
+        }
+      },
+      
+      // Video Modal Lightbox State
+      videoModal: {
+        open: false,
+        title: '',
+        videoId: '',
+        url: ''
+      },
+
+      openVideo(title, url, videoId) {
+        const id = (videoId && videoId.length === 11) ? videoId : this.getYoutubeId(url);
+        this.videoModal = {
+          open: true,
+          title: title || 'Pemutar Video Kajian',
+          videoId: id,
+          url: url || ('https://www.youtube.com/watch?v=' + id)
+        };
+        document.body.classList.add('overflow-hidden');
+      },
+
+      closeVideo() {
+        this.videoModal.open = false;
+        this.videoModal.videoId = '';
+        document.body.classList.remove('overflow-hidden');
+      },
+
+      getYoutubeId(url) {
+        if (!url) return '';
+        const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|live\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+        return match ? match[1] : (url.length === 11 ? url : '');
+      },
+
+      toggleTheme() {
+        this.isDark = !this.isDark;
+        if (this.isDark) {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        }
+      },
+      
+      get filteredProjects() {
+        if (this.filter === 'all') return this.site.projects;
+        return this.site.projects.filter((p) => p.category === this.filter);
+      }
+    }"
+  >
+    <a href="#utama" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-moss focus:px-4 focus:py-2 focus:text-paper focus:shadow-lg">Loncat ke isi</a>
+
+    <!-- Fixed Header / Floating Navigation Bar -->
+    <header class="sticky top-4 z-40 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="glass-panel flex items-center justify-between rounded-2xl px-5 py-3 shadow-sm dark:border-white/10">
+        <!-- Logo -->
+        <a href="index.html" class="group flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-gold/40 bg-ink text-xs font-bold tracking-widest text-gold shadow-inner transition-colors group-hover:border-gold dark:bg-[#071710] dark:border-gold/60">JA</span>
+          <div class="flex flex-col">
+            <span class="font-display text-xl font-bold tracking-tight text-ink transition-colors group-hover:text-moss leading-tight dark:text-white dark:group-hover:text-gold-light">Jundi Abdullah</span>
+            <span class="text-[11px] font-medium text-ink-muted leading-none dark:text-emerald-100/60">Manager Dakwah Salman ITB</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden items-center gap-1 rounded-full border border-ink/5 bg-ink/[0.03] p-1 text-sm font-medium text-ink-soft md:flex dark:border-white/5 dark:bg-white/[0.04] dark:text-gray-300">
+          <a class="rounded-full px-3.5 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#utama">Beranda</a>
+          <a class="rounded-full px-3.5 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#profil-tabs">Kajian & Slide</a>
+          <a class="rounded-full px-3.5 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#keahlian">Keahlian</a>
+          <a class="inline-flex items-center gap-1.5 rounded-full bg-emerald-brand/15 px-3.5 py-1.5 text-xs font-bold text-emerald-brand transition-all hover:bg-emerald-brand hover:text-white shadow-xs dark:bg-emerald-brand/25 dark:text-emerald-light dark:hover:bg-emerald-brand dark:hover:text-white" href="dream-arabic.html">
+            <i class="fa-solid fa-book-quran text-emerald-brand dark:text-emerald-light text-[11px]"></i>
+            <span>Belajar Arab</span>
+          </a>
+          <a class="inline-flex items-center gap-1.5 rounded-full bg-gold/15 px-3.5 py-1.5 text-xs font-bold text-gold-dark transition-all hover:bg-gold hover:text-ink shadow-xs dark:bg-gold/25 dark:text-gold-light dark:hover:bg-gold dark:hover:text-ink" href="hijriah.html">
+            <i class="fa-solid fa-moon text-gold-dark dark:text-gold-light text-[11px]"></i>
+            <span>Kalender Hijriah</span>
+          </a>
+          <a class="rounded-full px-3.5 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#kontak">Kontak & Support</a>
+        </nav>
+
+        <!-- Right Side: Saweria, Dark Mode Switcher & CTA -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Saweria Quick Support Pill -->
+          <a
+            :href="site.saweria"
+            target="_blank"
+            rel="noopener"
+            class="hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-saweria/40 bg-saweria/15 px-3 py-1.5 text-xs font-bold text-amber-800 transition-all hover:bg-saweria hover:text-ink shadow-xs dark:bg-saweria/20 dark:text-saweria dark:border-saweria/40 dark:hover:bg-saweria dark:hover:text-ink"
+            title="Dukung Dakwah & Serial Hijriah via Saweria"
+          >
+            <i class="fa-solid fa-hand-holding-dollar text-xs"></i>
+            <span>Saweria</span>
+          </a>
+
+          <!-- Dark Mode Toggle Button -->
+          <button
+            type="button"
+            @click="toggleTheme()"
+            class="flex h-9 w-9 items-center justify-center rounded-xl border border-ink/10 bg-white/70 text-ink shadow-xs transition-all hover:border-gold hover:text-gold-dark dark:border-white/15 dark:bg-white/10 dark:text-gold-light dark:hover:bg-white/20"
+            :title="isDark ? 'Ganti ke Mode Terang' : 'Ganti ke Mode Gelap'"
+            aria-label="Toggle Dark Mode"
+          >
+            <i x-show="!isDark" class="fa-solid fa-moon text-sm"></i>
+            <i x-show="isDark" x-cloak class="fa-solid fa-sun text-sm text-gold-light"></i>
+          </button>
+
+          <!-- CTA Action -->
+          <div class="hidden items-center md:flex">
+            <a
+              href="#kontak"
+              class="inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2 text-xs font-semibold text-paper shadow-sm transition-all duration-200 hover:bg-moss hover:shadow-md dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
+            >
+              <i class="fa-regular fa-paper-plane text-gold dark:text-ink"></i>
+              <span>Hubungi</span>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-ink/10 bg-white/50 text-ink transition-colors hover:bg-white md:hidden dark:border-white/15 dark:bg-white/10 dark:text-white"
+            @click="open = !open"
+            :aria-expanded="open"
+            aria-label="Buka menu"
+          >
+            <i x-show="!open" class="fa-solid fa-bars text-sm"></i>
+            <i x-show="open" x-cloak class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        x-cloak
+        x-show="open"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-2"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-2"
+        class="glass-panel mt-2 rounded-2xl p-4 shadow-lg md:hidden dark:border-white/10"
+      >
+        <nav class="flex flex-col gap-1 text-sm font-medium text-ink-soft dark:text-gray-300">
+          <a @click="open = false" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-ink/5 hover:text-moss dark:hover:bg-white/5 dark:hover:text-white" href="#utama">Beranda</a>
+          <a @click="open = false" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-ink/5 hover:text-moss dark:hover:bg-white/5 dark:hover:text-white" href="#profil-tabs">Kajian & Slide</a>
+          <a @click="open = false" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-ink/5 hover:text-moss dark:hover:bg-white/5 dark:hover:text-white" href="#keahlian">Keahlian</a>
+          <a @click="open = false" class="flex items-center justify-between rounded-xl bg-emerald-brand/15 px-4 py-2.5 font-bold text-emerald-brand dark:bg-emerald-brand/25 dark:text-emerald-light" href="dream-arabic.html">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-book-quran"></i>
+              <span>Belajar Arab (Dream Intensive)</span>
+            </span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+          <a @click="open = false" class="flex items-center justify-between rounded-xl bg-gold/15 px-4 py-2.5 font-bold text-gold-dark dark:bg-gold/25 dark:text-gold-light" href="hijriah.html">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-moon"></i>
+              <span>Kalender Hijriah & Fase Bulan</span>
+            </span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+          <a @click="open = false" :href="site.saweria" target="_blank" rel="noopener" class="flex items-center justify-between rounded-xl bg-saweria/15 px-4 py-2.5 font-bold text-amber-800 dark:text-saweria">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <span>Dukung via Saweria</span>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </a>
+          <a @click="open = false" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-ink/5 hover:text-moss dark:hover:bg-white/5 dark:hover:text-white" href="#kontak">Kontak</a>
+          <div class="mt-2 pt-2 border-t border-ink/10 dark:border-white/10">
+            <a
+              @click="open = false"
+              href="#kontak"
+              class="flex items-center justify-center gap-2 rounded-xl bg-ink py-2.5 text-center text-xs font-semibold text-paper dark:bg-gold dark:text-ink"
+            >
+              <i class="fa-regular fa-paper-plane text-gold dark:text-ink"></i>
+              <span>Hubungi Saya</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="utama">
+      <!-- Hero Section (3-Column Layout with Photo) -->
+      <section class="relative mx-auto max-w-6xl px-5 pt-8 pb-16 md:px-8 md:pt-12 md:pb-20">
+        <div class="grid items-center gap-8 lg:grid-cols-12">
+          
+          <!-- Left Column (Bio & Actions) -->
+          <div class="text-center lg:col-span-5 lg:text-left">
+            <!-- Status Pill -->
+            <div class="inline-flex items-center gap-2 rounded-full border border-emerald-brand/20 bg-emerald-soft/60 px-3.5 py-1 text-xs font-semibold text-moss shadow-xs backdrop-blur-xs dark:bg-emerald-brand/20 dark:border-emerald-light/30 dark:text-emerald-light">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-light opacity-75"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-light"></span>
+              </span>
+              <span class="text-[11px] sm:text-xs">Bandung · Astronomi ITB × Salman ITB × Web</span>
+            </div>
+
+            <h5 class="mt-4 text-xs font-bold uppercase tracking-widest text-ink-muted dark:text-emerald-100/60">Assalamu'alaikum</h5>
+            <h1 class="mt-1 font-display text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl dark:text-white">
+              I'm <span class="text-moss dark:text-emerald-light">Jundi Abdullah</span>
+            </h1>
+            <p class="mt-2 text-sm font-semibold text-gold-dark dark:text-gold-light">
+              Manager Bidang Dakwah Masjid Salman ITB & Web Developer
+            </p>
+
+            <p class="mt-4 text-sm leading-relaxed text-ink-muted sm:text-base dark:text-gray-300">
+              Menghubungkan ketelitian sains, integritas manajemen dakwah, dan materi kajian Al-Qur'an berbasis <strong class="font-semibold text-ink dark:text-white">Bayyinah TV</strong>, serta rekayasa web <strong class="font-semibold text-ink dark:text-white">Laravel</strong>.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+              <a
+                href="#kontak"
+                class="inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-2.5 text-xs font-bold text-paper shadow-md transition-all duration-200 hover:bg-moss hover:shadow-lg dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
+              >
+                <i class="fa-regular fa-envelope text-gold dark:text-ink"></i>
+                <span>Hubungi Saya</span>
+              </a>
+              <a
+                href="https://www.bayyinahtv.com/"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 rounded-xl bg-bayyinah px-4 py-2.5 text-xs font-bold text-white shadow-md transition-all duration-200 hover:bg-bayyinah-light hover:scale-105 dark:bg-bayyinah dark:hover:bg-bayyinah-light bayyinah-glow"
+                title="Belajar Al-Qur'an langsung dari Ustaz Nouman Ali Khan di kanal resmi Bayyinah TV"
+              >
+                <img src="bayyinah-tv-icon.webp" alt="Bayyinah TV" class="h-4 w-4 rounded-xs object-cover shadow-xs">
+                <span>Kajian Ust. Nouman</span>
+                <span class="rounded-full bg-white/20 px-1.5 py-0.2 text-[9px] font-extrabold text-white">Resmi</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-75"></i>
+              </a>
+              <a
+                href="dream-arabic.html"
+                class="inline-flex items-center gap-2 rounded-xl bg-emerald-brand px-4 py-2.5 text-xs font-bold text-white shadow-md transition-all duration-200 hover:bg-moss hover:scale-105 dark:bg-emerald-light dark:text-ink dark:hover:bg-emerald-300"
+              >
+                <i class="fa-solid fa-book-quran"></i>
+                <span>Belajar Bahasa Arab</span>
+                <span class="rounded-full bg-white/20 text-white dark:bg-ink/20 dark:text-ink px-1.5 py-0.2 text-[9px] font-extrabold">Dream</span>
+              </a>
+              <a
+                href="hijriah.html"
+                class="inline-flex items-center gap-2 rounded-xl border border-gold/40 bg-gold-soft/50 px-4 py-2.5 text-xs font-bold text-gold-dark shadow-xs transition-all duration-200 hover:bg-gold hover:text-ink hover:scale-105 dark:bg-gold/20 dark:text-gold-light dark:hover:bg-gold dark:hover:text-ink"
+              >
+                <i class="fa-solid fa-moon"></i>
+                <span>Kalender Hijriah</span>
+                <span class="rounded-full bg-red-500/20 text-red-600 dark:text-red-400 px-1.5 py-0.2 text-[9px] font-extrabold" x-text="'Hari ke-' + todaySeries"></span>
+              </a>
+            </div>
+
+            <!-- Follow Me / Social Media Icons Row -->
+            <div class="mt-8 flex items-center justify-center gap-3 lg:justify-start">
+              <span class="text-xs font-semibold text-ink-muted dark:text-gray-400">Follow Me:</span>
+              <div class="flex items-center gap-2">
+                <a :href="site.linkedin" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn">
+                  <i class="fa-brands fa-linkedin-in text-sm"></i>
+                </a>
+                <a :href="site.github" target="_blank" rel="noopener" class="social-icon-btn" title="GitHub">
+                  <i class="fa-brands fa-github text-sm"></i>
+                </a>
+                <a :href="site.tiktok" target="_blank" rel="noopener" class="social-icon-btn" title="TikTok">
+                  <i class="fa-brands fa-tiktok text-sm"></i>
+                </a>
+                <a :href="site.instagram" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">
+                  <i class="fa-brands fa-instagram text-sm"></i>
+                </a>
+                <a :href="site.facebook" target="_blank" rel="noopener" class="social-icon-btn" title="Facebook">
+                  <i class="fa-brands fa-facebook-f text-sm"></i>
+                </a>
+                <a :href="site.saweria" target="_blank" rel="noopener" class="social-icon-btn text-amber-600 dark:text-saweria" title="Saweria Support">
+                  <i class="fa-solid fa-hand-holding-dollar text-sm"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Middle Column (Photo of Jundi DSC03734.png) -->
+          <div class="relative flex justify-center lg:col-span-4">
+            <div class="relative mx-auto w-full max-w-[280px] sm:max-w-[320px]">
+              <!-- Ambient Glow & Ring behind photo -->
+              <div class="absolute inset-0 -m-3 rounded-full bg-gradient-to-tr from-moss/20 via-gold/25 to-emerald-light/20 blur-xl dark:from-emerald-brand/30 dark:via-gold/30 dark:to-emerald-light/30"></div>
+              
+              <!-- Circular/Curved Photo Frame -->
+              <div class="relative overflow-hidden rounded-3xl border-4 border-white bg-gradient-to-b from-sand/40 to-sand/80 shadow-2xl ring-1 ring-ink/10 dark:border-white/15 dark:from-[#0d271d] dark:to-[#071710]">
+                <img
+                  src="./DSC03734.png"
+                  alt="Jundi Abdullah"
+                  class="h-auto w-full object-cover transition-transform duration-500 hover:scale-105"
+                  onerror="this.src='./DSC03734.JPG.jpeg'"
+                />
+              </div>
+
+              <!-- Floating Badges on Photo -->
+              <div class="absolute -bottom-3 -left-3 rounded-xl border border-ink/10 bg-white/95 px-3 py-1.5 shadow-md backdrop-blur-xs flex items-center gap-2 dark:bg-[#0c241a] dark:border-white/10">
+                <span class="flex h-6 w-6 items-center justify-center rounded-lg bg-moss/15 text-moss text-xs font-bold dark:bg-emerald-brand/30 dark:text-emerald-light">🕌</span>
+                <div class="text-left">
+                  <p class="text-[9px] font-bold uppercase tracking-wider text-ink-muted dark:text-gray-400">YPM Salman</p>
+                  <p class="text-[11px] font-bold text-ink leading-tight dark:text-white">Manager Dakwah</p>
+                </div>
+              </div>
+
+              <div class="absolute -top-2 -right-2 rounded-xl border border-ink/10 bg-white/95 px-3 py-1.5 shadow-md backdrop-blur-xs flex items-center gap-2 dark:bg-[#0c241a] dark:border-white/10">
+                <span class="flex h-6 w-6 items-center justify-center rounded-lg bg-gold/15 text-gold-dark text-xs font-bold dark:bg-gold/25 dark:text-gold-light">🔭</span>
+                <div class="text-left">
+                  <p class="text-[9px] font-bold uppercase tracking-wider text-ink-muted dark:text-gray-400">Alumni ITB</p>
+                  <p class="text-[11px] font-bold text-ink leading-tight dark:text-white">Astronomi ('13)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (Stats / Experience Counter Card) -->
+          <div class="lg:col-span-3">
+            <div class="glass-panel flex flex-col justify-between rounded-3xl p-6 shadow-sm border border-ink/10 dark:border-white/10">
+              <div class="space-y-5 divide-y divide-ink/10 text-center dark:divide-white/10">
+                <!-- Stat 1 -->
+                <div>
+                  <h3 class="font-display text-4xl font-bold text-moss dark:text-emerald-light">10+</h3>
+                  <p class="text-xs font-semibold text-ink-muted dark:text-gray-300">Tahun Pengabdian <span class="text-ink font-bold dark:text-white">Dakwah & Komunitas</span></p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="pt-4">
+                  <h3 class="font-display text-4xl font-bold text-gold-dark dark:text-gold-light">ITB '13</h3>
+                  <p class="text-xs font-semibold text-ink-muted dark:text-gray-300">Sarjana Sains <span class="text-ink font-bold dark:text-white">Astronomi & Falak</span></p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="pt-4">
+                  <div class="flex items-center justify-center gap-2">
+                    <img src="bayyinah-tv-icon.webp" alt="Bayyinah TV" class="h-6 w-6 rounded-md shadow-xs object-cover">
+                    <h3 class="font-display text-3xl font-bold text-bayyinah dark:text-red-300">Bayyinah</h3>
+                  </div>
+                  <p class="text-xs font-semibold text-ink-muted dark:text-gray-300 mt-0.5">Saduran Materi <span class="text-ink font-bold dark:text-white">& Tadabbur Qur'an</span></p>
+                </div>
+              </div>
+
+              <!-- Quick Link Button -->
+              <div class="mt-6 pt-4 border-t border-ink/10 text-center dark:border-white/10">
+                <a
+                  href="#profil-tabs"
+                  class="inline-flex items-center justify-center gap-2 w-full rounded-xl border border-ink/15 bg-white py-2.5 text-xs font-bold text-ink shadow-xs transition-all hover:bg-ink hover:text-paper dark:bg-white/10 dark:border-white/10 dark:text-white dark:hover:bg-gold dark:hover:text-ink"
+                >
+                  <i class="fa-solid fa-layer-group text-gold"></i>
+                  <span>Eksplorasi Kajian & Slide</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="gold-rule mx-auto max-w-6xl"></div>
+
+      <!-- Interactive Tabbed Section -->
+      <section id="profil-tabs" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 md:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold">
+            <span class="h-1.5 w-1.5 rounded-full bg-gold"></span>
+            Eksplorasi Rekam Jejak
+          </span>
+          <h2 class="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl dark:text-white">Kajian, Slide & Portofolio</h2>
+          <p class="mt-2 text-xs sm:text-sm text-ink-muted dark:text-gray-400">
+            Pilih tab di bawah untuk melihat rangkuman kajian Bayyinah TV, rekaman video, modul presentasi, dan rekam jejak.
+          </p>
+        </div>
+
+        <!-- Tab Buttons Bar -->
+        <nav class="mb-10 flex flex-wrap justify-center gap-2">
+          <button
+            @click="activeTab = 'slides'"
+            type="button"
+            :class="activeTab === 'slides' ? 'bg-bayyinah text-white shadow-md font-bold dark:bg-bayyinah dark:text-white' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/20'"
+            class="flex items-center gap-2 rounded-full px-4 py-2 text-xs transition-all duration-200"
+          >
+            <img src="bayyinah-tv-icon.webp" alt="Bayyinah" class="h-4 w-4 rounded-xs object-cover">
+            <span>Slide Bayyinah & Modul</span>
+          </button>
+
+          <button
+            @click="activeTab = 'kajian'"
+            type="button"
+            :class="activeTab === 'kajian' ? 'bg-ink text-gold shadow-md font-bold dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/20'"
+            class="flex items-center gap-2 rounded-full px-4 py-2 text-xs transition-all duration-200"
+          >
+            <i class="fa-brands fa-youtube text-red-500 text-xs"></i>
+            <span>Rekaman Kajian YouTube</span>
+          </button>
+
+          <button
+            @click="activeTab = 'experience'"
+            type="button"
+            :class="activeTab === 'experience' ? 'bg-ink text-gold shadow-md font-bold dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/20'"
+            class="flex items-center gap-2 rounded-full px-4 py-2 text-xs transition-all duration-200"
+          >
+            <i class="fa-solid fa-mosque text-xs"></i>
+            <span>Pengalaman Salman ITB</span>
+          </button>
+
+          <button
+            @click="activeTab = 'education'"
+            type="button"
+            :class="activeTab === 'education' ? 'bg-ink text-gold shadow-md font-bold dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/20'"
+            class="flex items-center gap-2 rounded-full px-4 py-2 text-xs transition-all duration-200"
+          >
+            <i class="fa-solid fa-graduation-cap text-xs"></i>
+            <span>Pendidikan ITB</span>
+          </button>
+
+          <button
+            @click="activeTab = 'projects'"
+            type="button"
+            :class="activeTab === 'projects' ? 'bg-ink text-gold shadow-md font-bold dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/20'"
+            class="flex items-center gap-2 rounded-full px-4 py-2 text-xs transition-all duration-200"
+          >
+            <i class="fa-solid fa-code text-xs"></i>
+            <span>Karya Web (Laravel)</span>
+          </button>
+        </nav>
+
+        <!-- Tab 1: Slide Bayyinah TV & Modul (Slides) -->
+        <div
+          x-show="activeTab === 'slides'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-95"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          class="space-y-6 max-w-4xl mx-auto"
+        >
+          <!-- Bayyinah TV Spotlight Box -->
+          <div class="rounded-3xl border border-bayyinah/30 bg-gradient-to-r from-red-50/70 via-white to-gold-soft/30 p-6 sm:p-7 shadow-xs dark:from-[#1a0a0a] dark:via-[#160b0b] dark:to-[#0c1f17] dark:border-bayyinah/40">
+            <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+              <div class="flex items-start gap-3.5">
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-bayyinah shadow-md overflow-hidden border border-white/20 p-1">
+                  <img src="bayyinah-tv-icon.webp" alt="Bayyinah TV Logo" class="h-full w-full object-contain rounded-xl">
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="rounded-md bg-bayyinah/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-bayyinah dark:text-red-300 dark:bg-bayyinah/30">
+                      Fondasi & Kurikulum Kajian
+                    </span>
+                    <span class="text-xs font-bold text-gold-dark dark:text-gold-light">Ustaz Nouman Ali Khan</span>
+                    <span class="rounded-md bg-emerald-brand/10 text-emerald-brand dark:text-emerald-light dark:bg-emerald-brand/20 px-2 py-0.5 text-[10px] font-semibold">Saduran & Rangkuman Pribadi</span>
+                  </div>
+                  <h3 class="font-display text-2xl font-bold text-ink dark:text-white mt-1">
+                    Bayyinah TV (Dream Intensive & Tadabbur)
+                  </h3>
+                  <p class="text-xs text-ink-muted dark:text-gray-300 mt-1 max-w-xl leading-relaxed">
+                    Seluruh kajian, pendekatan tadabbur Al-Qur'an, dan modul bahasa Arab di sini berakar dari kurikulum <strong>Bayyinah TV</strong>. Transkrip kajian bahasa Inggris disadur dan dirangkum ke dalam padanan slide & catatan Bahasa Indonesia.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap sm:flex-col gap-2 shrink-0 self-start sm:self-center">
+                <a
+                  :href="site.bayyinah"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-1.5 rounded-xl bg-bayyinah px-4 py-2 text-xs font-bold text-white hover:bg-bayyinah-light transition-all shadow-xs dark:bg-bayyinah dark:hover:bg-bayyinah-light bayyinah-glow"
+                >
+                  <img src="bayyinah-tv-icon.webp" alt="Bayyinah" class="h-3.5 w-3.5 rounded-xs">
+                  <span>Kanal Resmi Bayyinah</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+                <a
+                  href="dream-arabic.html"
+                  class="inline-flex items-center gap-1.5 rounded-xl bg-emerald-brand px-4 py-2 text-xs font-bold text-white hover:bg-moss transition-colors shadow-xs dark:bg-emerald-light dark:text-ink dark:hover:bg-emerald-300"
+                >
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <span>Modul Belajar Interaktif</span>
+                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bayyinah Slides Cards -->
+          <div class="glass-panel rounded-2xl p-6 shadow-xs border border-ink/10 dark:border-white/10">
+            <div class="flex items-center justify-between border-b border-ink/10 pb-3 mb-4 dark:border-white/10">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-ink dark:text-white">Rangkuman Bayyinah Dream Intensive</h3>
+                <p class="text-xs text-ink-muted dark:text-gray-400">Klik "Putar Video di Web" untuk menonton langsung di popup layar</p>
+              </div>
+              <span class="rounded-full bg-gold/15 px-2.5 py-0.5 text-[11px] font-bold text-gold-dark dark:bg-gold/25 dark:text-gold-light">PDF & Video</span>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+              <template x-for="item in site.bayyinah_slides" :key="item.title">
+                <div class="rounded-xl border border-ink/10 bg-white/70 p-4 flex flex-col justify-between dark:bg-white/[0.04] dark:border-white/10">
+                  <div>
+                    <span class="text-[10px] font-bold text-gold-dark dark:text-gold-light" x-text="item.speaker"></span>
+                    <h4 class="font-display text-lg font-bold text-ink mt-1 dark:text-white" x-text="item.title"></h4>
+                    <p class="text-[11px] text-ink-muted mt-1 leading-relaxed dark:text-gray-300" x-text="item.blurb"></p>
+                  </div>
+                  <div class="mt-4 flex flex-col gap-1.5 pt-3 border-t border-ink/10 text-xs dark:border-white/10">
+                    <button
+                      type="button"
+                      @click="openVideo(item.title, item.youtube, item.youtube_id)"
+                      class="inline-flex items-center justify-center gap-1.5 rounded-lg bg-red-600/10 text-red-700 py-1.5 font-bold hover:bg-red-600 hover:text-white transition-colors dark:bg-red-500/20 dark:text-red-300 dark:hover:bg-red-600 dark:hover:text-white"
+                    >
+                      <i class="fa-brands fa-youtube text-sm"></i>
+                      <span>Putar Video di Web</span>
+                    </button>
+                    <a :href="item.pdf" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-1.5 rounded-lg bg-gold/20 py-1.5 font-bold text-ink hover:bg-gold transition-colors dark:bg-gold/30 dark:text-gold-light dark:hover:bg-gold dark:hover:text-ink">
+                      <i class="fa-solid fa-file-pdf text-red-600"></i>
+                      <span>Buka Slide PDF</span>
+                    </a>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <!-- Modul Pelatihan Salman -->
+          <div class="glass-panel rounded-2xl p-6 shadow-xs border border-ink/10 dark:border-white/10">
+            <div class="flex items-center justify-between border-b border-ink/10 pb-3 mb-4 dark:border-white/10">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-ink dark:text-white">Slide Materi Pelatihan & Dakwah</h3>
+                <p class="text-xs text-ink-muted dark:text-gray-400">Materi pelatihan manajemen dakwah dan modul presentasi</p>
+              </div>
+              <span class="rounded-full bg-emerald-soft px-2.5 py-0.5 text-[11px] font-bold text-emerald-brand dark:bg-emerald-brand/30 dark:text-emerald-light">Google Drive</span>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <template x-for="item in site.materi" :key="item.title">
+                <div class="rounded-xl border border-ink/10 bg-white/70 p-4 flex flex-col justify-between dark:bg-white/[0.04] dark:border-white/10">
+                  <div>
+                    <span class="rounded bg-sand px-2 py-0.5 text-[10px] font-bold text-ink-muted dark:bg-white/10 dark:text-gray-300" x-text="item.kind"></span>
+                    <h4 class="font-display text-xl font-bold text-ink mt-2 dark:text-white" x-text="item.title"></h4>
+                    <p class="text-xs text-ink-muted mt-1 leading-relaxed dark:text-gray-300" x-text="item.blurb"></p>
+                  </div>
+                  <a :href="item.url" target="_blank" rel="noopener" class="mt-4 inline-flex items-center justify-center gap-2 rounded-xl bg-ink py-2 text-xs font-bold text-paper hover:bg-moss transition-colors dark:bg-gold dark:text-ink dark:hover:bg-gold-light">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gold dark:text-ink"></i>
+                    <span>Buka File di Drive</span>
+                  </a>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Rekaman Kajian (YouTube Pop-up Player) -->
+        <div
+          x-show="activeTab === 'kajian'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-95"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          class="max-w-4xl mx-auto"
+        >
+          <div class="grid gap-4 sm:grid-cols-3">
+            <template x-for="k in site.kajian" :key="k.title">
+              <div
+                @click="openVideo(k.title, k.url, k.youtube_id)"
+                class="card-hover flex flex-col justify-between rounded-2xl border border-ink/10 bg-white p-5 shadow-xs group cursor-pointer dark:bg-[#0c241a] dark:border-white/10"
+              >
+                <div>
+                  <div class="flex items-center justify-between text-xs text-red-500 font-bold">
+                    <span class="flex items-center gap-1.5">
+                      <i class="fa-brands fa-youtube text-base"></i>
+                      <span>YouTube Live</span>
+                    </span>
+                    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-red-500/10 text-red-600 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                      <i class="fa-solid fa-play text-[10px]"></i>
+                    </span>
+                  </div>
+                  <h4 class="mt-3 font-display text-lg font-bold text-ink group-hover:text-moss transition-colors dark:text-white dark:group-hover:text-gold-light" x-text="k.title"></h4>
+                  <p class="mt-2 text-xs text-ink-muted dark:text-gray-400" x-text="k.meta"></p>
+                </div>
+                <div class="mt-6 flex items-center justify-between border-t border-ink/10 pt-3 text-xs font-semibold text-moss dark:border-white/10 dark:text-emerald-light">
+                  <span class="font-bold flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-play text-red-500"></i>
+                    <span>Tonton Video di Layar</span>
+                  </span>
+                  <i class="fa-solid fa-arrow-right text-xs"></i>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- Tab 3: Pengalaman (Experience) -->
+        <div
+          x-show="activeTab === 'experience'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-95"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          class="space-y-4 max-w-4xl mx-auto"
+        >
+          <div class="glass-panel rounded-2xl p-6 shadow-xs border border-ink/10 dark:border-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-ink/10 pb-3 dark:border-white/10">
+              <div>
+                <span class="text-xs font-bold text-gold-dark dark:text-gold-light uppercase tracking-wider">Posisi Saat Ini</span>
+                <h3 class="font-display text-2xl font-bold text-ink dark:text-white">Manager Bidang Dakwah</h3>
+                <p class="text-xs font-semibold text-moss dark:text-emerald-light">Yayasan Pembina Masjid (YPM) Salman ITB</p>
+              </div>
+              <span class="self-start sm:self-auto rounded-full bg-moss/10 px-3 py-1 text-xs font-bold text-moss dark:bg-emerald-brand/30 dark:text-emerald-light">
+                2021 – Sekarang
+              </span>
+            </div>
+            <p class="mt-4 text-xs sm:text-sm leading-relaxed text-ink-soft dark:text-gray-300">
+              Memimpin strategi dakwah kampus, mengoordinasikan tim pembinaan jamaah, merancang kurikulum dan ekosistem kajian berbasis Al-Qur'an, serta mengawal digitalisasi arsip dakwah.
+            </p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 shadow-xs border border-ink/10 dark:border-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-ink/10 pb-3 dark:border-white/10">
+              <div>
+                <span class="text-xs font-bold text-gold-dark dark:text-gold-light uppercase tracking-wider">Perjalanan Pengabdian</span>
+                <h3 class="font-display text-2xl font-bold text-ink dark:text-white">Koordinator & Fasilitator Program</h3>
+                <p class="text-xs font-semibold text-moss dark:text-emerald-light">Bidang Dakwah & Pembinaan Jamaah Salman ITB</p>
+              </div>
+              <span class="self-start sm:self-auto rounded-full bg-sand px-3 py-1 text-xs font-bold text-ink-soft dark:bg-white/10 dark:text-gray-300">
+                2017 – 2021
+              </span>
+            </div>
+            <p class="mt-4 text-xs sm:text-sm leading-relaxed text-ink-soft dark:text-gray-300">
+              Mengelola program kajian rutin (KISSMIS, Kajian Senin Kamis, Ramadhan), pembinaan relawan muda, serta penyusunan modul pelatihan dakwah komunitas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 4: Pendidikan & Sains (Education) -->
+        <div
+          x-show="activeTab === 'education'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-95"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto"
+        >
+          <div class="glass-panel rounded-2xl p-6 shadow-xs border border-ink/10 dark:border-white/10">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold-dark font-bold text-lg dark:bg-gold/25 dark:text-gold-light">🔭</span>
+              <div>
+                <h3 class="font-display text-xl font-bold text-ink dark:text-white">Pendidikan Formal</h3>
+                <p class="text-xs text-ink-muted dark:text-gray-400">Institut Teknologi Bandung</p>
+              </div>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-ink-soft dark:text-gray-300">
+              <li class="border-b border-ink/10 pb-2 dark:border-white/10">
+                <span class="font-bold text-ink dark:text-white">Sarjana Sains (S.Si) — Astronomi</span>
+                <p class="text-xs text-ink-muted dark:text-gray-400">ITB (2013 – 2017) · FMIPA</p>
+              </li>
+              <li>
+                <span class="font-bold text-ink dark:text-white">Fokus Keilmuan:</span>
+                <p class="text-xs text-ink-muted dark:text-gray-400">Mekanika benda langit, orbit bulan, sains falak (hisab & rukyatul hilal), komputasi dan analisis kuantitatif.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 shadow-xs border border-ink/10 dark:border-white/10">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-soft text-emerald-brand font-bold text-lg dark:bg-emerald-brand/30 dark:text-emerald-light">📚</span>
+              <div>
+                <h3 class="font-display text-xl font-bold text-ink dark:text-white">Kompetensi Keislaman & Falak</h3>
+                <p class="text-xs text-ink-muted dark:text-gray-400">Studi Mandiri & Pelatihan</p>
+              </div>
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-ink-soft dark:text-gray-300">
+              <li class="border-b border-ink/10 pb-2 dark:border-white/10">
+                <span class="font-bold text-ink dark:text-white">Edukasi Kalender Hijriah & Fase Bulan</span>
+                <p class="text-xs text-ink-muted dark:text-gray-400">Serial edukasi harian TikTok (217+ hari berkelanjutan).</p>
+              </li>
+              <li>
+                <span class="font-bold text-ink dark:text-white">Tadabbur Qur'ani & Bahasa Arab</span>
+                <p class="text-xs text-ink-muted dark:text-gray-400">Penyusunan modul terjemahan kajian Bayyinah TV (Ustaz Nouman Ali Khan).</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tab 5: Karya Web (Projects) -->
+        <div
+          x-show="activeTab === 'projects'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-95"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          class="max-w-4xl mx-auto"
+        >
+          <div class="grid gap-4 sm:grid-cols-3">
+            <template x-for="p in site.projects" :key="p.title">
+              <div class="card-hover flex flex-col justify-between rounded-2xl border border-ink/10 bg-white p-5 shadow-xs dark:bg-[#0c241a] dark:border-white/10">
+                <div>
+                  <div class="flex items-center justify-between gap-2 flex-wrap mb-2">
+                    <span class="rounded-md bg-sand/60 px-2 py-0.5 text-[10px] font-bold text-moss dark:bg-emerald-brand/30 dark:text-emerald-light" x-text="p.stack"></span>
+                    <span x-show="p.badge" class="rounded-md bg-gold/15 px-1.5 py-0.5 text-[9px] font-bold text-gold-dark dark:bg-gold/25 dark:text-gold-light" x-text="p.badge"></span>
+                  </div>
+                  <h4 class="font-display text-xl font-bold text-ink dark:text-white" x-text="p.title"></h4>
+                  <p class="mt-2 text-xs leading-relaxed text-ink-muted dark:text-gray-300" x-text="p.blurb"></p>
+                </div>
+                <div class="mt-6 pt-3 border-t border-ink/10 flex flex-col gap-2 dark:border-white/10">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <a :href="p.url" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 rounded-lg bg-emerald-brand/10 text-emerald-brand px-3 py-1.5 text-xs font-bold hover:bg-emerald-brand hover:text-white transition-colors dark:bg-emerald-brand/25 dark:text-emerald-light dark:hover:bg-emerald-light dark:hover:text-ink">
+                      <span>Buka Website</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                    <template x-if="p.secondary_url">
+                      <a :href="p.secondary_url" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 rounded-lg bg-gold/15 text-gold-dark px-3 py-1.5 text-xs font-bold hover:bg-gold hover:text-ink transition-colors dark:bg-gold/25 dark:text-gold-light dark:hover:bg-gold dark:hover:text-ink">
+                        <span x-text="p.secondary_label || 'Portal Registrasi'"></span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                      </a>
+                    </template>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px] text-ink-muted dark:text-gray-400 pt-1">
+                    <a :href="p.repo" target="_blank" rel="noopener" class="hover:text-moss inline-flex items-center gap-1.5 dark:hover:text-gold-light font-medium">
+                      <i class="fa-brands fa-github"></i>
+                      <span>GitHub Repository</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Areas of Expertise -->
+      <section id="keahlian" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 md:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold">
+            <span class="h-1.5 w-1.5 rounded-full bg-gold"></span>
+            Pilar Kompetensi
+          </span>
+          <h2 class="mt-2 font-display text-4xl font-bold text-ink dark:text-white">Areas of Expertise</h2>
+          <p class="mt-2 text-sm text-ink-muted dark:text-gray-400">
+            Tiga pilar keahlian yang saling menguatkan dalam sains, pengelolaan dakwah, dan rekayasa teknologi web.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+          <!-- Pillar 1 -->
+          <div class="card-hover rounded-2xl border border-ink/10 bg-white/80 p-6 shadow-xs flex flex-col justify-between dark:bg-[#0c241a] dark:border-white/10">
+            <div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/15 text-gold-dark text-xl mb-4 dark:bg-gold/25 dark:text-gold-light">
+                <i class="fa-solid fa-atom"></i>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-ink dark:text-white">Sains Falak & Astronomi</h3>
+              <p class="mt-2 text-xs leading-relaxed text-ink-muted dark:text-gray-300">
+                Fondasi sarjana Astronomi ITB: analisis fisis keteraturan benda langit, perhitungan hisab & rukyatul hilal, serta visualisasi fase bulan astronomis.
+              </p>
+            </div>
+            <div class="mt-6 flex items-center justify-between pt-4 border-t border-ink/10 text-xs font-bold text-gold-dark dark:border-white/10 dark:text-gold-light">
+              <span>Astronomi ITB</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="card-hover rounded-2xl border border-ink/10 bg-white/80 p-6 shadow-xs flex flex-col justify-between dark:bg-[#0c241a] dark:border-white/10">
+            <div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-moss/15 text-moss text-xl mb-4 dark:bg-emerald-brand/30 dark:text-emerald-light">
+                <i class="fa-solid fa-mosque"></i>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-ink dark:text-white">Manajemen Dakwah</h3>
+              <p class="mt-2 text-xs leading-relaxed text-ink-muted dark:text-gray-300">
+                Pengalaman kepemimpinan di Masjid Salman ITB: perancangan ekosistem kajian jamaah, pembinaan kader muda, dan strategi program keumatan.
+              </p>
+            </div>
+            <div class="mt-6 flex items-center justify-between pt-4 border-t border-ink/10 text-xs font-bold text-moss dark:border-white/10 dark:text-emerald-light">
+              <span>Salman ITB</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="card-hover rounded-2xl border border-ink/10 bg-white/80 p-6 shadow-xs flex flex-col justify-between dark:bg-[#0c241a] dark:border-white/10">
+            <div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-soft text-emerald-brand text-xl mb-4 dark:bg-emerald-brand/30 dark:text-emerald-light">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-ink dark:text-white">Web Engineering</h3>
+              <p class="mt-2 text-xs leading-relaxed text-ink-muted dark:text-gray-300">
+                Pengembangan aplikasi web modern berbasis Laravel, Blade, Alpine.js, dan Tailwind CSS dengan antarmuka yang bersih, cepat, dan responsif.
+              </p>
+            </div>
+            <div class="mt-6 flex items-center justify-between pt-4 border-t border-ink/10 text-xs font-bold text-emerald-brand dark:border-white/10 dark:text-emerald-light">
+              <span>Laravel Ecosystem</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Dedicated Hijri & TikTok Highlight Banner -->
+      <section class="mx-auto max-w-6xl px-5 py-6 md:px-8">
+        <div class="relative overflow-hidden rounded-3xl bg-[#091d14] p-8 text-paper shadow-xl sm:p-10 border border-white/10">
+          <div class="absolute -right-24 -bottom-24 h-72 w-72 rounded-full bg-gold/15 blur-3xl pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col justify-between gap-6 md:flex-row md:items-center">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2.5">
+                <span class="rounded-full bg-red-500/20 text-red-300 border border-red-500/30 px-3 py-0.5 text-xs font-bold">
+                  <i class="fa-brands fa-tiktok mr-1"></i> Serial Harian TikTok · Hari ke-<span x-text="todaySeries"></span>
+                </span>
+                <span class="text-xs text-gold-light font-bold" x-text="todayHijri ? (todayHijri.day + ' ' + hijriData.months[todayHijri.monthId - 1].name + ' ' + todayHijri.year + ' H') : '12 Rabiul Awal 1448 H'"></span>
+              </div>
+              <h3 class="font-display text-3xl sm:text-4xl font-bold text-paper">
+                Edukasi Kalender Hijriah & Fase Bulan
+              </h3>
+              <p class="text-xs sm:text-sm text-paper/75 max-w-2xl leading-relaxed">
+                Ketahui tanggal Hijriah hari ini, visualisasi fase bulan astronomis, pengingat puasa Ayyamul Bidh, dan peristiwa bersejarah dalam tarikh Islam yang jarang diketahui.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href="hijriah.html"
+                class="inline-flex items-center gap-2 rounded-2xl bg-gold px-6 py-3.5 text-xs font-bold text-ink shadow-lg transition-all duration-200 hover:bg-gold-light hover:scale-105"
+              >
+                <i class="fa-solid fa-moon"></i>
+                <span>Buka Kalender Hijriah</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+              <a
+                href="https://www.tiktok.com/@junlandaime"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 rounded-2xl border border-paper/20 bg-white/10 px-5 py-3.5 text-xs font-semibold text-paper transition-all hover:bg-white/20"
+              >
+                <i class="fa-brands fa-tiktok"></i>
+                <span>Tonton di TikTok</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact & Support Section (Replaced Form with Saweria & Direct Contact Hub) -->
+      <section id="kontak" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 md:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold">
+            <span class="h-1.5 w-1.5 rounded-full bg-gold"></span>
+            Mari Terhubung & Kolaborasi
+          </span>
+          <h2 class="mt-2 font-display text-4xl font-bold text-ink dark:text-white">Kontak & Dukungan</h2>
+          <p class="mt-2 text-sm text-ink-muted dark:text-gray-400">
+            Terhubung untuk kolaborasi dakwah, diskusi sains falak, atau memberikan dukungan apresiasi bagi inisiatif serial edukasi.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto items-stretch">
+          
+          <!-- Card 1: Saweria Support Card -->
+          <div class="rounded-3xl border border-saweria/40 bg-gradient-to-br from-amber-500/15 via-white to-amber-500/5 p-6 sm:p-7 shadow-sm flex flex-col justify-between dark:from-[#1b1407] dark:via-[#130f06] dark:to-[#0a1f16] dark:border-saweria/30">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-saweria text-ink text-xl font-bold shadow-md">
+                  <i class="fa-solid fa-hand-holding-dollar"></i>
+                </span>
+                <span class="rounded-full bg-saweria/20 border border-saweria/30 px-2.5 py-0.5 text-[10px] font-bold text-amber-800 dark:text-saweria">
+                  Saweria Support
+                </span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-ink dark:text-white mt-4">
+                Dukung Inisiatif Dakwah
+              </h3>
+              <p class="text-xs text-ink-muted dark:text-gray-300 mt-2 leading-relaxed">
+                Bagi yang berkenan mendukung keberlanjutan serial edukasi penanggalan Hijriah harian, perangkuman materi Bayyinah TV, dan pengembangan platform dakwah digital.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-saweria/20">
+              <a
+                :href="site.saweria"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center gap-2 w-full rounded-2xl bg-saweria py-3 text-xs font-bold text-ink shadow-md transition-all hover:bg-amber-400 hover:scale-[1.02]"
+              >
+                <span>Dukung via Saweria</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+              <p class="text-[10px] text-center text-ink-muted dark:text-gray-400 mt-2">saweria.co/junlandaime</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Direct Contact / Email -->
+          <div class="glass-panel rounded-3xl p-6 sm:p-7 shadow-sm border border-ink/10 flex flex-col justify-between dark:border-white/10">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gold/15 text-gold-dark text-xl font-bold dark:bg-gold/25 dark:text-gold-light">
+                  <i class="fa-solid fa-envelope"></i>
+                </span>
+                <span class="rounded-full bg-emerald-soft px-2.5 py-0.5 text-[10px] font-bold text-emerald-brand dark:bg-emerald-brand/30 dark:text-emerald-light">
+                  Surel Resmi
+                </span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-ink dark:text-white mt-4">
+                Surel & Undangan Kajian
+              </h3>
+              <p class="text-xs text-ink-muted dark:text-gray-300 mt-2 leading-relaxed">
+                Untuk keperluan koordinasi kajian, permohonan materi pembinaan, diskusi astronomi/falak, atau kolaborasi web:
+              </p>
+              
+              <div class="mt-4 rounded-xl bg-sand/30 p-3 dark:bg-white/[0.04] border border-ink/5 dark:border-white/5">
+                <p class="text-[10px] text-ink-muted dark:text-gray-400">Alamat Email:</p>
+                <p class="font-bold text-xs text-ink dark:text-white font-mono break-all">jdi.jundi99@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-ink/10 dark:border-white/10">
+              <a
+                href="mailto:jdi.jundi99@gmail.com?subject=Kolaborasi%20%26%20Diskusi%20-%20Jundi%20Abdullah"
+                class="inline-flex items-center justify-center gap-2 w-full rounded-2xl bg-ink py-3 text-xs font-bold text-paper shadow-md transition-all hover:bg-moss hover:scale-[1.02] dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
+              >
+                <i class="fa-regular fa-paper-plane text-gold dark:text-ink"></i>
+                <span>Kirim Email Langsung</span>
+              </a>
+              <p class="text-[10px] text-center text-ink-muted dark:text-gray-400 mt-2">Masjid Salman ITB, Bandung</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Social Media Network -->
+          <div class="rounded-3xl bg-[#0d2218] p-6 sm:p-7 text-paper shadow-md border border-white/10 flex flex-col justify-between md:col-span-2 lg:col-span-1">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-light/20 text-emerald-light text-xl font-bold">
+                  <i class="fa-solid fa-share-nodes"></i>
+                </span>
+                <span class="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-bold text-gold-light">
+                  Media Sosial
+                </span>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-paper mt-4">
+                Jejaring Sosial
+              </h3>
+              <p class="text-xs text-paper/75 mt-2 leading-relaxed">
+                Ikuti perkembangan konten, rilis slide baru, dan rekaman kajian melalui akun resmi berikut:
+              </p>
+
+              <div class="mt-4 grid grid-cols-2 gap-2 text-xs">
+                <a :href="site.tiktok" target="_blank" rel="noopener" class="flex items-center gap-2 rounded-xl bg-white/5 p-2.5 hover:bg-white/15 transition-colors">
+                  <i class="fa-brands fa-tiktok text-sm text-gold-light"></i>
+                  <span class="text-[11px] font-semibold text-paper truncate">TikTok</span>
+                </a>
+                <a :href="site.instagram" target="_blank" rel="noopener" class="flex items-center gap-2 rounded-xl bg-white/5 p-2.5 hover:bg-white/15 transition-colors">
+                  <i class="fa-brands fa-instagram text-sm text-gold-light"></i>
+                  <span class="text-[11px] font-semibold text-paper truncate">Instagram</span>
+                </a>
+                <a :href="site.linkedin" target="_blank" rel="noopener" class="flex items-center gap-2 rounded-xl bg-white/5 p-2.5 hover:bg-white/15 transition-colors">
+                  <i class="fa-brands fa-linkedin-in text-sm text-gold-light"></i>
+                  <span class="text-[11px] font-semibold text-paper truncate">LinkedIn</span>
+                </a>
+                <a :href="site.github" target="_blank" rel="noopener" class="flex items-center gap-2 rounded-xl bg-white/5 p-2.5 hover:bg-white/15 transition-colors">
+                  <i class="fa-brands fa-github text-sm text-gold-light"></i>
+                  <span class="text-[11px] font-semibold text-paper truncate">GitHub</span>
+                </a>
+                <a :href="site.facebook" target="_blank" rel="noopener" class="flex items-center gap-2 rounded-xl bg-white/5 p-2.5 hover:bg-white/15 transition-colors col-span-2">
+                  <i class="fa-brands fa-facebook-f text-sm text-gold-light"></i>
+                  <span class="text-[11px] font-semibold text-paper truncate">Facebook: /Junland</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 text-center">
+              <span class="text-[10px] text-paper/60">© Jundi Abdullah · junlandaime</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- YouTube Lightbox Modal Popup -->
+    <div
+      x-cloak
+      x-show="videoModal.open"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      @keydown.escape.window="closeVideo()"
+      class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md"
+    >
+      <div
+        @click.outside="closeVideo()"
+        x-show="videoModal.open"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        class="relative w-full max-w-4xl rounded-3xl bg-[#0a1f16] border border-white/15 overflow-hidden shadow-2xl"
+      >
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between px-5 py-3.5 border-b border-white/10 bg-black/40 text-paper">
+          <div class="flex items-center gap-2.5">
+            <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-red-500/20 text-red-400">
+              <i class="fa-brands fa-youtube text-sm"></i>
+            </span>
+            <div class="max-w-[200px] sm:max-w-md md:max-w-lg">
+              <h4 class="font-display text-base sm:text-lg font-bold text-white truncate" x-text="videoModal.title"></h4>
+              <p class="text-[10px] sm:text-[11px] text-paper/60">Pemutar Video YouTube</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <a
+              :href="videoModal.url"
+              target="_blank"
+              rel="noopener"
+              class="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-paper hover:bg-white/20 transition-colors"
+              title="Buka di YouTube"
+            >
+              <span>Buka di YouTube</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+            <button
+              @click="closeVideo()"
+              type="button"
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-paper hover:bg-red-500/30 hover:text-red-400 transition-colors"
+              aria-label="Tutup Video"
+            >
+              <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 16:9 Video Iframe Container -->
+        <div class="relative aspect-video w-full bg-black">
+          <template x-if="videoModal.open && videoModal.videoId">
+            <iframe
+              :src="'https://www.youtube.com/embed/' + videoModal.videoId + '?autoplay=1'"
+              title="YouTube video player"
+              class="absolute inset-0 h-full w-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-ink/10 bg-white/50 py-8 dark:border-white/10 dark:bg-black/20">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-xs text-ink-muted sm:flex-row md:px-8 dark:text-gray-400">
+        <div class="flex items-center gap-2.5">
+          <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-[10px] font-bold text-gold dark:bg-[#0c241a] dark:border dark:border-gold/40">JA</span>
+          <p>© <span x-text="new Date().getFullYear()"></span> Jundi Abdullah · Astronomi ITB & Masjid Salman ITB</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="hover:text-moss font-semibold dark:hover:text-white">Beranda</a>
+          <span>·</span>
+          <a href="hijriah.html" class="hover:text-moss font-semibold dark:hover:text-white">Kalender Hijriah</a>
+          <span>·</span>
+          <a :href="site.saweria" target="_blank" rel="noopener" class="hover:text-amber-600 font-semibold dark:hover:text-saweria">Saweria</a>
+          <span>·</span>
+          <a href="#kontak" class="hover:text-moss font-semibold dark:hover:text-white">Kontak</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

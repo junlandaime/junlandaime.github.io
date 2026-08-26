@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edukasi Kalender Hijriah & Fase Bulan · Jundi Abdullah</title>
+    <meta
+      name="description"
+      content="Portal edukasi kalender Hijriah, sains astronomi fase bulan (Moon Phase), dan ensiklopedi peristiwa tarikh sejarah Islam bersama Jundi Abdullah (Astronomi ITB & Masjid Salman ITB)."
+    />
+    <meta name="author" content="Jundi Abdullah" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    
+    <!-- Theme Detection (No-Flash Script) -->
+    <script>
+      if (
+        localStorage.getItem('theme') === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['"Cormorant Garamond"', "Georgia", "serif"],
+              sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+              arabic: ['"Amiri"', "serif"],
+            },
+            colors: {
+              ink: {
+                DEFAULT: "#0d1e16",
+                soft: "#1e382b",
+                muted: "#52685e",
+              },
+              moss: {
+                DEFAULT: "#154d36",
+                dark: "#0b2b1e",
+                light: "#236d4f",
+              },
+              emerald: {
+                brand: "#0f766e",
+                light: "#10b981",
+                soft: "#d1fae5",
+              },
+              paper: {
+                DEFAULT: "#fbf9f4",
+                soft: "#f4efe4",
+                card: "#ffffff",
+              },
+              sand: "#ede6d6",
+              gold: {
+                DEFAULT: "#c59b27",
+                dark: "#9c791b",
+                light: "#e5b945",
+                soft: "#fef3c7",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./css/app.css" />
+    <script src="./js/hijriah-data.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  </head>
+  <body
+    class="font-sans geom-bg text-ink dark:text-[#f1f5f3] antialiased selection:bg-emerald-light selection:text-white transition-colors duration-300"
+    x-data="{
+      data: window.HIJRI_DATA,
+      isDark: document.documentElement.classList.contains('dark'),
+      currentHijri: { day: 12, monthId: 3, year: 1448, masehiStr: '' },
+      selectedDay: 12,
+      selectedMonthId: 3,
+      selectedYear: 1448,
+      seriesDay: 218,
+      
+      init() {
+        const todayObj = new Date();
+        const hijri = this.data.getHijriDateFromMasehi(todayObj);
+        this.currentHijri = hijri;
+        this.selectedDay = hijri.day;
+        this.selectedMonthId = hijri.monthId;
+        this.selectedYear = hijri.year;
+        this.updateSeriesDay();
+      },
+
+      toggleTheme() {
+        this.isDark = !this.isDark;
+        if (this.isDark) {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        }
+      },
+
+      updateSeriesDay() {
+        const mInfo = this.data.hijri_month_starts[this.selectedYear]?.[this.selectedMonthId];
+        if (mInfo) {
+          const mDate = new Date(mInfo.start + 'T00:00:00');
+          mDate.setDate(mDate.getDate() + (this.selectedDay - 1));
+          const y = mDate.getFullYear();
+          const m = String(mDate.getMonth() + 1).padStart(2, '0');
+          const d = String(mDate.getDate()).padStart(2, '0');
+          this.seriesDay = this.data.getTikTokSeriesDay(`${y}-${m}-${d}`);
+        }
+      },
+
+      get selectedMasehiStr() {
+        const mInfo = this.data.hijri_month_starts[this.selectedYear]?.[this.selectedMonthId];
+        if (mInfo) {
+          const mDate = new Date(mInfo.start + 'T00:00:00');
+          mDate.setDate(mDate.getDate() + (this.selectedDay - 1));
+          const dayNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+          const monthNames = [
+            'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+          ];
+          return `${dayNames[mDate.getDay()]}, ${mDate.getDate()} ${monthNames[mDate.getMonth()]} ${mDate.getFullYear()} M`;
+        }
+        return this.currentHijri.masehiStr;
+      },
+
+      get selectedMonth() {
+        return this.data.months.find(m => m.id === Number(this.selectedMonthId)) || this.data.months[2];
+      },
+
+      get selectedPhase() {
+        return this.data.getMoonPhaseForDay(this.selectedDay);
+      },
+
+      get selectedEvent() {
+        return this.data.getHistoricalEvent(this.selectedMonthId, this.selectedDay);
+      },
+
+      get daysInMonth() {
+        return this.data.hijri_month_starts[this.selectedYear]?.[this.selectedMonthId]?.days || 30;
+      },
+
+      setToday() {
+        this.selectedDay = this.currentHijri.day;
+        this.selectedMonthId = this.currentHijri.monthId;
+        this.selectedYear = this.currentHijri.year;
+        this.updateSeriesDay();
+      },
+
+      prevDay() {
+        if (this.selectedDay > 1) {
+          this.selectedDay--;
+        } else {
+          if (this.selectedMonthId > 1) {
+            this.selectedMonthId--;
+            this.selectedDay = this.daysInMonth;
+          }
+        }
+        this.updateSeriesDay();
+      },
+
+      nextDay() {
+        if (this.selectedDay < this.daysInMonth) {
+          this.selectedDay++;
+        } else {
+          if (this.selectedMonthId < 12) {
+            this.selectedMonthId++;
+            this.selectedDay = 1;
+          }
+        }
+        this.updateSeriesDay();
+      },
+
+      selectDate(day) {
+        this.selectedDay = day;
+        this.updateSeriesDay();
+      }
+    }"
+  >
+    <!-- Floating Navbar -->
+    <header class="sticky top-4 z-40 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="glass-panel flex items-center justify-between rounded-2xl px-5 py-3.5 shadow-sm dark:border-white/10">
+        <a href="index.html" class="group flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-gold/40 bg-ink text-xs font-bold tracking-widest text-gold shadow-inner transition-colors group-hover:border-gold dark:bg-[#071710] dark:border-gold/60">JA</span>
+          <div class="flex flex-col">
+            <span class="font-display text-xl font-bold tracking-tight text-ink transition-colors group-hover:text-moss dark:text-white dark:group-hover:text-gold-light">Jundi Abdullah</span>
+            <span class="text-[11px] font-medium text-ink-muted leading-none dark:text-emerald-100/60">Edukasi Kalender Hijriah</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden items-center gap-1 rounded-full border border-ink/5 bg-ink/[0.03] p-1 text-sm font-medium text-ink-soft md:flex dark:border-white/5 dark:bg-white/[0.04] dark:text-gray-300">
+          <a class="rounded-full px-4 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="index.html">Beranda Utama</a>
+          <a class="rounded-full bg-white px-4 py-1.5 text-moss shadow-xs dark:bg-gold dark:text-ink font-bold" href="#tracker">Hari Ini</a>
+          <a class="rounded-full px-4 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#fase-bulan">Fase Bulan</a>
+          <a class="rounded-full px-4 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#tarikh">Tarikh Islam</a>
+          <a class="rounded-full px-4 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#12-bulan">12 Bulan</a>
+        </nav>
+
+        <!-- Right Side: Dark Mode & CTA TikTok -->
+        <div class="flex items-center gap-2">
+          <!-- Dark Mode Toggle Button -->
+          <button
+            type="button"
+            @click="toggleTheme()"
+            class="flex h-9 w-9 items-center justify-center rounded-xl border border-ink/10 bg-white/70 text-ink shadow-xs transition-all hover:border-gold hover:text-gold-dark dark:border-white/15 dark:bg-white/10 dark:text-gold-light dark:hover:bg-white/20"
+            :title="isDark ? 'Ganti ke Mode Terang' : 'Ganti ke Mode Gelap'"
+            aria-label="Toggle Dark Mode"
+          >
+            <i x-show="!isDark" class="fa-solid fa-moon text-sm"></i>
+            <i x-show="isDark" x-cloak class="fa-solid fa-sun text-sm text-gold-light"></i>
+          </button>
+
+          <a
+            href="https://www.tiktok.com/@junlandaime"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2 text-xs font-semibold text-paper shadow-sm transition-all duration-200 hover:bg-moss hover:shadow-md dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
+          >
+            <i class="fa-brands fa-tiktok"></i>
+            <span class="hidden sm:inline">TikTok Serial</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 py-12 md:px-8">
+      <!-- Top Title & Concept Intro -->
+      <section class="text-center">
+        <div class="inline-flex items-center gap-2.5 rounded-full border border-emerald-brand/20 bg-emerald-soft/50 px-4 py-1.5 text-xs font-semibold text-moss shadow-xs backdrop-blur-xs dark:bg-emerald-brand/20 dark:border-emerald-light/30 dark:text-emerald-light">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-light opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-light"></span>
+          </span>
+          <span>Inisiatif Serial Harian TikTok @junlandaime</span>
+        </div>
+
+        <h1 class="mt-6 font-display text-4xl font-bold tracking-tight text-ink sm:text-6xl dark:text-white">
+          Edukasi Kalender Hijriah & Fase Bulan
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg dark:text-gray-300">
+          Mengenalkan kembali ritme penanggalan Islam yang selaras dengan siklus orbit rembulan di langit dan jejak agung peristiwa sejarah umat manusia.
+        </p>
+      </section>
+
+      <!-- Section: Interactive Live Tracker Card -->
+      <section id="tracker" class="mt-12">
+        <div class="glass-panel overflow-hidden rounded-3xl border border-ink/10 p-6 shadow-md sm:p-10 dark:border-white/10">
+          <div class="flex flex-col justify-between gap-6 border-b border-ink/10 pb-8 lg:flex-row lg:items-center dark:border-white/10">
+            <!-- Left: Hijri Main Date Display -->
+            <div>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="rounded-full bg-red-500/10 border border-red-500/20 px-3 py-1 text-xs font-bold text-red-600 dark:bg-red-500/20 dark:text-red-400">
+                  🔴 Serial Hari ke-<span x-text="seriesDay"></span>
+                </span>
+                <span class="rounded-full bg-gold/15 px-3 py-1 text-xs font-bold text-gold-dark dark:bg-gold/25 dark:text-gold-light" x-text="'Tahun ' + selectedYear + ' H'"></span>
+                <template x-if="selectedMonth.isHaram">
+                  <span class="rounded-full bg-emerald-soft px-3 py-1 text-xs font-bold text-emerald-brand dark:bg-emerald-brand/30 dark:text-emerald-light">
+                    Bulan Haram (Mulia)
+                  </span>
+                </template>
+              </div>
+
+              <div class="mt-4 flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
+                <h2 class="font-display text-4xl font-bold text-ink sm:text-5xl dark:text-white">
+                  <span x-text="selectedDay"></span>
+                  <span x-text="selectedMonth.name"></span>
+                  <span x-text="selectedYear + ' H'"></span>
+                </h2>
+                <span class="font-arabic text-2xl font-bold text-gold-dark dark:text-gold-light" x-text="selectedMonth.arabic"></span>
+              </div>
+
+              <p class="mt-2 text-sm font-semibold text-ink-muted dark:text-gray-400">
+                Padanan Masehi: <span class="text-ink font-bold dark:text-white" x-text="selectedMasehiStr"></span> · 
+                <span class="italic text-xs">Penentuan tanggal 1 dapat disesuaikan hasil rukyat resmi</span>
+              </p>
+            </div>
+
+            <!-- Right: Interactive Day Stepper -->
+            <div class="flex flex-wrap items-center gap-2">
+              <button
+                @click="prevDay()"
+                type="button"
+                class="inline-flex items-center gap-1 rounded-xl border border-ink/10 bg-white px-3.5 py-2 text-xs font-bold text-ink shadow-xs transition-all hover:border-gold hover:text-moss dark:bg-white/10 dark:border-white/10 dark:text-white dark:hover:bg-white/20"
+              >
+                <span>← Kemarin</span>
+              </button>
+              <button
+                @click="setToday()"
+                type="button"
+                class="inline-flex items-center gap-1 rounded-xl bg-ink px-4 py-2 text-xs font-bold text-paper shadow-sm transition-all hover:bg-moss dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
+              >
+                <span>Hari Ini</span>
+              </button>
+              <button
+                @click="nextDay()"
+                type="button"
+                class="inline-flex items-center gap-1 rounded-xl border border-ink/10 bg-white px-3.5 py-2 text-xs font-bold text-ink shadow-xs transition-all hover:border-gold hover:text-moss dark:bg-white/10 dark:border-white/10 dark:text-white dark:hover:bg-white/20"
+              >
+                <span>Besok →</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Selector Dropdown -->
+          <div class="mt-6 flex flex-wrap items-center gap-4 bg-sand/20 rounded-2xl p-4 text-xs font-medium text-ink-soft dark:bg-white/[0.04] dark:text-gray-300">
+            <span>Pilih Bulan Hijriah:</span>
+            <select
+              x-model="selectedMonthId"
+              @change="selectedDay = Math.min(selectedDay, daysInMonth); updateSeriesDay();"
+              class="rounded-xl border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold text-ink focus:border-gold focus:outline-hidden dark:bg-[#071710] dark:border-white/15 dark:text-white"
+            >
+              <template x-for="m in data.months" :key="m.id">
+                <option :value="m.id" x-text="m.id + '. ' + m.name + ' (' + m.arabic + ')'"></option>
+              </template>
+            </select>
+
+            <span>Pilih Tanggal:</span>
+            <select
+              x-model="selectedDay"
+              @change="updateSeriesDay()"
+              class="rounded-xl border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold text-ink focus:border-gold focus:outline-hidden dark:bg-[#071710] dark:border-white/15 dark:text-white"
+            >
+              <template x-for="d in Array.from({length: daysInMonth}, (_, i) => i + 1)" :key="d">
+                <option :value="d" x-text="'Tanggal ' + d"></option>
+              </template>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Moon Phase & Astronomy (Sains ITB) -->
+      <section id="fase-bulan" class="mt-12 scroll-mt-24">
+        <div class="grid gap-8 lg:grid-cols-12">
+          <!-- Moon Phase Visual Card -->
+          <div class="lg:col-span-5 flex flex-col justify-between rounded-3xl bg-[#091d14] text-paper p-6 sm:p-8 shadow-md border border-white/10">
+            <div>
+              <div class="flex items-center justify-between border-b border-paper/10 pb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-light">🔭 Visualisasi Astronomis</span>
+                <span class="rounded-full bg-paper/10 px-2.5 py-0.5 text-xs font-bold text-gold-light" x-text="'Hari ke-' + selectedDay"></span>
+              </div>
+
+              <!-- Moon Graphic Simulation -->
+              <div class="my-8 flex flex-col items-center justify-center">
+                <div class="relative flex h-40 w-40 items-center justify-center rounded-full bg-black/60 p-2 shadow-2xl ring-4 ring-emerald-light/20">
+                  <div
+                    class="h-full w-full rounded-full transition-all duration-500 shadow-inner flex items-center justify-center text-4xl"
+                    :style="`background: radial-gradient(circle at ${selectedDay <= 15 ? (selectedDay / 15) * 100 : ((30 - selectedDay) / 15) * 100}%, #fef3c7 0%, #d97706 60%, #1e293b 100%);`"
+                  >
+                    <span x-show="selectedPhase.illumination >= 95">🌕</span>
+                    <span x-show="selectedPhase.illumination < 95 && selectedPhase.illumination >= 50">🌖</span>
+                    <span x-show="selectedPhase.illumination < 50 && selectedPhase.illumination >= 15">🌘</span>
+                    <span x-show="selectedPhase.illumination < 15">🌙</span>
+                  </div>
+                </div>
+
+                <h3 class="mt-6 font-display text-2xl font-bold text-gold-light" x-text="selectedPhase.phase_name"></h3>
+                <p class="font-arabic text-lg text-paper/70" x-text="selectedPhase.arabic_phase"></p>
+                <div class="mt-2 flex items-center gap-2">
+                  <span class="text-xs text-paper/60">Iluminasi Cahaya:</span>
+                  <span class="font-bold text-emerald-light" x-text="selectedPhase.illumination + '%'"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Worship Notice Box -->
+            <div class="rounded-2xl border border-gold/30 bg-gold/10 p-4 text-xs leading-relaxed text-paper">
+              <p class="font-bold text-gold-light">Kaitan Ibadah Syar'i:</p>
+              <p class="mt-1" x-text="selectedPhase.worship_info"></p>
+            </div>
+          </div>
+
+          <!-- Astronomy Explanation Card -->
+          <div class="lg:col-span-7 flex flex-col justify-between rounded-3xl border border-ink/10 bg-white/80 p-6 sm:p-8 shadow-sm dark:bg-[#0c241a] dark:border-white/10">
+            <div>
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold dark:text-gold-light">
+                <span class="h-1.5 w-1.5 rounded-full bg-gold"></span>
+                Sains Falak & Astronomi
+              </span>
+              <h3 class="mt-2 font-display text-3xl font-bold text-ink dark:text-white">
+                Mengapa Kalender Hijriah Mengikuti Bulan?
+              </h3>
+
+              <div class="mt-6 space-y-4 text-sm leading-relaxed text-ink-soft dark:text-gray-300">
+                <p>
+                  <strong class="text-ink dark:text-white">Periode Sinodis (29.53 Hari)</strong>: Waktu yang dibutuhkan Bulan untuk mengitari Bumi relatif terhadap Matahari dari satu fase konjungsi (Bulan Mati) ke konjungsi berikutnya adalah rata-rata 29 hari 12 jam 44 menit. Inilah mengapa umur bulan Hijriah hanya ada dua kemungkinan: <strong class="text-ink dark:text-white">29 hari atau 30 hari</strong>.
+                </p>
+                <p>
+                  <strong class="text-ink dark:text-white">Karakteristik Hari Ini</strong>:
+                  <span x-text="selectedPhase.astro_info"></span>
+                </p>
+                <p>
+                  <strong class="text-ink dark:text-white">Rahasia Ayyamul Bidh (Hari Putih)</strong>: Tanggal 13, 14, dan 15 dinamakan <em>Ayyamul Bidh</em> (Hari-hari Putih) karena sepanjang malam langit bumi diterangi penuh oleh pantulan sinar matahari pada piringan bulan purnama.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-2 gap-3 pt-4 border-t border-ink/10 sm:grid-cols-3 dark:border-white/10">
+              <div class="rounded-xl border border-ink/5 bg-sand/30 p-3 text-center dark:bg-white/[0.04] dark:border-white/5">
+                <p class="text-[11px] text-ink-muted font-semibold dark:text-gray-400">Siklus Sinodis</p>
+                <p class="text-sm font-bold text-ink dark:text-white">29.53 Hari</p>
+              </div>
+              <div class="rounded-xl border border-ink/5 bg-sand/30 p-3 text-center dark:bg-white/[0.04] dark:border-white/5">
+                <p class="text-[11px] text-ink-muted font-semibold dark:text-gray-400">Purnama Puncak</p>
+                <p class="text-sm font-bold text-gold-dark dark:text-gold-light">Tgl 14–15</p>
+              </div>
+              <div class="rounded-xl border border-ink/5 bg-sand/30 p-3 text-center col-span-2 sm:col-span-1 dark:bg-white/[0.04] dark:border-white/5">
+                <p class="text-[11px] text-ink-muted font-semibold dark:text-gray-400">Rukyatul Hilal</p>
+                <p class="text-sm font-bold text-moss dark:text-emerald-light">Tgl 29 Sore</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Hari Ini dalam Tarikh Islam -->
+      <section id="tarikh" class="mt-12 scroll-mt-24">
+        <div class="rounded-3xl border border-gold/30 bg-gradient-to-br from-gold-soft/30 via-white to-emerald-soft/20 p-6 sm:p-10 shadow-sm dark:from-[#0d261b] dark:via-[#091f15] dark:to-[#071710] dark:border-gold/25">
+          <div class="flex flex-col justify-between gap-4 border-b border-ink/10 pb-6 sm:flex-row sm:items-center dark:border-white/10">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="flex h-2 w-2 rounded-full bg-gold"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-dark dark:text-gold-light">Ensiklopedi Tarikh & Sirah</span>
+              </div>
+              <h3 class="mt-1 font-display text-3xl font-bold text-ink dark:text-white">
+                Peristiwa Bersejarah: <span x-text="selectedDay + ' ' + selectedMonth.name"></span>
+              </h3>
+            </div>
+            <span class="self-start rounded-full bg-ink px-3.5 py-1.5 text-xs font-bold text-paper sm:self-auto dark:bg-gold dark:text-ink" x-text="selectedEvent.category"></span>
+          </div>
+
+          <div class="mt-6">
+            <h4 class="font-display text-2xl font-bold text-moss dark:text-gold-light" x-text="selectedEvent.title"></h4>
+            <p class="mt-3 text-base leading-relaxed text-ink-soft sm:text-lg dark:text-gray-300" x-text="selectedEvent.blurb"></p>
+
+            <div class="mt-6 flex flex-wrap items-center gap-2 rounded-xl bg-white/70 p-3 border border-ink/10 text-xs font-semibold text-ink-muted dark:bg-white/[0.04] dark:border-white/10 dark:text-gray-300">
+              <span class="text-gold-dark dark:text-gold-light font-bold">📚 Rujukan Kredibel:</span>
+              <span class="text-ink dark:text-white" x-text="selectedEvent.source"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Interactive Monthly Calendar Grid -->
+      <section class="mt-12">
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 shadow-sm dark:border-white/10">
+          <div class="flex items-center justify-between border-b border-ink/10 pb-4 dark:border-white/10">
+            <div>
+              <h3 class="font-display text-2xl font-bold text-ink dark:text-white">
+                Kalender Bulan <span x-text="selectedMonth.name + ' ' + selectedYear + ' H'"></span>
+              </h3>
+              <p class="text-xs text-ink-muted dark:text-gray-400">Klik salah satu tanggal untuk melihat fase bulan & catatan peristiwa sejarahnya</p>
+            </div>
+            <span class="text-xs font-bold text-moss dark:text-emerald-light" x-text="daysInMonth + ' Hari'"></span>
+          </div>
+
+          <!-- Calendar Grid 1 to 29/30 -->
+          <div class="mt-6 grid grid-cols-5 gap-2.5 sm:grid-cols-6 md:grid-cols-10">
+            <template x-for="dayNum in Array.from({length: daysInMonth}, (_, i) => i + 1)" :key="dayNum">
+              <button
+                @click="selectDate(dayNum)"
+                type="button"
+                class="flex flex-col items-center justify-between rounded-xl border p-2 text-center transition-all duration-200"
+                :class="{
+                  'border-moss bg-moss text-paper shadow-md scale-105 font-bold dark:border-gold dark:bg-gold dark:text-ink': selectedDay === dayNum,
+                  'border-gold/50 bg-gold-soft/40 text-ink font-bold dark:bg-gold/20 dark:text-gold-light dark:border-gold/40': selectedDay !== dayNum && (dayNum === 13 || dayNum === 14 || dayNum === 15),
+                  'border-ink/10 bg-white hover:border-gold hover:bg-sand/30 text-ink dark:bg-white/[0.04] dark:border-white/10 dark:text-gray-300 dark:hover:bg-white/10': selectedDay !== dayNum && dayNum !== 13 && dayNum !== 14 && dayNum !== 15
+                }"
+              >
+                <span class="text-xs font-bold" x-text="dayNum"></span>
+                <span class="text-base my-0.5">
+                  <span x-show="dayNum === 1">🌙</span>
+                  <span x-show="dayNum >= 2 && dayNum <= 6">🌘</span>
+                  <span x-show="dayNum >= 7 && dayNum <= 8">🌓</span>
+                  <span x-show="dayNum >= 9 && dayNum <= 12">🌔</span>
+                  <span x-show="dayNum >= 13 && dayNum <= 15">🌕</span>
+                  <span x-show="dayNum >= 16 && dayNum <= 20">🌖</span>
+                  <span x-show="dayNum >= 21 && dayNum <= 22">🌗</span>
+                  <span x-show="dayNum >= 23 && dayNum <= 28">🌘</span>
+                  <span x-show="dayNum >= 29">🌑</span>
+                </span>
+                <span
+                  class="text-[9px] uppercase tracking-tighter"
+                  :class="selectedDay === dayNum ? (isDark ? 'text-ink font-extrabold' : 'text-gold-light') : 'text-ink-muted dark:text-gray-400'"
+                  x-text="(dayNum === 13 || dayNum === 14 || dayNum === 15) ? 'Bidh' : (dayNum === 1 ? 'Hilal' : '')"
+                ></span>
+              </button>
+            </template>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-ink-muted pt-4 border-t border-ink/10 dark:border-white/10 dark:text-gray-400">
+            <div class="flex items-center gap-4">
+              <span class="flex items-center gap-1.5"><span class="h-3 w-3 rounded-full bg-gold-soft border border-gold dark:bg-gold/40"></span> Ayyamul Bidh (13-15)</span>
+              <span class="flex items-center gap-1.5"><span class="h-3 w-3 rounded-full bg-moss dark:bg-gold"></span> Tanggal Terpilih</span>
+            </div>
+            <span class="italic">* Tanggal 29 sore: Pengamatan Rukyatul Hilal</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: 12 Bulan Hijriah & Sejarahnya -->
+      <section id="12-bulan" class="mt-16 scroll-mt-24">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold dark:text-gold-light">
+            <span class="h-1.5 w-1.5 rounded-full bg-gold"></span>
+            Struktur Kalender Islam
+          </span>
+          <h2 class="mt-3 font-display text-4xl font-bold text-ink dark:text-white">Edukasi 12 Nama Bulan Hijriah</h2>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted dark:text-gray-400">
+            Kalender Hijriah terdiri dari 12 bulan qamariyah, termasuk di dalamnya 4 Bulan Haram (Muharram, Rajab, Dzulqa'dah, Dzulhijjah) yang dimuliakan sejak zaman purba.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <template x-for="m in data.months" :key="m.id">
+            <div
+              @click="selectedMonthId = m.id; selectedDay = 1; updateSeriesDay();"
+              class="card-hover cursor-pointer rounded-2xl border p-5 transition-all"
+              :class="m.id === Number(selectedMonthId) ? 'border-moss bg-emerald-soft/30 shadow-md ring-2 ring-moss/30 dark:border-gold dark:bg-emerald-brand/20 dark:ring-gold/30' : 'border-ink/10 bg-white/80 dark:bg-[#0c241a] dark:border-white/10'"
+            >
+              <div class="flex items-center justify-between">
+                <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-xs font-bold text-gold dark:bg-gold dark:text-ink" x-text="m.id"></span>
+                <span class="font-arabic text-xl font-bold text-moss dark:text-gold-light" x-text="m.arabic"></span>
+              </div>
+              <h4 class="mt-3 font-display text-2xl font-bold text-ink dark:text-white" x-text="m.name"></h4>
+              <p class="text-xs font-semibold text-gold-dark dark:text-gold-light" x-text="'Arti: ' + m.meaning"></p>
+              <p class="mt-2 text-xs leading-relaxed text-ink-muted dark:text-gray-300" x-text="m.description"></p>
+              <template x-if="m.isHaram">
+                <span class="mt-3 inline-block rounded-md bg-emerald-soft px-2 py-0.5 text-[10px] font-bold text-emerald-brand dark:bg-emerald-brand/30 dark:text-emerald-light">
+                  ★ Bulan Haram (Mulia)
+                </span>
+              </template>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <!-- Section: CTA TikTok & Back to Main Portfolio -->
+      <section class="mt-16 text-center rounded-3xl bg-ink text-paper p-8 sm:p-12 shadow-lg relative overflow-hidden dark:bg-[#071710] border border-white/10">
+        <div class="absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-gold/15 blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <span class="rounded-full bg-gold/20 px-3 py-1 text-xs font-bold text-gold-light">Serial TikTok Harian</span>
+          <h3 class="mt-4 font-display text-3xl sm:text-4xl font-bold text-paper">Ikuti Update Tanggal Hijriah Setiap Hari</h3>
+          <p class="mt-3 text-sm leading-relaxed text-paper/75">
+            Saya membagikan edukasi kalender Hijriah, makna hari, dan peristiwa sejarah setiap hari di akun TikTok sampai masyarakat semakin akrab dengan penanggalan Islam.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href="https://www.tiktok.com/@junlandaime"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-bold text-ink shadow-md transition-all hover:bg-gold-light hover:scale-105"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+              <span>Follow di TikTok @junlandaime</span>
+              <span>↗</span>
+            </a>
+            <a
+              href="https://saweria.co/junlandaime"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 rounded-full bg-saweria px-6 py-3 text-xs font-bold text-ink shadow-md transition-all hover:bg-amber-400 hover:scale-105"
+            >
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <span>Dukung via Saweria</span>
+              <span>↗</span>
+            </a>
+            <a
+              href="index.html"
+              class="inline-flex items-center gap-2 rounded-full border border-paper/20 px-6 py-3 text-xs font-bold text-paper transition-all hover:bg-white/10"
+            >
+              <span>← Kembali ke Profil Utama</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-ink/10 bg-white/40 py-10 mt-16 dark:border-white/10 dark:bg-black/20">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-sm text-ink-muted sm:flex-row md:px-8 dark:text-gray-400">
+        <div class="flex items-center gap-2">
+          <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-[10px] font-bold text-gold dark:bg-[#0c241a] dark:border dark:border-gold/40">JA</span>
+          <p>© <span x-text="new Date().getFullYear()"></span> Jundi Abdullah · Astronomi ITB & Masjid Salman ITB</p>
+        </div>
+        <div class="flex items-center gap-3 text-xs">
+          <a href="index.html" class="hover:text-moss font-semibold dark:hover:text-white">Beranda</a>
+          <span>·</span>
+          <a href="https://saweria.co/junlandaime" target="_blank" rel="noopener" class="hover:text-amber-600 font-semibold dark:hover:text-saweria">Saweria</a>
+          <span>·</span>
+          <a href="index.html#profil-tabs" class="hover:text-moss font-semibold dark:hover:text-white">Kajian & Slide</a>
+          <span>·</span>
+          <a href="index.html#kontak" class="hover:text-moss font-semibold dark:hover:text-white">Kontak</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

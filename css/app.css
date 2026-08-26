@@ -1,0 +1,195 @@
+:root {
+  --ink: #0d1e16;
+  --ink-soft: #233a30;
+  --ink-muted: #536b61;
+  --paper: #fbf9f4;
+  --paper-soft: #f4efe4;
+  --paper-card: #ffffff;
+  --gold: #c59b27;
+  --gold-light: #e5b945;
+  --emerald-brand: #0f766e;
+  --emerald-light: #10b981;
+}
+
+html.dark {
+  color-scheme: dark;
+  --paper: #07150f;
+  --paper-soft: #0c2018;
+  --paper-card: #0e271d;
+  --ink: #f1f5f3;
+  --ink-soft: #d3dfd9;
+  --ink-muted: #8ca398;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+::selection {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e3d30;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #2a5543;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fresh ambient background glow & geometric pattern */
+.geom-bg {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(at 15% 10%, rgba(197, 155, 39, 0.08) 0px, transparent 50%),
+    radial-gradient(at 85% 18%, rgba(16, 185, 129, 0.08) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(15, 61, 42, 0.06) 0px, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230f3d2a' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+html.dark .geom-bg {
+  background-color: #07150f;
+  background-image:
+    radial-gradient(at 15% 10%, rgba(197, 155, 39, 0.12) 0px, transparent 50%),
+    radial-gradient(at 85% 18%, rgba(16, 185, 129, 0.14) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(15, 61, 42, 0.3) 0px, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.35) 50%, transparent 100%);
+}
+
+.emerald-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.25) 50%, transparent 100%);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(13, 30, 22, 0.08);
+}
+
+html.dark .glass-panel {
+  background: rgba(12, 34, 25, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-dark {
+  background: rgba(10, 31, 22, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Smooth transition hover cards */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -8px rgba(11, 28, 21, 0.08);
+  border-color: rgba(197, 155, 39, 0.4);
+}
+
+html.dark .card-hover:hover {
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.4);
+  border-color: rgba(229, 185, 69, 0.4);
+}
+
+/* Social Icon Hover Button */
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(13, 30, 22, 0.12);
+  background-color: #ffffff;
+  color: var(--ink-soft);
+  transition: all 0.2s ease-in-out;
+}
+
+.social-icon-btn:hover {
+  background-color: #0d1e16;
+  color: #c59b27;
+  border-color: #0d1e16;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 30, 22, 0.15);
+}
+
+html.dark .social-icon-btn {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+html.dark .social-icon-btn:hover {
+  background-color: #c59b27;
+  color: #07150f;
+  border-color: #c59b27;
+  box-shadow: 0 4px 14px rgba(197, 155, 39, 0.3);
+}
+
+/* Pulse animation for active status dot */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.live-dot {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Arabic typography styling */
+.font-arabic {
+  font-family: "Amiri", serif;
+  line-height: 1.8;
+}
+
+/* Bayyinah brand accents */
+.bayyinah-glow:hover {
+  box-shadow: 0 4px 20px rgba(122, 27, 27, 0.35);
+}
+
