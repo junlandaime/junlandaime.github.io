@@ -1148,21 +1148,60 @@
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-ink/10 bg-white/50 py-8 dark:border-white/10 dark:bg-black/20">
-      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-xs text-ink-muted sm:flex-row md:px-8 dark:text-gray-400">
-        <div class="flex items-center gap-2.5">
-          <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-[10px] font-bold text-gold dark:bg-[#0c241a] dark:border dark:border-gold/40">JA</span>
-          <p>© <span x-text="new Date().getFullYear()"></span> Jundi Abdullah · Astronomi ITB & Masjid Salman ITB</p>
+    <footer class="border-t border-ink/10 bg-white/50 py-10 dark:border-white/10 dark:bg-black/20">
+      <div class="mx-auto max-w-6xl px-5 md:px-8 space-y-6">
+        
+        <!-- Free Web Creation Callout Banner -->
+        <div class="rounded-2xl border border-emerald-brand/20 bg-gradient-to-r from-emerald-soft/60 via-white to-gold-soft/30 p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 dark:from-[#092218] dark:via-[#0c2b1f] dark:to-[#071912] dark:border-emerald-light/20">
+          <div class="flex items-center gap-3.5 text-center sm:text-left">
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-ink text-gold shadow-xs dark:bg-gold dark:text-ink">
+              <i class="fa-brands fa-github text-2xl"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-ink dark:text-white">
+                Tertarik membuat website portofolio seperti ini?
+              </h4>
+              <p class="text-xs text-ink-muted dark:text-gray-300 mt-0.5 leading-relaxed">
+                Bisa buat seperti ini <strong>100% Free</strong> hanya dengan punya akun GitHub, dan saya bisa bantu buatkan secara <strong>Free</strong>!
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <a
+              href="#kontak"
+              class="inline-flex items-center gap-1.5 rounded-xl bg-emerald-brand px-4 py-2 text-xs font-bold text-white shadow-xs transition-all hover:bg-moss hover:scale-105 dark:bg-emerald-light dark:text-ink dark:hover:bg-emerald-300"
+            >
+              <i class="fa-regular fa-paper-plane text-xs"></i>
+              <span>Hubungi Saya</span>
+            </a>
+            <a
+              :href="site.github"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-1.5 rounded-xl border border-ink/15 bg-white/80 px-3.5 py-2 text-xs font-bold text-ink shadow-xs transition-all hover:bg-ink hover:text-white dark:bg-white/10 dark:border-white/15 dark:text-white dark:hover:bg-white/20"
+            >
+              <i class="fa-brands fa-github text-xs"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
         </div>
-        <div class="flex items-center gap-3">
-          <a href="index.html" class="hover:text-moss font-semibold dark:hover:text-white">Beranda</a>
-          <span>·</span>
-          <a href="hijriah.html" class="hover:text-moss font-semibold dark:hover:text-white">Kalender Hijriah</a>
-          <span>·</span>
-          <a :href="site.saweria" target="_blank" rel="noopener" class="hover:text-amber-600 font-semibold dark:hover:text-saweria">Saweria</a>
-          <span>·</span>
-          <a href="#kontak" class="hover:text-moss font-semibold dark:hover:text-white">Kontak</a>
+
+        <div class="flex flex-col items-center justify-between gap-4 text-xs text-ink-muted sm:flex-row dark:text-gray-400 pt-2 border-t border-ink/5 dark:border-white/5">
+          <div class="flex items-center gap-2.5">
+            <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-[10px] font-bold text-gold dark:bg-[#0c241a] dark:border dark:border-gold/40">JA</span>
+            <p>© <span x-text="new Date().getFullYear()"></span> Jundi Abdullah · Astronomi ITB & Masjid Salman ITB</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <a href="index.html" class="hover:text-moss font-semibold dark:hover:text-white">Beranda</a>
+            <span>·</span>
+            <a href="hijriah.html" class="hover:text-moss font-semibold dark:hover:text-white">Kalender Hijriah</a>
+            <span>·</span>
+            <a :href="site.saweria" target="_blank" rel="noopener" class="hover:text-amber-600 font-semibold dark:hover:text-saweria">Saweria</a>
+            <span>·</span>
+            <a href="#kontak" class="hover:text-moss font-semibold dark:hover:text-white">Kontak</a>
+          </div>
         </div>
+
       </div>
     </footer>
   </body>
