@@ -182,29 +182,78 @@
         </a>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden items-center gap-1 rounded-full border border-ink/5 bg-ink/[0.03] p-1 text-sm font-medium text-ink-soft md:flex dark:border-white/5 dark:bg-white/[0.04] dark:text-gray-300">
-          <a class="rounded-full px-3.5 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#utama">Beranda</a>
-          <a class="rounded-full px-3.5 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#profil-tabs">Kajian & Slide</a>
-          <a class="rounded-full px-3.5 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#keahlian">Keahlian</a>
-          <a class="inline-flex items-center gap-1.5 rounded-full bg-emerald-brand/15 px-3.5 py-1.5 text-xs font-bold text-emerald-brand transition-all hover:bg-emerald-brand hover:text-white shadow-xs dark:bg-emerald-brand/25 dark:text-emerald-light dark:hover:bg-emerald-brand dark:hover:text-white" href="dream-arabic.html">
-            <i class="fa-solid fa-book-quran text-emerald-brand dark:text-emerald-light text-[11px]"></i>
-            <span>Belajar Arab</span>
+        <nav class="hidden items-center gap-1 rounded-full border border-ink/5 bg-ink/[0.03] p-1 text-xs font-medium text-ink-soft md:flex dark:border-white/5 dark:bg-white/[0.04] dark:text-gray-300">
+          <a class="rounded-full px-3 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#utama">Beranda</a>
+          <a class="rounded-full px-3 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#profil-tabs">Kajian & Slide</a>
+          
+          <a class="inline-flex items-center gap-1.5 rounded-full bg-moss/10 px-3 py-1.5 font-bold text-moss transition-all hover:bg-moss hover:text-white shadow-xs dark:bg-emerald-brand/20 dark:text-emerald-light dark:hover:bg-emerald-brand dark:hover:text-white" href="my-portfolio.html">
+            <i class="fa-solid fa-laptop-code text-xs"></i>
+            <span>Portofolio Web</span>
           </a>
-          <a class="inline-flex items-center gap-1.5 rounded-full bg-gold/15 px-3.5 py-1.5 text-xs font-bold text-gold-dark transition-all hover:bg-gold hover:text-ink shadow-xs dark:bg-gold/25 dark:text-gold-light dark:hover:bg-gold dark:hover:text-ink" href="hijriah.html">
-            <i class="fa-solid fa-moon text-gold-dark dark:text-gold-light text-[11px]"></i>
-            <span>Kalender Hijriah</span>
-          </a>
-          <a class="rounded-full px-3.5 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white" href="#kontak">Kontak & Support</a>
+
+          <!-- Dropdown: Modul & Aplikasi -->
+          <div class="relative" x-data="{ dropOpen: false }" @click.outside="dropOpen = false">
+            <button
+              @click="dropOpen = !dropOpen"
+              type="button"
+              class="inline-flex items-center gap-1 rounded-full px-3 py-1.5 transition-all hover:bg-white hover:text-moss hover:shadow-xs dark:hover:bg-white/10 dark:hover:text-white"
+              aria-label="Menu Modul dan Aplikasi"
+            >
+              <span>Modul & Tools</span>
+              <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200" :class="dropOpen ? 'rotate-180' : ''"></i>
+            </button>
+
+            <!-- Dropdown Menu Box -->
+            <div
+              x-cloak
+              x-show="dropOpen"
+              x-transition:enter="transition ease-out duration-150"
+              x-transition:enter-start="opacity-0 translate-y-1 scale-95"
+              x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+              x-transition:leave="transition ease-in duration-100"
+              x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+              x-transition:leave-end="opacity-0 translate-y-1 scale-95"
+              class="absolute left-1/2 -translate-x-1/2 mt-2 w-60 rounded-2xl glass-panel p-2 shadow-xl border border-ink/10 dark:border-white/10 z-50 bg-white/95 dark:bg-[#0a2016]"
+            >
+              <a
+                href="dream-arabic.html"
+                @click="dropOpen = false"
+                class="flex items-center gap-2.5 rounded-xl p-2.5 hover:bg-emerald-soft/50 dark:hover:bg-emerald-brand/20 transition-colors group"
+              >
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-brand/15 text-emerald-brand text-xs font-bold dark:bg-emerald-brand/30 dark:text-emerald-light">
+                  <i class="fa-solid fa-book-quran"></i>
+                </span>
+                <div>
+                  <p class="text-xs font-bold text-ink dark:text-white group-hover:text-emerald-brand dark:group-hover:text-emerald-light">Belajar Bahasa Arab</p>
+                  <p class="text-[10px] text-ink-muted dark:text-gray-400">Metode Dream Bayyinah TV</p>
+                </div>
+              </a>
+
+              <a
+                href="hijriah.html"
+                @click="dropOpen = false"
+                class="flex items-center gap-2.5 rounded-xl p-2.5 hover:bg-gold-soft/50 dark:hover:bg-gold/20 transition-colors group mt-1"
+              >
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold-dark text-xs font-bold dark:bg-gold/25 dark:text-gold-light">
+                  <i class="fa-solid fa-moon"></i>
+                </span>
+                <div>
+                  <p class="text-xs font-bold text-ink dark:text-white group-hover:text-gold-dark dark:group-hover:text-gold-light">Kalender Hijriah</p>
+                  <p class="text-[10px] text-ink-muted dark:text-gray-400">Hisab Falak & Fase Bulan</p>
+                </div>
+              </a>
+            </div>
+          </div>
         </nav>
 
         <!-- Right Side: Saweria, Dark Mode Switcher & CTA -->
-        <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex items-center gap-2 sm:gap-2.5">
           <!-- Saweria Quick Support Pill -->
           <a
             :href="site.saweria"
             target="_blank"
             rel="noopener"
-            class="hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-saweria/40 bg-saweria/15 px-3 py-1.5 text-xs font-bold text-amber-800 transition-all hover:bg-saweria hover:text-ink shadow-xs dark:bg-saweria/20 dark:text-saweria dark:border-saweria/40 dark:hover:bg-saweria dark:hover:text-ink"
+            class="hidden lg:inline-flex items-center gap-1.5 rounded-xl border border-saweria/40 bg-saweria/15 px-2.5 py-1.5 text-xs font-bold text-amber-800 transition-all hover:bg-saweria hover:text-ink shadow-xs dark:bg-saweria/20 dark:text-saweria dark:border-saweria/40 dark:hover:bg-saweria dark:hover:text-ink"
             title="Dukung Dakwah & Serial Hijriah via Saweria"
           >
             <i class="fa-solid fa-hand-holding-dollar text-xs"></i>
@@ -224,12 +273,12 @@
           </button>
 
           <!-- CTA Action -->
-          <div class="hidden items-center md:flex">
+          <div class="hidden sm:flex items-center">
             <a
               href="#kontak"
-              class="inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2 text-xs font-semibold text-paper shadow-sm transition-all duration-200 hover:bg-moss hover:shadow-md dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
+              class="inline-flex items-center gap-1.5 rounded-xl bg-ink px-3.5 py-2 text-xs font-bold text-paper shadow-sm transition-all duration-200 hover:bg-moss hover:shadow-md dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
             >
-              <i class="fa-regular fa-paper-plane text-gold dark:text-ink"></i>
+              <i class="fa-regular fa-paper-plane text-gold dark:text-ink text-[11px]"></i>
               <span>Hubungi</span>
             </a>
           </div>
@@ -263,7 +312,13 @@
         <nav class="flex flex-col gap-1 text-sm font-medium text-ink-soft dark:text-gray-300">
           <a @click="open = false" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-ink/5 hover:text-moss dark:hover:bg-white/5 dark:hover:text-white" href="#utama">Beranda</a>
           <a @click="open = false" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-ink/5 hover:text-moss dark:hover:bg-white/5 dark:hover:text-white" href="#profil-tabs">Kajian & Slide</a>
-          <a @click="open = false" class="rounded-xl px-4 py-2.5 transition-colors hover:bg-ink/5 hover:text-moss dark:hover:bg-white/5 dark:hover:text-white" href="#keahlian">Keahlian</a>
+          <a @click="open = false" class="flex items-center justify-between rounded-xl bg-moss/10 px-4 py-2.5 font-bold text-moss dark:bg-emerald-brand/20 dark:text-emerald-light" href="my-portfolio.html">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-laptop-code"></i>
+              <span>Portofolio Web (Karya & Stack)</span>
+            </span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
           <a @click="open = false" class="flex items-center justify-between rounded-xl bg-emerald-brand/15 px-4 py-2.5 font-bold text-emerald-brand dark:bg-emerald-brand/25 dark:text-emerald-light" href="dream-arabic.html">
             <span class="flex items-center gap-2">
               <i class="fa-solid fa-book-quran"></i>
@@ -331,8 +386,16 @@
             <!-- Action Buttons -->
             <div class="mt-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
               <a
+                href="my-portfolio.html"
+                class="inline-flex items-center gap-2 rounded-xl bg-moss px-4 py-2.5 text-xs font-bold text-white shadow-md transition-all duration-200 hover:bg-moss-dark hover:scale-105 dark:bg-emerald-brand dark:hover:bg-emerald-light dark:hover:text-ink"
+              >
+                <i class="fa-solid fa-laptop-code text-gold-light dark:text-ink"></i>
+                <span>Portofolio Web</span>
+                <span class="rounded-full bg-white/20 text-white dark:bg-ink/20 dark:text-ink px-1.5 py-0.2 text-[9px] font-extrabold">Showcase</span>
+              </a>
+              <a
                 href="#kontak"
-                class="inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-2.5 text-xs font-bold text-paper shadow-md transition-all duration-200 hover:bg-moss hover:shadow-lg dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
+                class="inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2.5 text-xs font-bold text-paper shadow-md transition-all duration-200 hover:bg-moss hover:shadow-lg dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
               >
                 <i class="fa-regular fa-envelope text-gold dark:text-ink"></i>
                 <span>Hubungi Saya</span>
@@ -793,8 +856,32 @@
           x-transition:enter="transition ease-out duration-300"
           x-transition:enter-start="opacity-0 transform scale-95"
           x-transition:enter-end="opacity-100 transform scale-100"
-          class="max-w-4xl mx-auto"
+          class="max-w-4xl mx-auto space-y-6"
         >
+          <!-- Dedicated Portfolio Page Callout Banner -->
+          <div class="rounded-2xl border border-moss/20 bg-gradient-to-r from-moss/10 via-sand/40 to-emerald-brand/10 p-5 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 dark:from-[#0b2b1e] dark:via-[#092218] dark:to-[#071912] dark:border-emerald-light/20">
+            <div class="flex items-center gap-3.5 text-center sm:text-left">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-moss text-white shadow-xs dark:bg-emerald-light dark:text-ink">
+                <i class="fa-solid fa-laptop-code text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-sm sm:text-base font-bold text-ink dark:text-white">
+                  Ingin Mempelajari Portofolio Web & Tech Stack Lebih Lengkap?
+                </h4>
+                <p class="text-xs text-ink-muted dark:text-gray-300 mt-0.5 leading-relaxed">
+                  Tersedia halaman khusus untuk penawaran proyek, tech stack matriks, daftar layanan, dan alur kerja web engineering.
+                </p>
+              </div>
+            </div>
+            <a
+              href="my-portfolio.html"
+              class="shrink-0 inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2.5 text-xs font-bold text-paper shadow-sm transition-all hover:bg-moss hover:scale-105 dark:bg-gold dark:text-ink dark:hover:bg-gold-light"
+            >
+              <span>Buka Portofolio Web</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+
           <div class="grid gap-4 sm:grid-cols-3">
             <template x-for="p in site.projects" :key="p.title">
               <div class="card-hover flex flex-col justify-between rounded-2xl border border-ink/10 bg-white p-5 shadow-xs dark:bg-[#0c241a] dark:border-white/10">
@@ -1191,8 +1278,12 @@
             <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-[10px] font-bold text-gold dark:bg-[#0c241a] dark:border dark:border-gold/40">JA</span>
             <p>© <span x-text="new Date().getFullYear()"></span> Jundi Abdullah · Astronomi ITB & Masjid Salman ITB</p>
           </div>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-3 flex-wrap justify-center">
             <a href="index.html" class="hover:text-moss font-semibold dark:hover:text-white">Beranda</a>
+            <span>·</span>
+            <a href="my-portfolio.html" class="text-moss font-bold dark:text-gold-light">Portofolio Web</a>
+            <span>·</span>
+            <a href="dream-arabic.html" class="hover:text-moss font-semibold dark:hover:text-white">Belajar Arab</a>
             <span>·</span>
             <a href="hijriah.html" class="hover:text-moss font-semibold dark:hover:text-white">Kalender Hijriah</a>
             <span>·</span>

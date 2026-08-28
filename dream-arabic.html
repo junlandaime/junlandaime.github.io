@@ -98,115 +98,143 @@
     <link rel="stylesheet" href="./css/app.css" />
     <script src="./js/dream-arabic-data.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+    <!-- Alpine App Data Definition -->
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('dreamArabicApp', () => ({
+          isDark: document.documentElement.classList.contains('dark'),
+          mobileMenu: false,
+          sidebarOpen: false,
+          data: window.DREAM_ARABIC_DATA,
+          selectedIntensiveIndex: 0,
+          selectedDayIndex: 0,
+          selectedLessonIndex: 0,
+          completedLessons: JSON.parse(localStorage.getItem('completed_arabic_lessons') || '[]'),
+          quizAnswers: {},
+          quranPracticeAnswers: {},
+
+          init() {
+            const saved = localStorage.getItem('last_arabic_lesson');
+            if (saved) {
+              const [intIdx, dayIdx, lesIdx] = saved.split('-').map(Number);
+              if (!isNaN(intIdx) && this.data.intensives[intIdx]) {
+                this.selectedIntensiveIndex = intIdx;
+                this.selectedDayIndex = dayIdx || 0;
+                this.selectedLessonIndex = lesIdx || 0;
+              }
+            }
+          },
+
+          toggleTheme() {
+            this.isDark = !this.isDark;
+            if (this.isDark) {
+              document.documentElement.classList.add('dark');
+              localStorage.setItem('theme', 'dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+              localStorage.setItem('theme', 'light');
+            }
+          },
+
+          get currentIntensive() {
+            return this.data.intensives[this.selectedIntensiveIndex];
+          },
+
+          get currentDay() {
+            return this.currentIntensive.days[this.selectedDayIndex];
+          },
+
+          get currentLesson() {
+            return this.currentDay.lessons[this.selectedLessonIndex];
+          },
+
+          get currentLessonKey() {
+            return `${this.selectedIntensiveIndex}-${this.selectedDayIndex}-${this.selectedLessonIndex}`;
+          },
+
+          isCompleted(intIdx, dayIdx, lesIdx) {
+            return this.completedLessons.includes(`${intIdx}-${dayIdx}-${lesIdx}`);
+          },
+
+          toggleComplete() {
+            const key = this.currentLessonKey;
+            if (this.completedLessons.includes(key)) {
+              this.completedLessons = this.completedLessons.filter(k => k !== key);
+            } else {
+              this.completedLessons.push(key);
+            }
+            localStorage.setItem('completed_arabic_lessons', JSON.stringify(this.completedLessons));
+          },
+
+          selectLesson(lesIdx) {
+            this.selectedLessonIndex = lesIdx;
+            localStorage.setItem('last_arabic_lesson', this.currentLessonKey);
+            this.sidebarOpen = false;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          },
+
+          prevLesson() {
+            if (this.selectedLessonIndex > 0) {
+              this.selectLesson(this.selectedLessonIndex - 1);
+            }
+          },
+
+          nextLesson() {
+            if (this.selectedLessonIndex < this.currentDay.lessons.length - 1) {
+              this.selectLesson(this.selectedLessonIndex + 1);
+            }
+          },
+
+          answerQuiz(quizId, optionIndex) {
+            this.quizAnswers[quizId] = optionIndex;
+          },
+
+          answerQuranPractice(index, status) {
+            this.quranPracticeAnswers[index] = status;
+          },
+
+          formatText(str) {
+            if (!str) return '';
+            let text = String(str);
+            // Escape HTML
+            let escaped = text
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;');
+            // Bold: **text**
+            escaped = escaped.replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-ink dark:text-white">$1</strong>');
+            // Inline code / Arabic: `text`
+            escaped = escaped.replace(/`([^`]+)`/g, '<code class="rounded bg-gold/15 px-1.5 py-0.5 font-arabic text-sm text-gold-dark dark:bg-gold/25 dark:text-gold-light font-bold">$1</code>');
+            // Italic: *text* (when not double asterisk)
+            escaped = escaped.replace(/(?<!\*)\*([^*]+?)\*(?!\*)/g, '<em class="italic">$1</em>');
+            // Newlines: \n\n to spacing / \n to line breaks
+            escaped = escaped.replace(/\n\n+/g, '<br><br>');
+            escaped = escaped.replace(/\n/g, '<br>');
+            return escaped;
+          },
+
+          get totalLessonsCount() {
+            return this.currentDay ? this.currentDay.lessons.length : 0;
+          },
+
+          get completedLessonsCount() {
+            if (!this.currentDay) return 0;
+            return this.currentDay.lessons.filter((_, idx) => this.isCompleted(this.selectedIntensiveIndex, this.selectedDayIndex, idx)).length;
+          },
+
+          get progressPercent() {
+            if (!this.totalLessonsCount) return 0;
+            return Math.round((this.completedLessonsCount / this.totalLessonsCount) * 100);
+          }
+        }));
+      });
+    </script>
   </head>
 
   <body
     class="font-sans geom-bg text-ink dark:text-[#f1f5f3] antialiased selection:bg-emerald-light selection:text-white transition-colors duration-300 min-h-screen flex flex-col"
-    x-data="{
-      isDark: document.documentElement.classList.contains('dark'),
-      mobileMenu: false,
-      sidebarOpen: false,
-      data: window.DREAM_ARABIC_DATA,
-      selectedIntensiveIndex: 0,
-      selectedDayIndex: 0,
-      selectedLessonIndex: 0,
-      completedLessons: JSON.parse(localStorage.getItem('completed_arabic_lessons') || '[]'),
-      quizAnswers: {},
-      quranPracticeAnswers: {},
-
-      init() {
-        // Load saved state if available
-        const saved = localStorage.getItem('last_arabic_lesson');
-        if (saved) {
-          const [intIdx, dayIdx, lesIdx] = saved.split('-').map(Number);
-          if (!isNaN(intIdx) && this.data.intensives[intIdx]) {
-            this.selectedIntensiveIndex = intIdx;
-            this.selectedDayIndex = dayIdx || 0;
-            this.selectedLessonIndex = lesIdx || 0;
-          }
-        }
-      },
-
-      toggleTheme() {
-        this.isDark = !this.isDark;
-        if (this.isDark) {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
-        }
-      },
-
-      get currentIntensive() {
-        return this.data.intensives[this.selectedIntensiveIndex];
-      },
-
-      get currentDay() {
-        return this.currentIntensive.days[this.selectedDayIndex];
-      },
-
-      get currentLesson() {
-        return this.currentDay.lessons[this.selectedLessonIndex];
-      },
-
-      get currentLessonKey() {
-        return `${this.selectedIntensiveIndex}-${this.selectedDayIndex}-${this.selectedLessonIndex}`;
-      },
-
-      isCompleted(intIdx, dayIdx, lesIdx) {
-        return this.completedLessons.includes(`${intIdx}-${dayIdx}-${lesIdx}`);
-      },
-
-      toggleComplete() {
-        const key = this.currentLessonKey;
-        if (this.completedLessons.includes(key)) {
-          this.completedLessons = this.completedLessons.filter(k => k !== key);
-        } else {
-          this.completedLessons.push(key);
-        }
-        localStorage.setItem('completed_arabic_lessons', JSON.stringify(this.completedLessons));
-      },
-
-      selectLesson(lesIdx) {
-        this.selectedLessonIndex = lesIdx;
-        localStorage.setItem('last_arabic_lesson', this.currentLessonKey);
-        this.sidebarOpen = false;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      },
-
-      prevLesson() {
-        if (this.selectedLessonIndex > 0) {
-          this.selectLesson(this.selectedLessonIndex - 1);
-        }
-      },
-
-      nextLesson() {
-        if (this.selectedLessonIndex < this.currentDay.lessons.length - 1) {
-          this.selectLesson(this.selectedLessonIndex + 1);
-        }
-      },
-
-      answerQuiz(quizId, optionIndex) {
-        this.quizAnswers[quizId] = optionIndex;
-      },
-
-      answerQuranPractice(index, status) {
-        this.quranPracticeAnswers[index] = status;
-      },
-
-      get totalLessonsCount() {
-        return this.currentDay.lessons.length;
-      },
-
-      get completedLessonsCount() {
-        return this.currentDay.lessons.filter((_, idx) => this.isCompleted(this.selectedIntensiveIndex, this.selectedDayIndex, idx)).length;
-      },
-
-      get progressPercent() {
-        return Math.round((this.completedLessonsCount / this.totalLessonsCount) * 100);
-      }
-    }"
+    x-data="dreamArabicApp"
   >
     <!-- Top Floating Header -->
     <header class="sticky top-3 z-40 mx-auto max-w-6xl px-4 w-full">
@@ -333,9 +361,9 @@
                 <span x-text="day.title.split(':')[0]"></span>
               </button>
             </template>
-            <span class="rounded-xl border border-dashed border-ink/20 px-3 py-1.5 text-[11px] font-semibold text-ink-muted/80 dark:border-white/10 dark:text-gray-400">
-              <i class="fa-solid fa-lock text-[10px] mr-1"></i>
-              Day 5 s/d 10 Segera Hadir
+            <span class="rounded-xl border border-gold/40 bg-gold/10 px-3 py-1.5 text-[11px] font-semibold text-gold dark:border-gold/30 dark:bg-gold/20 dark:text-gold">
+              <i class="fa-solid fa-circle-check text-[10px] mr-1"></i>
+              Intensive 1 Lengkap (10 Hari + Sesi Q&A) 🎉
             </span>
           </div>
         </div>
@@ -420,21 +448,63 @@
 
             <!-- Reference Links Card (YouTube & PDF Slide) -->
             <div class="mt-6 pt-4 border-t border-ink/10 dark:border-white/10 space-y-2">
-              <a
-                :href="currentDay.videoUrl"
-                target="_blank"
-                rel="noopener"
-                class="flex items-center gap-3 rounded-2xl bg-red-600/10 p-3 text-xs font-bold text-red-700 hover:bg-red-600 hover:text-white transition-colors dark:bg-red-500/20 dark:text-red-300 dark:hover:bg-red-600 dark:hover:text-white"
-              >
-                <i class="fa-brands fa-youtube text-lg"></i>
-                <div class="flex flex-col text-left">
-                  <span x-text="'Tonton Rekaman ' + currentDay.title.split(':')[0] + ' Asli'"></span>
-                  <span class="text-[10px] font-normal opacity-80">Video Live Bayyinah (YouTube)</span>
+              <!-- Videos -->
+              <template x-if="currentDay.videos && currentDay.videos.length">
+                <div class="space-y-1.5">
+                  <template x-for="(vid, vIdx) in currentDay.videos" :key="vIdx">
+                    <a
+                      :href="vid.url"
+                      target="_blank"
+                      rel="noopener"
+                      class="flex items-center gap-3 rounded-2xl bg-red-600/10 p-2.5 text-xs font-bold text-red-700 hover:bg-red-600 hover:text-white transition-colors dark:bg-red-500/20 dark:text-red-300 dark:hover:bg-red-600 dark:hover:text-white"
+                    >
+                      <i class="fa-brands fa-youtube text-base"></i>
+                      <div class="flex flex-col text-left">
+                        <span x-text="'Tonton ' + vid.label"></span>
+                        <span class="text-[10px] font-normal opacity-80">Video Live Bayyinah</span>
+                      </div>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-auto"></i>
+                    </a>
+                  </template>
                 </div>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-auto"></i>
-              </a>
+              </template>
+              <template x-if="!currentDay.videos && currentDay.videoUrl">
+                <a
+                  :href="currentDay.videoUrl"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex items-center gap-3 rounded-2xl bg-red-600/10 p-3 text-xs font-bold text-red-700 hover:bg-red-600 hover:text-white transition-colors dark:bg-red-500/20 dark:text-red-300 dark:hover:bg-red-600 dark:hover:text-white"
+                >
+                  <i class="fa-brands fa-youtube text-lg"></i>
+                  <div class="flex flex-col text-left">
+                    <span x-text="'Tonton Rekaman ' + currentDay.title.split(':')[0] + ' Asli'"></span>
+                    <span class="text-[10px] font-normal opacity-80">Video Live Bayyinah (YouTube)</span>
+                  </div>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-auto"></i>
+                </a>
+              </template>
 
-              <template x-if="currentDay.pdfUrl">
+              <!-- PDF Slides -->
+              <template x-if="currentDay.slides && currentDay.slides.length">
+                <div class="space-y-1.5 pt-1">
+                  <template x-for="(sld, sIdx) in currentDay.slides" :key="sIdx">
+                    <a
+                      :href="sld.url"
+                      target="_blank"
+                      rel="noopener"
+                      class="flex items-center gap-3 rounded-2xl bg-emerald-brand/10 p-2.5 text-xs font-bold text-emerald-brand hover:bg-emerald-brand hover:text-white transition-colors dark:bg-emerald-brand/20 dark:text-emerald-light dark:hover:bg-emerald-brand dark:hover:text-white"
+                    >
+                      <i class="fa-solid fa-file-pdf text-base"></i>
+                      <div class="flex flex-col text-left">
+                        <span x-text="'Unduh ' + sld.label"></span>
+                        <span class="text-[10px] font-normal opacity-80">Slide Rangkuman PDF</span>
+                      </div>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-auto"></i>
+                    </a>
+                  </template>
+                </div>
+              </template>
+              <template x-if="!currentDay.slides && currentDay.pdfUrl">
                 <a
                   :href="currentDay.pdfUrl"
                   target="_blank"
@@ -497,16 +567,16 @@
                   
                   <!-- Block: Paragraph -->
                   <template x-if="block.type === 'paragraph'">
-                    <p class="leading-relaxed" x-text="block.text"></p>
+                    <div class="leading-relaxed space-y-3" x-html="formatText(block.text)"></div>
                   </template>
 
                   <!-- Block: Quote -->
                   <template x-if="block.type === 'quote'">
                     <blockquote class="my-4 rounded-2xl border-l-4 border-gold bg-gold-soft/30 p-4 sm:p-5 dark:bg-gold/10 dark:border-gold-light">
-                      <p class="font-display text-lg italic text-ink dark:text-white leading-snug" x-text="'“' + block.text + '”'"></p>
+                      <p class="font-display text-lg italic text-ink dark:text-white leading-snug" x-html="formatText('“' + block.text + '”')"></p>
                       <footer class="mt-2 text-xs font-bold text-gold-dark dark:text-gold-light flex items-center gap-1.5">
                         <i class="fa-solid fa-chalkboard-user"></i>
-                        <span x-text="block.author"></span>
+                        <span x-html="formatText(block.author)"></span>
                       </footer>
                     </blockquote>
                   </template>
@@ -514,16 +584,16 @@
                   <!-- Block: Card Grid -->
                   <template x-if="block.type === 'card_grid'">
                     <div class="my-6">
-                      <h4 class="font-display text-xl font-bold text-ink dark:text-white mb-4" x-text="block.title"></h4>
-                      <div class="grid gap-4 sm:grid-cols-3">
+                      <h4 class="font-display text-xl font-bold text-ink dark:text-white mb-4" x-html="formatText(block.title)"></h4>
+                      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         <template x-for="item in block.items" :key="item.title">
                           <div class="rounded-2xl border border-ink/10 bg-white/70 p-4 dark:bg-white/[0.04] dark:border-white/10 flex flex-col justify-between">
                             <div>
                               <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-moss/10 text-moss text-sm mb-3 dark:bg-emerald-brand/30 dark:text-emerald-light">
                                 <i :class="item.icon" class="fa-solid"></i>
                               </span>
-                              <h5 class="font-bold text-ink dark:text-white text-xs sm:text-sm" x-text="item.title"></h5>
-                              <p class="mt-2 text-xs text-ink-muted dark:text-gray-300 leading-relaxed" x-text="item.desc"></p>
+                              <h5 class="font-bold text-ink dark:text-white text-xs sm:text-sm" x-html="formatText(item.title)"></h5>
+                              <p class="mt-2 text-xs text-ink-muted dark:text-gray-300 leading-relaxed" x-html="formatText(item.desc)"></p>
                             </div>
                           </div>
                         </template>
@@ -535,24 +605,56 @@
                   <template x-if="block.type === 'comparison_table'">
                     <div class="my-6 overflow-hidden rounded-2xl border border-ink/10 dark:border-white/10">
                       <div class="bg-sand/40 p-4 border-b border-ink/10 dark:bg-white/[0.03] dark:border-white/10">
-                        <h4 class="font-display text-lg font-bold text-ink dark:text-white" x-text="block.title"></h4>
+                        <h4 class="font-display text-lg font-bold text-ink dark:text-white" x-html="formatText(block.title)"></h4>
                       </div>
                       <div class="overflow-x-auto">
                         <table class="w-full text-left text-xs border-collapse">
                           <thead>
                             <tr class="border-b border-ink/10 bg-ink/5 dark:bg-white/[0.02] dark:border-white/10">
                               <template x-for="h in block.headers" :key="h">
-                                <th class="p-3.5 font-bold text-ink dark:text-white" x-text="h"></th>
+                                <th class="p-3.5 font-bold text-ink dark:text-white" x-html="formatText(h)"></th>
                               </template>
                             </tr>
                           </thead>
                           <tbody class="divide-y divide-ink/10 dark:divide-white/10">
                             <template x-for="(row, rIdx) in block.rows" :key="rIdx">
                               <tr class="hover:bg-ink/[0.02] dark:hover:bg-white/[0.02] transition-colors">
-                                <td class="p-3.5 font-bold text-moss dark:text-emerald-light whitespace-nowrap" x-text="row[0]"></td>
-                                <td class="p-3.5 text-ink-soft dark:text-gray-300" x-text="row[1]"></td>
-                                <td class="p-3.5 text-ink-muted dark:text-gray-400 italic" x-text="row[2]"></td>
-                                <td class="p-3.5 text-ink-soft dark:text-gray-300" x-text="row[3]"></td>
+                                <td class="p-3.5 font-bold text-moss dark:text-emerald-light whitespace-nowrap" x-html="formatText(row[0])"></td>
+                                <td class="p-3.5 text-ink-soft dark:text-gray-300" x-html="formatText(row[1])"></td>
+                                <td class="p-3.5 text-ink-muted dark:text-gray-400 italic" x-html="formatText(row[2])"></td>
+                                <td class="p-3.5 text-ink-soft dark:text-gray-300" x-html="formatText(row[3])"></td>
+                              </tr>
+                            </template>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </template>
+
+                  <!-- Block: Dhamir Chart (Table 14 Pronouns) -->
+                  <template x-if="block.type === 'dhamir_chart'">
+                    <div class="my-6 overflow-hidden rounded-3xl border border-gold/30 bg-white/90 shadow-sm dark:bg-white/[0.04] dark:border-gold/20">
+                      <div class="bg-gradient-to-r from-gold-soft/50 via-white to-sand/40 p-4 border-b border-ink/10 dark:from-[#1b1506] dark:via-[#132018] dark:to-[#0b1712] dark:border-white/10 flex items-center justify-between">
+                        <h4 class="font-display text-lg font-bold text-ink dark:text-white" x-html="formatText(block.title)"></h4>
+                        <span class="rounded-full bg-gold/20 px-2.5 py-0.5 text-[10px] font-bold text-gold-dark dark:text-gold-light">14 Dhamir</span>
+                      </div>
+                      <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs border-collapse">
+                          <thead>
+                            <tr class="border-b border-ink/10 bg-ink/5 dark:bg-white/[0.02] dark:border-white/10">
+                              <th class="p-3.5 font-bold text-ink dark:text-white">Kategori Orang</th>
+                              <th class="p-3.5 font-bold text-moss dark:text-emerald-light">Tunggal (1)</th>
+                              <th class="p-3.5 font-bold text-gold-dark dark:text-gold-light">Dual (2)</th>
+                              <th class="p-3.5 font-bold text-emerald-brand dark:text-emerald-300">Jamak (3+)</th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-ink/10 dark:divide-white/10">
+                            <template x-for="(dr, drIdx) in block.rows" :key="drIdx">
+                              <tr class="hover:bg-ink/[0.02] dark:hover:bg-white/[0.02] transition-colors">
+                                <td class="p-3.5 font-semibold text-ink-muted dark:text-gray-400 whitespace-nowrap" x-html="formatText(dr.person)"></td>
+                                <td class="p-3.5 font-arabic text-base text-moss dark:text-emerald-light" x-html="formatText(dr.singular)"></td>
+                                <td class="p-3.5 font-arabic text-base text-gold-dark dark:text-gold-light" x-html="formatText(dr.dual)"></td>
+                                <td class="p-3.5 font-arabic text-base text-emerald-brand dark:text-emerald-300" x-html="formatText(dr.plural)"></td>
                               </tr>
                             </template>
                           </tbody>
@@ -568,9 +670,9 @@
                       class="my-5 rounded-2xl border p-4.5 sm:p-5 flex items-start gap-3.5"
                     >
                       <i class="fa-solid fa-circle-info text-base mt-0.5 shrink-0"></i>
-                      <div>
-                        <h5 class="font-bold text-sm" x-text="block.title"></h5>
-                        <p class="mt-1 text-xs sm:text-sm leading-relaxed opacity-90" x-text="block.text"></p>
+                      <div class="space-y-1 w-full">
+                        <h5 class="font-bold text-sm" x-html="formatText(block.title)"></h5>
+                        <div class="text-xs sm:text-sm leading-relaxed opacity-95 space-y-2" x-html="formatText(block.text)"></div>
                       </div>
                     </div>
                   </template>
@@ -580,13 +682,13 @@
                     <div class="my-6 rounded-2xl border border-ink/10 bg-white/80 p-5 dark:bg-white/[0.04] dark:border-white/10">
                       <h4 class="font-display text-xl font-bold text-ink dark:text-white flex items-center gap-2 mb-3">
                         <i class="fa-solid fa-magnifying-glass text-gold text-base"></i>
-                        <span x-text="block.title"></span>
+                        <span x-html="formatText(block.title)"></span>
                       </h4>
                       <div class="space-y-3">
                         <template x-for="p in block.points" :key="p.label">
                           <div class="rounded-xl bg-sand/30 p-3.5 text-xs dark:bg-white/[0.02]">
-                            <span class="font-bold text-gold-dark dark:text-gold-light block" x-text="p.label"></span>
-                            <span class="mt-1 block text-ink-soft dark:text-gray-300" x-text="p.desc"></span>
+                            <span class="font-bold text-gold-dark dark:text-gold-light block" x-html="formatText(p.label)"></span>
+                            <span class="mt-1 block text-ink-soft dark:text-gray-300 leading-relaxed" x-html="formatText(p.desc)"></span>
                           </div>
                         </template>
                       </div>
@@ -604,7 +706,7 @@
                               <span class="rounded-full bg-sand px-2.5 py-0.5 text-[10px] font-bold text-ink-muted dark:bg-white/10 dark:text-gray-300" x-text="t.badge"></span>
                             </div>
                             <h4 class="font-display text-xl font-bold text-ink dark:text-white" x-text="t.name"></h4>
-                            <p class="mt-2 text-xs text-ink-soft dark:text-gray-300 leading-relaxed" x-text="t.definition"></p>
+                            <p class="mt-2 text-xs text-ink-soft dark:text-gray-300 leading-relaxed" x-html="formatText(t.definition)"></p>
                             
                             <div class="mt-4 rounded-xl bg-ink/5 p-3 text-xs dark:bg-white/[0.03]">
                               <span class="text-[10px] font-bold uppercase tracking-wider text-ink-muted dark:text-gray-400 block mb-1">Contoh Indonesia:</span>
@@ -616,7 +718,7 @@
                             </div>
                           </div>
 
-                          <div class="mt-4 pt-3 border-t border-ink/10 text-[11px] italic text-ink-muted dark:text-gray-400 dark:border-white/10" x-text="t.rule"></div>
+                          <div class="mt-4 pt-3 border-t border-ink/10 text-[11px] italic text-ink-muted dark:text-gray-400 dark:border-white/10" x-html="formatText(t.rule)"></div>
                         </div>
                       </template>
                     </div>
@@ -625,12 +727,12 @@
                   <!-- Block: Deep Dive -->
                   <template x-if="block.type === 'deep_dive'">
                     <div class="my-6 rounded-3xl border border-ink/10 bg-white/80 p-6 dark:bg-white/[0.04] dark:border-white/10">
-                      <h4 class="font-display text-xl font-bold text-ink dark:text-white mb-4" x-text="block.title"></h4>
+                      <h4 class="font-display text-xl font-bold text-ink dark:text-white mb-4" x-html="formatText(block.title)"></h4>
                       <div class="grid gap-3 sm:grid-cols-2">
                         <template x-for="item in block.items" :key="item.type">
                           <div class="rounded-xl border border-ink/5 bg-sand/20 p-3.5 text-xs dark:bg-white/[0.02] dark:border-white/5">
-                            <span class="font-bold text-moss dark:text-emerald-light block text-sm" x-text="item.type"></span>
-                            <span class="mt-1 text-ink-muted dark:text-gray-300 block leading-relaxed" x-text="item.examples"></span>
+                            <span class="font-bold text-moss dark:text-emerald-light block text-sm" x-html="formatText(item.type)"></span>
+                            <span class="mt-1 text-ink-muted dark:text-gray-300 block leading-relaxed" x-html="formatText(item.examples)"></span>
                           </div>
                         </template>
                       </div>
@@ -652,18 +754,18 @@
                             </div>
                           </div>
                           
-                          <p class="text-xs sm:text-sm text-ink-soft dark:text-gray-300 leading-relaxed" x-text="sc.definition"></p>
+                          <p class="text-xs sm:text-sm text-ink-soft dark:text-gray-300 leading-relaxed" x-html="formatText(sc.definition)"></p>
 
                           <div class="mt-3 rounded-xl bg-ink/5 p-3 text-xs font-medium text-ink-muted dark:bg-white/[0.03] dark:text-gray-400">
                             <strong class="text-ink dark:text-white">Cara Menemukan: </strong>
-                            <span x-text="sc.howToFind"></span>
+                            <span x-html="formatText(sc.howToFind)"></span>
                           </div>
 
                           <div class="mt-4 space-y-2">
                             <span class="text-[11px] font-bold uppercase tracking-wider text-ink-muted dark:text-gray-400">Contoh Kalimat:</span>
                             <template x-for="(ex, eIdx) in sc.examples" :key="eIdx">
                               <div class="rounded-xl border border-ink/5 bg-sand/30 p-3 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2 dark:bg-white/[0.02] dark:border-white/5">
-                                <span class="font-medium text-ink dark:text-white" x-text="ex.sentence"></span>
+                                <span class="font-medium text-ink dark:text-white" x-html="formatText(ex.sentence)"></span>
                                 <span class="rounded bg-gold/20 px-2 py-0.5 font-bold text-gold-dark dark:text-gold-light shrink-0 text-[11px]" x-text="ex.doer ? ('Pelaku: ' + ex.doer) : (ex.detail ? ('Detail: ' + ex.detail) : ('Kata Jar: ' + ex.jarWord))"></span>
                               </div>
                             </template>
@@ -678,37 +780,48 @@
                     <div class="my-5 rounded-2xl border border-moss/30 bg-moss/10 p-5 text-moss dark:bg-emerald-brand/20 dark:text-emerald-light dark:border-emerald-light/25 flex items-start gap-3">
                       <span class="text-xl">🕌</span>
                       <div>
-                        <h5 class="font-bold text-sm" x-text="block.title"></h5>
-                        <p class="mt-1 text-xs sm:text-sm leading-relaxed" x-text="block.text"></p>
+                        <h5 class="font-bold text-sm" x-html="formatText(block.title)"></h5>
+                        <p class="mt-1 text-xs sm:text-sm leading-relaxed" x-html="formatText(block.text)"></p>
                       </div>
                     </div>
                   </template>
 
-                  <!-- Block: Formula Box (RuNaJi) -->
+                  <!-- Block: Formula Box (RuNaJi or Custom Rule) -->
                   <template x-if="block.type === 'formula_box'">
                     <div class="my-6 rounded-3xl border-2 border-gold/40 bg-gradient-to-br from-gold-soft/50 via-white to-sand/40 p-6 dark:from-[#1b1506] dark:via-[#132018] dark:to-[#0b1712] dark:border-gold/30">
-                      <div class="text-center max-w-md mx-auto mb-6">
-                        <h4 class="font-display text-2xl font-bold text-ink dark:text-white" x-text="block.title"></h4>
-                        <p class="text-xs text-ink-muted dark:text-gray-400 mt-1" x-text="block.subtitle"></p>
+                      <div class="text-center max-w-md mx-auto mb-4" :class="block.formulas && block.formulas.length ? 'mb-6' : 'mb-3'">
+                        <h4 class="font-display text-2xl font-bold text-ink dark:text-white" x-html="formatText(block.title)"></h4>
+                        <p x-show="block.subtitle" class="text-xs text-ink-muted dark:text-gray-400 mt-1" x-html="formatText(block.subtitle)"></p>
                       </div>
 
-                      <div class="grid gap-4 sm:grid-cols-3">
-                        <template x-for="f in block.formulas" :key="f.code">
-                          <div class="rounded-2xl border border-ink/10 bg-white/90 p-4 text-center shadow-xs dark:bg-white/[0.04] dark:border-white/10 flex flex-col justify-between">
-                            <div>
-                              <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-gold font-display text-2xl font-bold mb-2 dark:bg-gold dark:text-ink" x-text="f.code"></span>
-                              <h5 class="font-bold text-base text-ink dark:text-white" x-text="f.status"></h5>
-                              <div class="my-2 rounded-xl bg-gold/15 py-1 text-xs font-bold text-gold-dark dark:text-gold-light" x-text="f.sounds"></div>
-                              <p class="text-[11px] text-ink-muted dark:text-gray-400" x-text="f.harakat"></p>
-                            </div>
+                      <!-- Single Formula / Rule Banner -->
+                      <template x-if="block.formula">
+                        <div class="rounded-2xl border border-gold/30 bg-white/90 p-4 text-center dark:bg-white/[0.04] dark:border-white/10 space-y-2">
+                          <div class="font-mono text-sm sm:text-base font-bold text-moss dark:text-gold-light" x-html="formatText(block.formula)"></div>
+                          <p x-show="block.note" class="text-xs text-ink-muted dark:text-gray-400 italic" x-html="formatText(block.note)"></p>
+                        </div>
+                      </template>
 
-                            <div class="mt-4 pt-3 border-t border-ink/10 dark:border-white/10">
-                              <span class="font-arabic text-xl font-bold text-moss dark:text-emerald-light block" x-text="f.exampleArab"></span>
-                              <span class="text-[11px] text-ink-muted dark:text-gray-400 italic block mt-0.5" x-text="f.exampleIndo"></span>
+                      <!-- 3-Cards Formula Grid (Day 1) -->
+                      <template x-if="block.formulas && block.formulas.length">
+                        <div class="grid gap-4 sm:grid-cols-3">
+                          <template x-for="f in block.formulas" :key="f.code">
+                            <div class="rounded-2xl border border-ink/10 bg-white/90 p-4 text-center shadow-xs dark:bg-white/[0.04] dark:border-white/10 flex flex-col justify-between">
+                              <div>
+                                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-gold font-display text-2xl font-bold mb-2 dark:bg-gold dark:text-ink" x-text="f.code"></span>
+                                <h5 class="font-bold text-base text-ink dark:text-white" x-text="f.status"></h5>
+                                <div class="my-2 rounded-xl bg-gold/15 py-1 text-xs font-bold text-gold-dark dark:text-gold-light" x-text="f.sounds"></div>
+                                <p class="text-[11px] text-ink-muted dark:text-gray-400" x-text="f.harakat"></p>
+                              </div>
+
+                              <div class="mt-4 pt-3 border-t border-ink/10 dark:border-white/10">
+                                <span class="font-arabic text-xl font-bold text-moss dark:text-emerald-light block" x-text="f.exampleArab"></span>
+                                <span class="text-[11px] text-ink-muted dark:text-gray-400 italic block mt-0.5" x-text="f.exampleIndo"></span>
+                              </div>
                             </div>
-                          </div>
-                        </template>
-                      </div>
+                          </template>
+                        </div>
+                      </template>
                     </div>
                   </template>
 
@@ -717,9 +830,9 @@
                     <div class="my-6 rounded-2xl border border-ink/10 bg-white p-5 dark:bg-white/[0.04] dark:border-white/10">
                       <div class="flex items-center gap-2 mb-2">
                         <i class="fa-solid fa-volume-high text-moss dark:text-emerald-light"></i>
-                        <h4 class="font-display text-lg font-bold text-ink dark:text-white" x-text="block.title"></h4>
+                        <h4 class="font-display text-lg font-bold text-ink dark:text-white" x-html="formatText(block.title)"></h4>
                       </div>
-                      <p class="text-xs text-ink-muted dark:text-gray-400 mb-4" x-text="block.instruction"></p>
+                      <p class="text-xs text-ink-muted dark:text-gray-400 mb-4" x-html="formatText(block.instruction)"></p>
 
                       <div class="grid gap-2 sm:grid-cols-3 mb-4">
                         <template x-for="st in block.steps" :key="st.label">
@@ -742,8 +855,8 @@
                     <div class="my-6 space-y-4">
                       <div class="text-center max-w-md mx-auto mb-4">
                         <span class="rounded-full bg-emerald-brand/15 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-brand dark:text-emerald-light dark:bg-emerald-brand/30">Latihan Interaktif</span>
-                        <h4 class="font-display text-2xl font-bold text-ink dark:text-white mt-1" x-text="block.title"></h4>
-                        <p class="text-xs text-ink-muted dark:text-gray-400" x-text="block.subtitle"></p>
+                        <h4 class="font-display text-2xl font-bold text-ink dark:text-white mt-1" x-html="formatText(block.title)"></h4>
+                        <p class="text-xs text-ink-muted dark:text-gray-400" x-html="formatText(block.subtitle)"></p>
                       </div>
 
                       <div class="space-y-4">
@@ -752,7 +865,7 @@
                             <!-- Surah Header -->
                             <div class="flex items-center justify-between text-xs text-ink-muted mb-2 dark:text-gray-400">
                               <span class="font-bold text-gold-dark dark:text-gold-light" x-text="item.surah"></span>
-                              <span class="text-[11px]" x-text="'Arti: ' + item.meaning"></span>
+                              <span class="text-[11px]" x-html="formatText('Arti: ' + item.meaning)"></span>
                             </div>
 
                             <!-- Ayah Arabic Display -->
@@ -806,7 +919,7 @@
                                 <i :class="quranPracticeAnswers[qIdx] === item.correctStatus ? 'fa-solid fa-circle-check text-emerald-brand dark:text-emerald-light' : 'fa-solid fa-circle-xmark text-red-500'" class="text-sm mt-0.5"></i>
                                 <div>
                                   <span class="font-bold block" x-text="quranPracticeAnswers[qIdx] === item.correctStatus ? 'Tepat Sekali! 🎉' : ('Kurang Tepat. Jawaban yang benar: ' + item.correctStatus.toUpperCase())"></span>
-                                  <span class="mt-1 block opacity-90 leading-relaxed" x-text="item.explanation"></span>
+                                  <span class="mt-1 block opacity-90 leading-relaxed" x-html="formatText(item.explanation)"></span>
                                 </div>
                               </div>
                             </div>
@@ -825,7 +938,7 @@
                         <span>Uji Pemahaman Singkat</span>
                       </div>
 
-                      <h4 class="font-display text-lg sm:text-xl font-bold text-ink dark:text-white" x-text="block.question"></h4>
+                      <h4 class="font-display text-lg sm:text-xl font-bold text-ink dark:text-white" x-html="formatText(block.question)"></h4>
 
                       <!-- Options List -->
                       <div class="mt-4 space-y-2">
@@ -836,7 +949,7 @@
                             :class="quizAnswers[block.id] === oIdx ? (opt.isCorrect ? 'bg-emerald-brand text-white border-emerald-brand font-bold' : 'bg-red-500 text-white border-red-500 font-bold') : (quizAnswers[block.id] !== undefined && opt.isCorrect ? 'bg-emerald-soft text-moss border-emerald-brand dark:bg-emerald-brand/30 dark:text-emerald-light' : 'bg-white border border-ink/10 text-ink-soft hover:bg-sand/30 dark:bg-white/[0.04] dark:border-white/10 dark:text-gray-200')"
                             class="w-full text-left rounded-xl p-3 text-xs sm:text-sm transition-all duration-150 flex items-center justify-between gap-3 shadow-2xs"
                           >
-                            <span x-text="opt.text"></span>
+                            <span x-html="formatText(opt.text)"></span>
                             <span x-show="quizAnswers[block.id] === oIdx">
                               <i :class="opt.isCorrect ? 'fa-solid fa-check' : 'fa-solid fa-xmark'" class="text-sm"></i>
                             </span>
@@ -851,7 +964,7 @@
                         class="mt-4 rounded-xl bg-ink/5 p-3 text-xs text-ink-soft dark:bg-white/[0.03] dark:text-gray-300 border-l-2 border-gold"
                       >
                         <strong class="text-ink dark:text-white">Penjelasan: </strong>
-                        <span x-text="block.explanation"></span>
+                        <span x-html="formatText(block.explanation)"></span>
                       </div>
                     </div>
                   </template>
@@ -861,13 +974,13 @@
                     <div class="my-6 rounded-3xl border border-moss/30 bg-gradient-to-r from-moss/10 via-emerald-soft/40 to-sand/40 p-6 dark:from-[#092218] dark:via-[#0c2b1f] dark:to-[#071912] dark:border-emerald-light/20">
                       <h4 class="font-display text-xl font-bold text-ink dark:text-white mb-3 flex items-center gap-2">
                         <i class="fa-solid fa-flag-checkered text-gold"></i>
-                        <span x-text="block.title"></span>
+                        <span x-html="formatText(block.title)"></span>
                       </h4>
                       <ul class="space-y-2 text-xs sm:text-sm text-ink-soft dark:text-gray-300">
                         <template x-for="pt in block.points" :key="pt">
                           <li class="flex items-start gap-2">
                             <i class="fa-solid fa-check text-emerald-light mt-1 text-xs"></i>
-                            <span x-text="pt"></span>
+                            <span x-html="formatText(pt)"></span>
                           </li>
                         </template>
                       </ul>
@@ -958,8 +1071,9 @@
             <p>© 2026 <strong>Jundi Abdullah</strong> · Modul Belajar Bahasa Arab Metode Bayyinah Dream</p>
             <p class="text-[11px] mt-0.5">Didedikasikan untuk kemudahan jamaah & pembelajar memahami firman Allah.</p>
           </div>
-          <div class="flex items-center gap-4 text-xs">
-            <a href="index.html" class="hover:text-moss dark:hover:text-gold">Beranda Portofolio</a>
+          <div class="flex items-center gap-4 text-xs flex-wrap justify-center">
+            <a href="index.html" class="hover:text-moss dark:hover:text-gold">Beranda Utama</a>
+            <a href="my-portfolio.html" class="text-moss font-bold dark:text-gold-light">Portofolio Web</a>
             <a href="hijriah.html" class="hover:text-moss dark:hover:text-gold">Kalender Hijriah</a>
             <a href="https://www.bayyinahtv.com" target="_blank" rel="noopener" class="hover:text-moss dark:hover:text-gold">Bayyinah TV</a>
           </div>
