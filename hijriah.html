@@ -360,18 +360,20 @@
                 <span class="rounded-full bg-paper/10 px-2.5 py-0.5 text-xs font-bold text-gold-light" x-text="'Hari ke-' + selectedDay"></span>
               </div>
 
-              <!-- Moon Graphic Simulation -->
+              <!-- Moon Graphic Simulation with High-Res Texture -->
               <div class="my-8 flex flex-col items-center justify-center">
-                <div class="relative flex h-40 w-40 items-center justify-center rounded-full bg-black/60 p-2 shadow-2xl ring-4 ring-emerald-light/20">
+                <div class="relative flex h-48 w-48 items-center justify-center rounded-full bg-black/90 p-2 shadow-2xl ring-4 ring-gold/30 overflow-hidden group">
+                  <!-- Real Lunar Surface Phase Photo Dynamic -->
+                  <img
+                    :src="selectedPhase.image || 'images/nasa-full-moon.webp'"
+                    :alt="'Foto Fase Bulan Realistis ' + selectedPhase.phase_name"
+                    class="h-full w-full rounded-full object-cover shadow-inner transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <!-- Subtle Atmospheric Rim Glow -->
                   <div
-                    class="h-full w-full rounded-full transition-all duration-500 shadow-inner flex items-center justify-center text-4xl"
-                    :style="`background: radial-gradient(circle at ${selectedDay <= 15 ? (selectedDay / 15) * 100 : ((30 - selectedDay) / 15) * 100}%, #fef3c7 0%, #d97706 60%, #1e293b 100%);`"
-                  >
-                    <span x-show="selectedPhase.illumination >= 95">🌕</span>
-                    <span x-show="selectedPhase.illumination < 95 && selectedPhase.illumination >= 50">🌖</span>
-                    <span x-show="selectedPhase.illumination < 50 && selectedPhase.illumination >= 15">🌘</span>
-                    <span x-show="selectedPhase.illumination < 15">🌙</span>
-                  </div>
+                    class="absolute -inset-2 rounded-full bg-gold/15 blur-lg pointer-events-none transition-opacity duration-500"
+                    :style="`opacity: ${Math.max(0.2, selectedPhase.illumination / 100)}`"
+                  ></div>
                 </div>
 
                 <h3 class="mt-6 font-display text-2xl font-bold text-gold-light" x-text="selectedPhase.phase_name"></h3>
@@ -412,6 +414,16 @@
                 <p>
                   <strong class="text-ink dark:text-white">Rahasia Ayyamul Bidh (Hari Putih)</strong>: Tanggal 13, 14, dan 15 dinamakan <em>Ayyamul Bidh</em> (Hari-hari Putih) karena sepanjang malam langit bumi diterangi penuh oleh pantulan sinar matahari pada piringan bulan purnama.
                 </p>
+              </div>
+
+              <!-- Moon Phases Cycle Infographic Banner -->
+              <div class="mt-6 overflow-hidden rounded-2xl border border-emerald-brand/20 shadow-xs dark:border-white/10 group">
+                <img
+                  src="images/moon-phases-cycle.webp"
+                  alt="Diagram Siklus 8 Fase Bulan Falak & Kalender Hijriah"
+                  class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
               </div>
             </div>
 

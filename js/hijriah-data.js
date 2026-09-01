@@ -449,14 +449,26 @@ window.HIJRI_DATA = {
     };
   },
 
+  getMoonPhaseImage(day) {
+    const d = Math.max(1, Math.min(30, Number(day) || 1));
+    if (d === 1 || d === 29 || d === 30) return "images/moon-phases/moon-phase-1.webp";
+    if (d >= 2 && d <= 6) return "images/moon-phases/moon-phase-2.webp";
+    if (d >= 7 && d <= 9) return "images/moon-phases/moon-phase-3.webp";
+    if (d >= 10 && d <= 12) return "images/moon-phases/moon-phase-4.webp";
+    if (d >= 13 && d <= 16) return "images/moon-phases/moon-phase-5.webp";
+    if (d >= 17 && d <= 20) return "images/moon-phases/moon-phase-6.webp";
+    if (d >= 21 && d <= 24) return "images/moon-phases/moon-phase-7.webp";
+    if (d >= 25 && d <= 28) return "images/moon-phases/moon-phase-8.webp";
+    return "images/moon-phases/moon-phase-1.webp";
+  },
+
   getMoonPhaseForDay(day) {
     const d = Math.max(1, Math.min(30, Number(day) || 1));
+    let base;
     if (this.moon_phases[d]) {
-      return this.moon_phases[d];
-    }
-    // Interpolasi bila hari tertentu belum ada entri spesifik
-    if (d >= 4 && d <= 6) {
-      return {
+      base = { ...this.moon_phases[d] };
+    } else if (d >= 4 && d <= 6) {
+      base = {
         phase_name: "Bulan Sabit Awal (Waxing Crescent)",
         arabic_phase: "الهِلَال المُتَنَامِي",
         illumination: Math.round(15 + (d - 4) * 10),
@@ -465,7 +477,7 @@ window.HIJRI_DATA = {
         worship_info: "Masa awal bulan Hijriah.",
       };
     } else if (d >= 9 && d <= 10) {
-      return {
+      base = {
         phase_name: "Bulan Cembung Awal (Waxing Gibbous)",
         arabic_phase: "الأَحْدَب المُتَنَامِي",
         illumination: Math.round(65 + (d - 9) * 12),
@@ -474,7 +486,7 @@ window.HIJRI_DATA = {
         worship_info: "Beberapa hari menjelang malam purnama dan puasa Ayyamul Bidh (13, 14, 15).",
       };
     } else if (d >= 16 && d <= 20) {
-      return {
+      base = {
         phase_name: "Bulan Cembung Akhir (Waning Gibbous)",
         arabic_phase: "الأَحْدَب المُتَنَاقِص",
         illumination: Math.round(90 - (d - 16) * 9),
@@ -483,7 +495,7 @@ window.HIJRI_DATA = {
         worship_info: "Fase pasca purnama.",
       };
     } else if (d >= 23 && d <= 27) {
-      return {
+      base = {
         phase_name: "Bulan Sabit Tua (Waning Crescent)",
         arabic_phase: "الهِلَال المُتَنَاقِص",
         illumination: Math.round(35 - (d - 23) * 7),
@@ -491,8 +503,11 @@ window.HIJRI_DATA = {
         astro_info: "Bulan sabit tampak melengkung menghadap timur saat dini hari dan fajar.",
         worship_info: "Menjelang akhir siklus bulan sinodis.",
       };
+    } else {
+      base = { ...this.moon_phases[1] };
     }
-    return this.moon_phases[1];
+    base.image = this.getMoonPhaseImage(d);
+    return base;
   },
 
   getHistoricalEvent(monthId, day) {

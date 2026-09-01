@@ -321,78 +321,113 @@
           <span class="font-arabic text-[150px] sm:text-[200px] leading-none text-ink dark:text-white font-bold">بَيِّنَة</span>
         </div>
 
-        <div class="relative z-10 max-w-3xl">
-          <div class="flex flex-wrap items-center gap-2 mb-3">
-            <a
-              href="https://www.bayyinahtv.com/"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-1.5 rounded-full bg-bayyinah/15 px-3 py-0.5 text-xs font-bold text-bayyinah hover:bg-bayyinah hover:text-white transition-colors dark:text-red-300 dark:bg-bayyinah/30 dark:hover:bg-bayyinah dark:hover:text-white"
-              title="Kanal Resmi Bayyinah TV"
-            >
-              <img src="bayyinah-tv-icon.webp" alt="Bayyinah" class="h-3.5 w-3.5 rounded-xs object-cover">
-              <span>Kurikulum Bayyinah TV</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
-            </a>
-            <span class="text-xs font-bold text-gold-dark dark:text-gold-light">
-              Ustaz Nouman Ali Khan
-            </span>
-            <span class="text-ink-muted text-xs">• Saduran & Rangkuman Bahasa Indonesia oleh Jundi Abdullah</span>
-          </div>
-
-          <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink dark:text-white leading-tight">
-            Belajar Bahasa Arab Qur'an: <span class="text-moss dark:text-emerald-light">Dream Intensive</span>
-          </h1>
-
-          <p class="mt-3 text-sm sm:text-base leading-relaxed text-ink-soft dark:text-gray-300">
-            Pelajari tata bahasa Al-Qur'an secara visual, bertahap, dan intuitif. Mengikuti urutan transkrip materi asli Ustaz Nouman dengan pendekatan komparasi padanan <strong>Bahasa Indonesia</strong>.
-          </p>
-
-          <!-- Intensive Level Selector Pills / Tabs -->
-          <div class="mt-5 flex flex-wrap items-center gap-2 border-b border-ink/10 pb-4 dark:border-white/10">
-            <div class="text-xs font-bold text-ink-muted dark:text-gray-400 mr-2">Pilih Program:</div>
-            <template x-for="(intv, iIdx) in data.intensives" :key="intv.id">
-              <button
-                type="button"
-                @click="selectedIntensiveIndex = iIdx; selectedDayIndex = 0; selectedLessonIndex = 0"
-                :class="selectedIntensiveIndex === iIdx ? 'bg-moss text-paper font-bold shadow-md dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300'"
-                class="rounded-xl px-4 py-2 text-xs transition-all duration-200 flex items-center gap-2"
+        <div class="relative z-10 grid gap-8 lg:grid-cols-12 items-center">
+          
+          <!-- Left Column: Title, Intro & Selectors -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <a
+                href="https://www.bayyinahtv.com/"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1.5 rounded-full bg-bayyinah/15 px-3 py-0.5 text-xs font-bold text-bayyinah hover:bg-bayyinah hover:text-white transition-colors dark:text-red-300 dark:bg-bayyinah/30 dark:hover:bg-bayyinah dark:hover:text-white"
+                title="Kanal Resmi Bayyinah TV"
               >
-                <i class="fa-solid fa-graduation-cap text-xs"></i>
-                <span x-text="intv.number + ': ' + (intv.id === 1 ? 'Fondasi (Nahwu & Sharaf)' : 'Sintaksis & Sharaf Lanjutan')"></span>
-              </button>
-            </template>
+                <img src="bayyinah-tv-icon.webp" alt="Bayyinah" class="h-3.5 w-3.5 rounded-xs object-cover">
+                <span>Kurikulum Bayyinah TV</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+              </a>
+              <span class="text-xs font-bold text-gold-dark dark:text-gold-light">
+                Ustaz Nouman Ali Khan
+              </span>
+              <span class="text-ink-muted text-xs">• Saduran & Rangkuman Bahasa Indonesia oleh Jundi Abdullah</span>
+            </div>
+
+            <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink dark:text-white leading-tight">
+              Belajar Bahasa Arab Qur'an: <span class="text-moss dark:text-emerald-light">Dream Intensive</span>
+            </h1>
+
+            <p class="text-sm sm:text-base leading-relaxed text-ink-soft dark:text-gray-300">
+              Pelajari tata bahasa Al-Qur'an secara visual, bertahap, dan intuitif. Mengikuti urutan transkrip materi asli Ustaz Nouman dengan pendekatan komparasi padanan <strong>Bahasa Indonesia</strong>.
+            </p>
+
+            <!-- Intensive Level Selector Pills / Tabs -->
+            <div class="pt-2 border-t border-ink/10 dark:border-white/10">
+              <div class="text-xs font-bold text-ink-muted dark:text-gray-400 mb-2">Pilih Program:</div>
+              <div class="flex flex-wrap items-center gap-2">
+                <template x-for="(intv, iIdx) in data.intensives" :key="intv.id">
+                  <button
+                    type="button"
+                    @click="selectedIntensiveIndex = iIdx; selectedDayIndex = 0; selectedLessonIndex = 0"
+                    :class="selectedIntensiveIndex === iIdx ? 'bg-moss text-paper font-bold shadow-md dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300'"
+                    class="rounded-xl px-4 py-2 text-xs transition-all duration-200 flex items-center gap-2"
+                  >
+                    <i class="fa-solid fa-graduation-cap text-xs"></i>
+                    <span x-text="intv.number + ': ' + (intv.id === 1 ? 'Fondasi (Nahwu & Sharaf)' : 'Sintaksis & Sharaf Lanjutan')"></span>
+                  </button>
+                </template>
+              </div>
+            </div>
+
+            <!-- Day selector pills -->
+            <div class="pt-2">
+              <div class="text-xs font-bold text-ink-muted dark:text-gray-400 mb-2">Pilih Hari:</div>
+              <div class="flex flex-wrap items-center gap-2">
+                <template x-for="(day, dIdx) in currentIntensive.days" :key="dIdx">
+                  <button
+                    type="button"
+                    @click="selectedDayIndex = dIdx; selectedLessonIndex = 0"
+                    :class="selectedDayIndex === dIdx ? 'bg-ink text-gold font-bold shadow-md dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300'"
+                    class="rounded-xl px-3.5 py-1.5 text-xs transition-all duration-200 flex items-center gap-1.5"
+                  >
+                    <i class="fa-regular fa-calendar-check text-xs"></i>
+                    <span x-text="day.title.split(':')[0]"></span>
+                  </button>
+                </template>
+                <span
+                  x-show="selectedIntensiveIndex === 0"
+                  class="rounded-xl border border-gold/40 bg-gold/10 px-3 py-1.5 text-[11px] font-semibold text-gold dark:border-gold/30 dark:bg-gold/20 dark:text-gold"
+                >
+                  <i class="fa-solid fa-circle-check text-[10px] mr-1"></i>
+                  Intensive 1 Lengkap 🎉
+                </span>
+              </div>
+            </div>
           </div>
 
-          <!-- Day selector pills -->
-          <div class="mt-4 flex flex-wrap items-center gap-2">
-            <div class="text-xs font-bold text-ink-muted dark:text-gray-400 mr-2">Pilih Hari:</div>
-            <template x-for="(day, dIdx) in currentIntensive.days" :key="dIdx">
-              <button
-                type="button"
-                @click="selectedDayIndex = dIdx; selectedLessonIndex = 0"
-                :class="selectedDayIndex === dIdx ? 'bg-ink text-gold font-bold shadow-md dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300'"
-                class="rounded-xl px-4 py-2 text-xs transition-all duration-200 flex items-center gap-2"
-              >
-                <i class="fa-regular fa-calendar-check text-xs"></i>
-                <span x-text="day.title.split(':')[0]"></span>
-              </button>
-            </template>
-            <span
-              x-show="selectedIntensiveIndex === 0"
-              class="rounded-xl border border-gold/40 bg-gold/10 px-3 py-1.5 text-[11px] font-semibold text-gold dark:border-gold/30 dark:bg-gold/20 dark:text-gold"
-            >
-              <i class="fa-solid fa-circle-check text-[10px] mr-1"></i>
-              Intensive 1 Lengkap (10 Hari + Sesi Q&A) 🎉
-            </span>
-            <span
-              x-show="selectedIntensiveIndex === 1"
-              class="rounded-xl border border-emerald-brand/40 bg-emerald-brand/10 px-3 py-1.5 text-[11px] font-semibold text-emerald-brand dark:border-emerald-light/30 dark:bg-emerald-brand/20 dark:text-emerald-light"
-            >
-              <i class="fa-solid fa-rocket text-[10px] mr-1"></i>
-              <span x-text="'Intensive 2 Berjalan (Day ' + currentIntensive.days.length + ' / 14 Hari) 🚀'"></span>
-            </span>
+          <!-- Right Column: Visual Mockup Showcase of Bayyinah Dream -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="w-full max-w-md rounded-2xl overflow-hidden border border-emerald-500/20 bg-black/40 shadow-xl group">
+              <!-- Mockup Browser Header -->
+              <div class="flex items-center justify-between border-b border-white/10 bg-[#06140e] px-3 py-2 text-[10px] font-mono text-gray-300">
+                <div class="flex items-center gap-1.5">
+                  <span class="h-2 w-2 rounded-full bg-red-400"></span>
+                  <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+                  <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                  <span class="ml-1 text-emerald-300 font-bold">bayyinahtv.com/dream</span>
+                </div>
+                <a
+                  href="https://www.bayyinahtv.com/"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-gold-light hover:underline flex items-center gap-1"
+                >
+                  <span>Kanal Resmi</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                </a>
+              </div>
+              <!-- Mockup Image with Smooth Zoom -->
+              <div class="aspect-[16/10] overflow-hidden bg-black">
+                <img
+                  src="images/bayyinah-dream-preview.webp"
+                  alt="Bayyinah Dream Intensive Learning Platform"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 
