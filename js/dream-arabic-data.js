@@ -667,7 +667,19 @@ window.DREAM_ARABIC_DATA = {
             }
           ],
           "videoUrl": "https://www.youtube.com/live/WPjsDVS_trI?si=_A31DpyO_BE0V-3g",
-          "pdfUrl": "https://drive.google.com/file/d/1TnvucVgLQpu2uDiKXnykSCu2NIINtrPS/view?usp=drive_link"
+          "pdfUrl": "https://drive.google.com/file/d/1TnvucVgLQpu2uDiKXnykSCu2NIINtrPS/view?usp=drive_link",
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 1",
+              "url": "https://www.youtube.com/live/WPjsDVS_trI?si=_A31DpyO_BE0V-3g"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 1",
+              "url": "https://drive.google.com/file/d/1TnvucVgLQpu2uDiKXnykSCu2NIINtrPS/view?usp=drive_link"
+            }
+          ]
         },
         {
           "day": 2,
@@ -1298,6 +1310,18 @@ window.DREAM_ARABIC_DATA = {
                 }
               ]
             }
+          ],
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 2",
+              "url": "https://www.youtube.com/live/UjKnWbx8uyg?si=Oj0bX-MCNP1PKI85"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 2",
+              "url": "https://drive.google.com/file/d/1Zqwk2XG-rsu862eO0BXlt0KBL8SAOpkc/view?usp=sharing"
+            }
           ]
         },
         {
@@ -1796,6 +1820,18 @@ window.DREAM_ARABIC_DATA = {
                 }
               ]
             }
+          ],
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 3",
+              "url": "https://www.youtube.com/live/SBoEuBZLw5k?si=GBARGIITXuHjdB9J"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 3",
+              "url": "https://drive.google.com/file/d/1ACEoSgUPjIv_KGpHbSBA8uv0-Yrb9EvH/view?usp=sharing"
+            }
           ]
         },
         {
@@ -2280,6 +2316,18 @@ window.DREAM_ARABIC_DATA = {
                   ]
                 }
               ]
+            }
+          ],
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 4",
+              "url": "https://www.youtube.com/live/53MwDht85kM?si=1NwCYeq1L2Oojurt"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 4",
+              "url": "https://drive.google.com/open?id=1W8G0NpDb9CFi7UHDxrBu5iB6ll1WbIUs&usp=drive_copy"
             }
           ]
         },
@@ -2824,6 +2872,18 @@ window.DREAM_ARABIC_DATA = {
                   ]
                 }
               ]
+            }
+          ],
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 5",
+              "url": "https://www.youtube.com/live/hueo7GbJxSs?si=TvfGmZUvJ681Acxh"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 5",
+              "url": "https://drive.google.com/open?id=1PAtUolmjCmhg_joaFacy_QYJ--rU1yZE&usp=drive_copy"
             }
           ]
         },
@@ -3397,6 +3457,18 @@ window.DREAM_ARABIC_DATA = {
                 }
               ]
             }
+          ],
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 6",
+              "url": "https://www.youtube.com/live/7I5DEH1LVx8?si=Q3iy76sr_uVZTtEZ"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 6",
+              "url": "https://drive.google.com/open?id=1OlJQdJT4NiclpsGXxmj7xeWnrAColOls&usp=drive_copy"
+            }
           ]
         },
         {
@@ -3857,6 +3929,18 @@ window.DREAM_ARABIC_DATA = {
                   ]
                 }
               ]
+            }
+          ],
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 7",
+              "url": "https://www.youtube.com/live/Z8HgzOZi22k?si=3VWTAbCecxl6rPMe"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 7",
+              "url": "https://drive.google.com/open?id=1e_l_mKLZKi6MPXsRlmL97MV2ZBKOGz7Z&usp=drive_copy"
             }
           ]
         },
@@ -4867,6 +4951,18 @@ window.DREAM_ARABIC_DATA = {
                 }
               ]
             }
+          ],
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 9",
+              "url": "https://www.youtube.com/live/XvYIpYmKHJA?si=ID0bxQDECTlnEsuY"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 9",
+              "url": "https://drive.google.com/open?id=1sEb5QW9gaHkqvG0wN3-kyRp2EXcvmNfa&usp=drive_copy"
+            }
           ]
         },
         {
@@ -5379,6 +5475,18 @@ window.DREAM_ARABIC_DATA = {
                 }
               ]
             }
+          ],
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 1 Day 10",
+              "url": "https://www.youtube.com/live/KWfMCaJVNr4?si=ekvsoNGAgLoqdgAL"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 1 Day 10",
+              "url": "https://drive.google.com/open?id=1CGkmnKra5mcIQGjY5-RVkx3QuShnHiAz&usp=drive_copy"
+            }
           ]
         },
         {
@@ -5774,6 +5882,2054 @@ window.DREAM_ARABIC_DATA = {
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Sintaksis & Sharaf Lanjutan (Morfologi Kata Kerja & Kalimat Kompleks)",
+      "number": "Intensive 2",
+      "days": [
+        {
+          "day": 1,
+          "title": "Hari 1: Reset Fondasi, 3 Bahasa Arab, Terminologi Marfu'/Mansub/Majroor & Master Kombinasi Ringan",
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 2 Day 1",
+              "url": "https://www.youtube.com/live/WPjsDVS_trI?si=GIcpmBccWmmFMJ9J"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 2 Day 1",
+              "url": "https://drive.google.com/open?id=16ITRyE6r5jl7nh21LxeHsOw90dQddg2Y&usp=drive_copy"
+            }
+          ],
+          "summary": "Mengawali babak baru Intensive 2 dengan memantapkan janji kemudahan Al-Qur'an, 3 tingkatan bahasa Arab, eliminasi jenis kata, terminologi status Marfu'/Mansub/Majroor, serta bedah tuntas kasus kombinasi ringan (Aynaa, Rasoolaa, Kalimaati).",
+          "lessons": [
+            {
+              "id": "i2-d1-pembukaan-dan-3-ragam-bahasa-arab",
+              "number": "01",
+              "title": "Prolog Intensive 2 & 3 Tingkatan Bahasa Arab (Street, Fusha, Classical)",
+              "icon": "fa-compass-drafting",
+              "readTime": "15 menit",
+              "summary": "Memperbaharui niat belajar Al-Qur'an (QS. Al-Qamar: 17) dan membedah perbedaan Street Arabic, Fusha, serta Classical Arabic (Lughat Al-Arab).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Selamat datang di **Intensive 2**! Kita memulai babak baru ini dengan merenungkan janji agung Allah dalam Surah Al-Qamar ayat 17:"
+                },
+                {
+                  "type": "quote",
+                  "text": "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِنْ مُدَّكِرٍ\n'Dan sungguh, telah Kami mudahkan Al-Qur'an untuk peringatan/dipelajari, maka adakah orang yang mau mengambil pelajaran?'",
+                  "author": "QS. Al-Qamar [54]: 17"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Allah menantang kita: *'Aku telah menjadikannya mudah. Apakah kamu siap meluangkan waktu dan tenagamu?'* Ketika kita berkumpul mempelajari bahasa firman-Nya, para malaikat mengepakkan sayap menaungi kita, ketenangan (*sakinah*) turun, dan Allah membanggakan nama kita di hadapan para malaikat terdekat-Nya."
+                },
+                {
+                  "type": "card_grid",
+                  "title": "3 Tingkatan Bahasa Arab di Dunia",
+                  "items": [
+                    {
+                      "icon": "fa-comments",
+                      "title": "1. Street Arabic ('Ammiyyah / Dialek Pasar)",
+                      "desc": "Bahasa percakapan harian lokal (Mesir, Syam, Teluk, Maghribi). Pengucapannya banyak dipotong dan bervariasi (misal: 'Qalam' diucapkan 'Alam' / 'Lam'; 'Kayfa Halak' menjadi 'Ezzayak' atau 'Chayf Halak')."
+                    },
+                    {
+                      "icon": "fa-newspaper",
+                      "title": "2. Fusha (Modern Standard Arabic)",
+                      "desc": "Bahasa Arab baku modern yang digunakan di koran, siaran berita resmi, dan buku akademik modern. Tata bahasanya rapi namun kosakatanya terbatas pada konteks modern."
+                    },
+                    {
+                      "icon": "fa-book-quran",
+                      "title": "3. Classical Arabic (Lughat Al-Arab)",
+                      "desc": "Bahasa Arab sastra kuno tertinggi tempat Al-Qur'an diturunkan. Fusha hanyalah sebagian kecil di dalam samudra Classical Arabic. Kurikulum Dream berfokus 100% pada Classical Arabic!"
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d1_arabic_types",
+                  "question": "Mengapa kurikulum Dream Intensive berfokus pada Classical Arabic (Lughat Al-Arab) dan bukan Street Arabic ('Ammiyyah)?",
+                  "options": [
+                    {
+                      "text": "Karena Al-Qur'an diturunkan dalam bahasa sastra Arab kuno tingkat tinggi (Classical Arabic)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena Street Arabic lebih sulit dipelajari daripada Classical Arabic",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena Fusha tidak memiliki tata bahasa",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Classical Arabic adalah bahasa sastra orisinal bangsa Arab kuno saat wahyu Al-Qur'an diturunkan, memuat kedalaman makna dan balaghah yang tidak ditemukan dalam dialek pasar modern."
+                }
+              ]
+            },
+            {
+              "id": "i2-d1-tiga-jenis-kata-dan-metode-eliminasi",
+              "number": "02",
+              "title": "3 Jenis Kata & Metode Eliminasi (Process of Elimination)",
+              "icon": "fa-filter",
+              "readTime": "15 menit",
+              "summary": "Memantapkan klasifikasi Ism, Fi'il, dan Harf serta menggunakan teknik eliminasi untuk mengenali kata yang ambigu.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Setiap kata dalam bahasa Arab di seluruh Al-Qur'an hanya terbagi ke dalam **3 Kategori Mutlak**: jika kita menandai Ism dengan kuning, Fi'il dengan hijau, dan Harf dengan biru, maka seluruh lembaran mushaf akan tertutupi warna tanpa ada satu kata pun yang tersisa."
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Definisi Formal vs Definisi Alternatif (Eliminasi)",
+                  "headers": [
+                    "Jenis Kata",
+                    "Definisi Standar",
+                    "Definisi Alternatif (Eliminasi)",
+                    "Ciri Utama"
+                  ],
+                  "rows": [
+                    [
+                      "ISM (الاسْمُ)",
+                      "Nama orang, tempat, benda, ide/konsep, kata sifat, kata keterangan, dll.",
+                      "Bila BUKAN Fi'il dan BUKAN Harf ➔ PASTI ISM!",
+                      "Kata yang memiliki makna mandiri dan tidak terikat waktu lampau/sekarang/depan."
+                    ],
+                    [
+                      "FI'IL (الفِعْلُ)",
+                      "Kata kerja yang terikat dengan dimensi waktu (lampau, sekarang, atau akan datang).",
+                      "Bila BUKAN Ism dan BUKAN Harf ➔ PASTI FI'IL!",
+                      "Mengandung perbuatan + penanda waktu."
+                    ],
+                    [
+                      "HARF (الحَرْفُ)",
+                      "Kata penghubung/partikel yang tidak bermakna sempurna kecuali diikuti kata lain.",
+                      "Bila BUKAN Ism dan BUKAN Fi'il ➔ PASTI HARF!",
+                      "Kata-kata pendek seperti Harf Jar (bi, fi, min, ila) dan Harf Nasb (inna, anna, dll.)."
+                    ]
+                  ]
+                },
+                {
+                  "type": "case_study",
+                  "title": "Studi Kasus Jebakan Kata Bahasa Inggris: Akhiran '-ing' dan '-s'",
+                  "points": [
+                    {
+                      "label": "1. Kata Berakhiran '-ing' (Contoh: 'Typing' / Mengetik):",
+                      "desc": "Jika digunakan dalam kalimat 'He is typing' (Sedang mengetik), maka kata ini adalah FI'IL karena terikat waktu. Namun jika digunakan dalam 'Typing is fun' (Mengetik itu menyenangkan) atau 'I love typing', maka kata ini adalah ISM (Ide/Aktivitas)!"
+                    },
+                    {
+                      "label": "2. Kata Berakhiran '-s' (Contoh: 'Jumps' / Lompatan):",
+                      "desc": "Jika 'He jumps' (Dia melompat) ➔ FI'IL. Jika 'I did ten jumps' (Sepuluh lompatan) ➔ ISM (Benda/Hitungan)!"
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d1_elimination",
+                  "question": "Dalam kalimat 'Sleeping is important for health', apakah jenis kata untuk 'Sleeping'?",
+                  "options": [
+                    {
+                      "text": "ISM, karena bertindak sebagai ide/konsep aktivitas (bukan kata kerja terikat waktu)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "FI'IL, karena ada akhiran -ing",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "HARF, karena merupakan kata penghubung",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Dalam kalimat tersebut, 'Sleeping' (Tidur) bertindak sebagai subjek konsep/ide aktivitas, sehingga berstatus sebagai Ism."
+                }
+              ]
+            },
+            {
+              "id": "i2-d1-terminologi-marfu-mansub-majroor",
+              "number": "03",
+              "title": "Terminologi Cerdas 3 Status: Marfu', Mansub, & Majroor",
+              "icon": "fa-graduation-cap",
+              "readTime": "15 menit",
+              "summary": "Menguasai cara penyebutan gramatikal profesional: in Rafa' form (Marfu'), in Nasb form (Mansub), dan in Jar form (Majroor).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Di Intensive 2, kita menaikkan standar pemahaman tata bahasa kita ke level akademik profesional. Kita tidak hanya menyebut 'kata ini Rafa', melainkan memahami dua cara penyebutan yang tepat:"
+                },
+                {
+                  "type": "card_grid",
+                  "title": "2 Cara Menyebut Status Kata Secara Ilmiah",
+                  "items": [
+                    {
+                      "icon": "fa-circle-up",
+                      "title": "1. RAFA' ➔ MARFU' (مَرْفُوع)",
+                      "desc": "Kita bisa mengatakan: 'Kata كِتَابٌ berada dalam bentuk Rafa' (in Rafa' form)' ATAU 'Kata كِتَابٌ adalah MARFU' (telah di-Rafa'-kan sebagai Pelaku / Doer)'."
+                    },
+                    {
+                      "icon": "fa-arrows-left-right",
+                      "title": "2. NASB ➔ MANSUB (مَنْصُوب)",
+                      "desc": "Kita bisa mengatakan: 'Kata كِتَابًا berada dalam bentuk Nasb (in Nasb form)' ATAU 'Kata كِتَابًا adalah MANSUB (telah di-Nasb-kan sebagai Rincian / Detail)'."
+                    },
+                    {
+                      "icon": "fa-circle-down",
+                      "title": "3. JAR ➔ MAJROOR (مَجْرُور)",
+                      "desc": "Kita bisa mengatakan: 'Kata كِتَابٍ berada dalam bentuk Jar (in Jar form)' ATAU 'Kata كِتَابٍ adalah MAJROOR (telah di-Jar-kan setelah 'of' / Harf Jar)'."
+                    }
+                  ]
+                },
+                {
+                  "type": "formula_box",
+                  "title": "Rumus Investigasi Pertanyaan Fi'il",
+                  "formula": "Pertanyaan Pelaku (Siapa yang melakukan?) ➔ MARFU' (Rafa')\nPertanyaan Rincian (Apa, Siapa objeknya, Kapan, Di mana, Mengapa, Bagaimana?) ➔ MANSUB (Nasb)\nHubungan Kepemilikan (Milik siapa? / Kata setelah 'of') ➔ MAJROOR (Jar)",
+                  "note": "Pertanyaan rincian WAJIB memuat kata kerja (Fi'il) di dalamnya!"
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d1_status_terms",
+                  "question": "Jika sebuah kata benda bertindak sebagai objek rincian (misal: 'Apa yang dibaca siswa?'), bagaimanakah status kata tersebut secara terminologi gramatikal?",
+                  "options": [
+                    {
+                      "text": "Berstatus Nasb / Mansub (مَنْصُوب)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Berstatus Rafa' / Marfu' (مَرْفُوع)",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Berstatus Jar / Majroor (مَجْرُور)",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Jawaban dari pertanyaan rincian atas perbuatan kata kerja (apa, siapa objeknya, kapan, di mana, bagaimana) selalu berstatus Nasb (Mansub)."
+                }
+              ]
+            },
+            {
+              "id": "i2-d1-klinik-investigasi-kalimat-fiil",
+              "number": "04",
+              "title": "Klinik Investigasi Kalimat: Mengapa 'Whose Student' Adalah Jar",
+              "icon": "fa-magnifying-glass-chart",
+              "readTime": "15 menit",
+              "summary": "Membedah pertanyaan investigasi kalimat: membedakan rincian perbuatan (Nasb) dengan hubungan identitas/kepemilikan (Jar).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Mari kita bedah kalimat klasik: *'A student of his was sleeping soundly'* (Seorang muridnya sedang tidur pulas). Mari kita lihat bagaimana setiap kata dianalisis:"
+                },
+                {
+                  "type": "case_study",
+                  "title": "Bedah Pertanyaan Investigasi Kasus Murid Tidur",
+                  "points": [
+                    {
+                      "label": "1. Siapa yang tidur? ('Who was sleeping?')",
+                      "desc": "Jawabannya: 'Student' (Murid). Karena menjawab pertanyaan pelaku perbuatan tidur, maka 'Student' berstatus MARFU' (Rafa')."
+                    },
+                    {
+                      "label": "2. Bagaimana ia tidur? ('How was he sleeping?')",
+                      "desc": "Jawabannya: 'Soundly' (Pulas/Nyenyak). Karena menjawab pertanyaan rincian cara tidur, maka 'Soundly' berstatus MANSUB (Nasb)."
+                    },
+                    {
+                      "label": "3. Murid siapa itu? ('Whose student was it?')",
+                      "desc": "Jawabannya: 'His' (Milreading: *Student of his*). Perhatikan bahwa pertanyaan ini TIDAK memuat kata kerja 'tidur', melainkan mencari identitas kepemilikan. Oleh karena itu, 'His' berstatus MAJROOR (Jar)!"
+                    }
+                  ]
+                },
+                {
+                  "type": "callout",
+                  "style": "gold",
+                  "title": "Kaidah Efek Sambungan Harf Jar ('Athaf)",
+                  "text": "Jika seseorang berkata: 'Saya datang **DENGAN** sebuah pena, buku catatan, dan makanan ringan' (جِئْتُ بِقَلَمٍ وَدَفْتَرٍ وَطَعَامٍ), maka pengaruh Harf Jar 'Bi' terus menjalar melalui kata sambung 'Wa' (dan), membuat SEMUA kata setelahnya berstatus MAJROOR beruntun!"
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d1_whose_case",
+                  "question": "Mengapa kata ganti 'his' pada frasa 'a student of his' berstatus Jar (Majroor) dan bukan Nasb?",
+                  "options": [
+                    {
+                      "text": "Karena berada setelah kata 'of' (kepemilikan identitas) dan bukan rincian dari perbuatan kata kerja",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena bertindak sebagai pelaku perbuatan",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena 'his' adalah kata keterangan tempat",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Kata kepemilikan ('of' / Idhafah) menjelaskan relasi antarbenda/orang (identitas), bukan rincian atas perbuatan kata kerja, sehingga statusnya selalu Jar (Majroor)."
+                }
+              ]
+            },
+            {
+              "id": "i2-d1-tiga-kelompok-kombinasi-dan-mabni",
+              "number": "05",
+              "title": "3 Kelompok Kombinasi Utama & Rahasia Ism Mabni (`ذَلِكَ`)",
+              "icon": "fa-layer-group",
+              "readTime": "15 menit",
+              "summary": "Memantapkan protokol 3 kelompok kombinasi (Pair, Plural, Feminine Plural) dan mengenali kata non-fleksibel (Mabni).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Untuk menentukan status kata secara cepat dan tanpa ragu, ikuti **Protokol 2 Langkah**: Pertama, cari Akhiran Kombinasi! Jika tidak ada kombinasi, barulah lihat Akhiran Bunyi."
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Bagan 3 Kelompok Kombinasi Akhiran",
+                  "headers": [
+                    "Kelompok Kombinasi",
+                    "Bentuk Rafa' (Marfu')",
+                    "Bentuk Nasb & Jar (Mansub / Majroor)",
+                    "Contoh Kata"
+                  ],
+                  "rows": [
+                    [
+                      "1. Pair Group (Dual / 2)",
+                      "ـَانِ (-Aani)",
+                      "ـَيْنِ (-Ayni)",
+                      "مُسْلِمَانِ ➔ مُسْلِمَيْنِ, البَحْرَيْنِ"
+                    ],
+                    [
+                      "2. Plural Group (Jamak 3+ Pria)",
+                      "ـُونَ (-Oona)",
+                      "ـِينَ (-Eena)",
+                      "مُسْلِمُونَ ➔ مُسْلِمِينَ, الْمُؤْمِنِينَ"
+                    ],
+                    [
+                      "3. Feminine Plural (Jamak 3+ Wanita)",
+                      "ـَاتٌ (-Aatun)",
+                      "ـَاتٍ (-Aatin)",
+                      "مُسْلِمَاتٌ ➔ مُسْلِمَاتٍ, آيَاتٍ, بَيِّنَاتٍ"
+                    ]
+                  ]
+                },
+                {
+                  "type": "callout",
+                  "style": "moss",
+                  "title": "Peringatan Emas Ta Marbuthah (`ـَة`)!",
+                  "text": "Ta Marbuthah (`ـَة / ـَةً / ـَةٍ`) SELALU berstatus AKHIRAN BUNYI (Tunggal 1F), TIDAK PERNAH menjadi kombinasi! Kombinasi jamak feminin HANYA menggunakan Ta terbuka panjang (`ـَات`)."
+                },
+                {
+                  "type": "deep_dive",
+                  "title": "Tantangan Kata Tunjuk Non-Fleksibel (Mabni): 'ذَلِكَ'",
+                  "items": [
+                    {
+                      "type": "Pertanyaan Jebakan: Apa status 'ذَلِكَ' (Dzaalika)?",
+                      "examples": "Kata 'ذَلِكَ' adalah kata tunjuk yang bersifat NON-FLEKSIBEL (Mabni). Bentuk Rafa', Nasb, maupun Jar-nya sama persis berbunyi 'ذَلِكَ'. Jadi statusnya bisa Rafa', Nasb, ATAU Jar tergantung perannya di dalam ayat!"
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d1_dzaalika",
+                  "question": "Apakah status gramatikal dari kata tunjuk 'ذَلِكَ' (Dzaalika)?",
+                  "options": [
+                    {
+                      "text": "Bisa berstatus Rafa', Nasb, atau Jar (Non-fleksibel / Mabni)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Pasti Nasb karena berakhiran fathah",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Pasti Rafa' tunggal",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Kata tunjuk 'Dzaalika' adalah Ism Mabni (tidak fleksibel), sehingga harakat fathah di akhirnya bukan penentu status; statusnya ditentukan oleh posisinya dalam struktur kalimat."
+                }
+              ]
+            },
+            {
+              "id": "i2-d1-masterclass-protein-bar-kombinasi-ringan",
+              "number": "06",
+              "title": "Masterclass Protein Bar: Mengapa 'Rasoolaa' & 'Aynaa' adalah 2 Rafa' Ringan",
+              "icon": "fa-trophy",
+              "readTime": "15 menit",
+              "summary": "Membedah misteri kata-kata ringan tingkat tinggi: membedakan Nasb tunggal dengan Dual Rafa' ringan (Rasoolaa, Aynaa, Mu'allimay, Kalimaati).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Di bagian penutup Day 1, Ustaz Nouman memberikan teka-teki berhadiah *Protein Bar* yang menguji ketajaman analisa mata kita terhadap bentuk kata **BERAT VS RINGAN**."
+                },
+                {
+                  "type": "formula_box",
+                  "title": "Mengapa 'Al-' Tidak Membuat Kata Menjadi Ringan?",
+                  "formula": "Bagan Normal: مُسْلِمُونَ (Berat) ➔ مُسْلِمُو (Ringan)\nBagan dengan Al-: الْمُسْلِمُونَ (Tetap Berat karena huruf Nun TIDAK dibuang!)",
+                  "note": "Al- hanya tidak menyukai Tanwin pada akhiran bunyi, tetapi sama sekali tidak membuang huruf Nun pada akhiran kombinasi!"
+                },
+                {
+                  "type": "case_study",
+                  "title": "Bedah 4 Kasus Protein Bar",
+                  "points": [
+                    {
+                      "label": "1. Kata 'رَسُولَا' (Rasoolaa - dengan Alif tapi tanpa Tanwin):",
+                      "desc": "Bila ini adalah Nasb tunggal ringan, maka ia ditulis 'رَسُولَ' (tanpa alif). Karena ada Alif tambahan di belakangnya, kata ini adalah bentuk RINGAN dari 'رَسُولَانِ' (Dua Utusan) ➔ Status: DUAL (2) RAFA' RINGAN!"
+                    },
+                    {
+                      "label": "2. Kata 'عَيْنَا' (Aynaa):",
+                      "desc": "Berasal dari 'عَيْنَانِ' yang dibuang huruf Nun-nya karena bertindak sebagai Mudhaf (Dua Mata Air) ➔ Status: DUAL (2) RAFA' RINGAN!"
+                    },
+                    {
+                      "label": "3. Kata 'مُعَلِّمَيْ' (Mu'allimay):",
+                      "desc": "Berasal dari 'مُعَلِّمَيْنِ' yang dibuang huruf Nun-nya ➔ Status: DUAL (2) NASB/JAR RINGAN!"
+                    },
+                    {
+                      "label": "4. Kata 'كَلِمَاتِ' (Kalimaati - satu kasrah tanpa tanwin):",
+                      "desc": "Berasal dari 'كَلِمَاتٍ' (Jamak Feminin) yang diringankan menjadi satu kasrah ➔ Status: PLURAL FEMININE NASB/JAR RINGAN!"
+                    }
+                  ]
+                },
+                {
+                  "type": "summary_card",
+                  "title": "Rangkuman Spektakuler Intensive 2 Day 1! 🌟",
+                  "points": [
+                    "Memperbaharui tekad menjawab tantangan kemudahan Al-Qur'an (QS. Al-Qamar: 17).",
+                    "Memahami 3 ragam bahasa Arab: Street Arabic, Fusha, dan Classical Arabic.",
+                    "Teknik eliminasi kata (Ism, Fi'il, Harf) dan jebakan kata serapan Inggris (-ing & -s).",
+                    "Penyebutan ilmiah 3 status: Marfu' (Rafa'), Mansub (Nasb), dan Majroor (Jar).",
+                    "Kaidah investigasi fi'il: pertanyaan pelaku (Rafa') vs rincian (Nasb) vs kepemilikan (Jar).",
+                    "Protokol 3 kelompok kombinasi: Pair (ـَانِ / ـَيْنِ), Plural (ـُونَ / ـِينَ), Fem Plural (ـَاتٌ / ـَاتٍ).",
+                    "Master analisis kata kombinasi ringan: Membedakan Nasb tunggal dengan Dual Rafa' (رَسُولَا & عَيْنَا)."
+                  ]
+                }
+              ]
+            }
+          ],
+          "videoUrl": "https://www.youtube.com/live/WPjsDVS_trI?si=GIcpmBccWmmFMJ9J",
+          "pdfUrl": "https://drive.google.com/open?id=16ITRyE6r5jl7nh21LxeHsOw90dQddg2Y&usp=drive_copy"
+        },
+        {
+          "day": 2,
+          "title": "Hari 2: Fleksibilitas Tingkat Lanjut, Palindrom Qur'an & Kaidah Jamak Taksir (1F vs 3M/3F)",
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 2 Day 2",
+              "url": "https://www.youtube.com/live/UjKnWbx8uyg?si=37TidN7Chevita7Q"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 2 Day 2",
+              "url": "https://drive.google.com/open?id=18jrecbcqCfWThQ2QI125XLq8Fj3yulYd&usp=drive_copy"
+            }
+          ],
+          "summary": "Memperdalam 4 alasan Ism Ringan, analogi imigrasi fleksibilitas kata (Munsharif, Mamnu' min ash-Sharf, Mabni), keajaiban palindrom Surah Al-Muddatstsir, dan kaidah emas penanganan Jamak Taksir Berakal vs Tidak Berakal (1F vs 3M/3F).",
+          "lessons": [
+            {
+              "id": "i2-d2-tanya-jawab-ejaan-dan-lam-penekanan",
+              "number": "01",
+              "title": "Klinik Q&A Ejaan Alif, Dagger Alif, dan Lam Penekanan (Lam at-Tawkid)",
+              "icon": "fa-circle-question",
+              "readTime": "15 menit",
+              "summary": "Membedah tuntas penulisan Alif tanwin, Dagger Alif pada jamak feminin, dan perbedaan Lam Harf Jar vs Lam Penekanan (Lam at-Tawkid/Qasam).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Mengawali Day 2, kita menuntaskan beberapa pertanyaan krusial seputar ortografi (penulisan) dan partikel bahasa Arab yang sering membingungkan penuntut ilmu pemula:"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Perbedaan Lam Harf Jar (لِـ / لَـ) vs Lam Penekanan (لَـ)",
+                  "headers": [
+                    "Karakteristik",
+                    "Lam Harf Jar (حَرْفُ جَرٍّ)",
+                    "Lam Penekanan / Tawkid (لَامُ التَّوْكِيدِ)"
+                  ],
+                  "rows": [
+                    [
+                      "Vokalisasi Dasar",
+                      "Berharakat kasrah `لِـ` pada Ism lahir (`لِلَّهِ`, `لِلْمُتَّقِينَ`), dan `لَـ` pada dhomir (`لَكُمْ`, `لَهُ`).",
+                      "Selalu berharakat fathah `لَـ` di mana pun ia berada (`لَعِبْرَةً`, `لَفِي خُسْرٍ`)."
+                    ],
+                    [
+                      "Efek terhadap Status",
+                      "MEMBUAT kata setelahnya menjadi MAJROOR (Jar)!",
+                      "TIDAK MERUBAH status kata sama sekali (Status tetap Rafa'/Nasb/Jar sesuai asalnya)."
+                    ],
+                    [
+                      "Fungsi Makna",
+                      "Menyatakan kepemilikan atau peruntukan ('Milik/Bagi/Untuk').",
+                      "Menyuntikkan energi penekanan dahsyat / sumpah ('Sungguh benar-benar / Pasti')."
+                    ],
+                    [
+                      "Contoh Al-Qur'an",
+                      "`لِلَّهِ مَا فِي السَّمَاوَاتِ` (Milik Allah apa yang ada di langit).",
+                      "`إِنَّ فِي ذَٰلِكَ لَعِبْرَةً` (Sungguh pada yang demikian itu BENAR-BENAR terdapat pelajaran - QS. An-Nazi'at: 26)."
+                    ]
+                  ]
+                },
+                {
+                  "type": "callout",
+                  "style": "gold",
+                  "title": "Rahasia Dagger Alif (Alif Khinjiriyah) pada Jamak Feminin",
+                  "text": "Pada mushaf Al-Qur'an, kata seperti `آيَاتٌ` atau `بَيِّنَاتٌ` sering ditulis dengan Dagger Alif tegak kecil di atas huruf. Apakah ini tetap kombinasi jamak feminin? **YA, 100%!** Bahasa Arab ditransmisikan secara auditorial (pendengaran) sebelum penulisan dibakukan, sehingga bunyi panjang `ـَات` adalah penentu mutlak kombinasi jamak feminin."
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d2_lam_tawkid",
+                  "question": "Pada kalimat `إِنَّ الْإِنسَانَ لَفِي خُسْرٍ`, mengapa huruf Lam pada `لَفِي` tidak membuat `فِي` menjadi majroor?",
+                  "options": [
+                    {
+                      "text": "Karena Lam tersebut adalah Lam at-Tawkid (penekanan) yang bisa masuk ke kata apa saja tanpa merubah status kata",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena 'Fi' adalah kata benda",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena Harf Jar tidak boleh bertemu dengan kata lain",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Lam at-Tawkid (Lam penekanan) tidak memiliki kekuatan 'I'rab (tidak merubah harakat), ia hanya berfungsi memberikan penguatan makna yang sangat mendalam."
+                }
+              ]
+            },
+            {
+              "id": "i2-d2-analogi-imigrasi-3-kategori-fleksibilitas",
+              "number": "02",
+              "title": "Analogi Kewarganegaraan: 3 Kategori Fleksibilitas Ism",
+              "icon": "fa-passport",
+              "readTime": "15 menit",
+              "summary": "Memahami Fully Flexible (Munsharif), Partly Flexible (Mamnu' min ash-Sharf), dan Non-Flexible (Mabni) lewat analogi hak imigrasi.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Untuk memahami konsep fleksibilitas kata (*I'rab & Bina'*), Ustaz Nouman memberikan analogi brilian tentang 3 status kependudukan dalam suatu negara:"
+                },
+                {
+                  "type": "card_grid",
+                  "title": "3 Golongan Fleksibilitas Kata dalam Bahasa Arab",
+                  "items": [
+                    {
+                      "icon": "fa-id-card",
+                      "title": "1. Warga Negara Penuh (Fully Flexible / مُنْصَرِف)",
+                      "desc": "Mencakup 99% kata Arab (`مُسْلِمٌ`, `كِتَابٌ`, `سَفِينَةٌ`, `مَسْجِدٌ`). Memiliki hak penuh: bisa berat dengan tanwin (`ـٌ ـً ـٍ`) dan bisa diet/ringan (`ـُ ـَ ـِ`) saat dibutuhkan."
+                    },
+                    {
+                      "icon": "fa-person-circle-exclamation",
+                      "title": "2. Tanpa Hak Ubah Bunyi (Non-Flexible / مَبْنِي)",
+                      "desc": "Kata yang terkunci bentuk lahiriahnya (`مُوسَى`, `عِيسَى`, `دُنْيَا`, `ذَلِكَ`, `هَذَا`, `الَّذِي`). Bentuk Rafa', Nasb, maupun Jar-nya sama persis berbunyi sama."
+                    },
+                    {
+                      "icon": "fa-passport",
+                      "title": "3. Pemegang Visa / Izin Khusus (Partly Flexible / مَمْنُوع مِنَ الصَّرْف)",
+                      "desc": "Nama non-Arab 4+ huruf (`يُوسُفُ`, `إِبْرَاهِيمُ`, `فِرْعَوْنُ`) dan nama tempat (`مَكَّةُ`, `بَاكِسْتَانُ`). Aturannya: Rafa' = `-u`, Nasb & Jar = `-a`. Tidak boleh bertanwin dan tidak boleh kasrah!"
+                    }
+                  ]
+                },
+                {
+                  "type": "formula_box",
+                  "title": "Aturan Naturalisasi 3 Huruf & 4 Nabi Bangsa Arab",
+                  "formula": "Nama Non-Arab / Tempat 3 Huruf ➔ FULLY FLEXIBLE! (Contoh: نُوحٌ, لُوطٌ, هُودٌ, عَدْنٌ)\n4 Nabi Bangsa Arab Asli ➔ FULLY FLEXIBLE! (مُحَمَّدٌ, صَالِحٌ, هُودٌ, شُعَيْبٌ)",
+                  "note": "Nama malaikat dan nabi lainnya (Jibril, Mikail, Yusuf, Ibrahim, Ismail, Ishaq, Ya'qub) berstatus Partly Flexible."
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d2_flexibility_citizens",
+                  "question": "Mengapa nama Nabi Luth (`لُوطٌ`) dan Nabi Nuh (`نُوحٌ`) berstatus Fully Flexible (bertanwin) padahal keduanya bukan berasal dari etnis Arab?",
+                  "options": [
+                    {
+                      "text": "Karena dieja hanya dengan 3 huruf (aturan naturalisasi 3 huruf)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena mereka adalah nabi bangsa Arab",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena nama nabi selalu Fully Flexible",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Setiap nama non-Arab atau nama tempat yang hanya terdiri dari 3 huruf mendapatkan status Fully Flexible (Munsharif) dan menerima tanwin."
+                }
+              ]
+            },
+            {
+              "id": "i2-d2-keajaiban-palindrom-dan-tazkiyah",
+              "number": "03",
+              "title": "Keajaiban Balaghah Palindrom Qur'an & Tazkiyah Surah 'Abasa",
+              "icon": "fa-gem",
+              "readTime": "15 menit",
+              "summary": "Menelaah keindahan simetri huruf Al-Qur'an pada QS. Al-Muddatstsir: 3 dan hikmah ketulusan menuntut ilmu dari Surah 'Abasa.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Di tengah pembahasan fleksibilitas kata, Ustaz Nouman membagikan dua mutiara tadabbur yang menggugah jiwa dan memperkuat kecintaan kita pada Al-Qur'an:"
+                },
+                {
+                  "type": "deep_dive",
+                  "title": "1. Keajaiban Palindrom Sempurna: QS. Al-Muddatstsir [74]: 3",
+                  "items": [
+                    {
+                      "type": "Ayat Spektakuler: وَرَبَّكَ فَكَبِّرْ (Wa Rabba-ka Fa-Kabbir)",
+                      "examples": "Arti: 'Dan Tuhanmulah, agungkanlah!'. Perhatikan susunan hurufnya:\n• Dibaca Maju: [و] [ر] [ب] [ك] [ف] [ك] [ب] [ر] [و]\n• Dibaca Mundur: [و] [ر] [ب] [ك] [ف] [ك] [ب] [ر] [و]\nSusunan hurufnya simetris sempurna dari depan maupun belakang, diwahyukan kepada Nabi ﷺ yang ummi (tidak membaca/menulis huruf), sambil tetap membawa pesan tauhid yang paling mendasar dan sempurna!"
+                    }
+                  ]
+                },
+                {
+                  "type": "callout",
+                  "style": "moss",
+                  "title": "2. Pelajaran Keikhlasan dari Surah 'Abasa",
+                  "text": "Allah menegur Nabi ﷺ saat beliau mengalihkan perhatian dari sahabat buta yang tulus, Abdullah bin Ummi Maktum, demi mendakwahi tokoh elit Quraisy. Nilai seorang penuntut ilmu di hadapan Allah tidak diukur dari jabatan atau popularitas dunia, melainkan dari **ketulusan hati dan kesungguhan mempelajari firman-Nya**!"
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d2_palindrome",
+                  "question": "Apakah yang istimewa dari susunan huruf pada firman Allah `وَرَبَّكَ فَكَبِّرْ` (QS. Al-Muddatstsir: 3)?",
+                  "options": [
+                    {
+                      "text": "Merupakan palindrom sempurna: susunan hurufnya sama persis saat dibaca maju maupun mundur",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Terdiri dari seluruh huruf hijaiyah tanpa kecuali",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Merupakan kalimat yang tidak memiliki kata kerja",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Ayat `وَرَبَّكَ فَكَبِّرْ` adalah salah satu mukjizat sastra Al-Qur'an berupa palindrom simetris sempurna huruf per huruf."
+                }
+              ]
+            },
+            {
+              "id": "i2-d2-klinik-bilangan-dan-protokol-jamak-taksir",
+              "number": "04",
+              "title": "4 Macam Jamak & Protokol Deteksi Jamak Taksir (Broken Plural)",
+              "icon": "fa-layer-group",
+              "readTime": "15 menit",
+              "summary": "Mengenali 4 ragam jamak dalam bahasa Arab dan menerapkan 3 langkah protokol identifikasi Jamak Taksir.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Dalam pembahasan **Number (Bilangan)**, bentuk tunggal (1) dan dual (2) bersifat statis dan mudah diprediksi. Seluruh kompleksitas dan keindahan bahasa Arab berpusat pada **Kategori Jamak (Plural)**:"
+                },
+                {
+                  "type": "card_grid",
+                  "title": "4 Macam Jamak dalam Bahasa Arab",
+                  "items": [
+                    {
+                      "icon": "fa-users",
+                      "title": "1. Jamak Salim Maskulin (Sound Plural)",
+                      "desc": "Berakhiran `ـُونَ / ـِينَ`. KHUSUS makhluk berakal (manusia, malaikat, jin). Contoh: `مُسْلِمُونَ`, `مُكَذِّبِينَ`."
+                    },
+                    {
+                      "icon": "fa-person-dress",
+                      "title": "2. Jamak Salim Feminin (Sound Plural)",
+                      "desc": "Berakhiran `ـَاتٌ / ـَاتٍ`. Bisa untuk wanita (`مُسْلِمَاتٌ`) maupun benda apa saja (`آيَاتٌ`, `سَمَاوَاتٌ`)."
+                    },
+                    {
+                      "icon": "fa-people-group",
+                      "title": "3. Ism Jamak (Orang Arab Bilang Begitu)",
+                      "desc": "3 kata kolektif mutlak: `النَّاسُ` (Manusia), `قَوْمٌ` (Kaum), `قَرْنٌ` (Generasi)."
+                    },
+                    {
+                      "icon": "fa-puzzle-piece",
+                      "title": "4. Jamak Taksir (Broken Plural)",
+                      "desc": "Kata yang bentuk tunggalnya 'dipecah' dan tidak menggunakan kombinasi `ـُونَ` atau `ـَاتٌ`. Contoh: `كُتُبٌ`, `جِبَالٌ`, `رُسُلٌ`."
+                    }
+                  ]
+                },
+                {
+                  "type": "formula_box",
+                  "title": "Protokol 3 Langkah Deteksi Jamak Taksir",
+                  "formula": "Langkah 1: Cek Makna ➔ Apakah bermakna jamak? (Contoh: 'Jibaal' = Gunung-gunung ➔ YA!)\nLangkah 2: Cek Akhiran ➔ Apakah ada kombinasi Una/Ina/Aatun? (TIDAK ADA!)\nLangkah 3: Cek Vokal ➔ Berakhiran bunyi harakat tunggal? (YA!)\n➔ KESIMPULAN: PASTI JAMAK TAKSIR (BROKEN PLURAL)!",
+                  "note": "Jika kata tersebut berakhiran kombinasi jamak salim (seperti `مُسْلِمُونَ`), maka ia adalah Jamak Salim, BUKAN Jamak Taksir."
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d2_broken_protocol",
+                  "question": "Mengapa kata `كُتُبٌ` (Kutubun = Buku-buku) diklasifikasikan sebagai Jamak Taksir?",
+                  "options": [
+                    {
+                      "text": "Karena bermakna jamak dari segi artinya, tetapi menggunakan akhiran bunyi tunggal (tanpa kombinasi Una/Aatun)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena merupakan kata pinjaman dari bahasa asing",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena berakhiran tanwin dhommah",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Kata 'Kutubun' bermakna jamak (buku-buku) namun strukturnya pecah dari bentuk tunggal 'Kitab' dan tidak memiliki akhiran kombinasi jamak salim, sehingga menjadi Jamak Taksir."
+                }
+              ]
+            },
+            {
+              "id": "i2-d2-kaidah-emas-penanganan-jamak-taksir",
+              "number": "05",
+              "title": "Kaidah Emas Penanganan Jamak Taksir: 1F vs (1F atau 3M/3F)",
+              "icon": "fa-scale-balanced",
+              "readTime": "15 menit",
+              "summary": "Menguasai kaidah penanganan Jamak Taksir Tidak Berakal (selalu 1F) dan Jamak Taksir Berakal (2 opsi: 1F atau 3M/3F).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Inilah inti paling mendalam dari Day 2: **Bagaimana memperlakukan Jamak Taksir dalam struktur kalimat Al-Qur'an?**"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Kaidah Penanganan Jamak Taksir Berakal vs Tidak Berakal",
+                  "headers": [
+                    "Kategori",
+                    "Definisi & Cakupan",
+                    "Kaidah Penanganan Gramatikal",
+                    "Contoh Analisis"
+                  ],
+                  "rows": [
+                    [
+                      "Jamak Taksir Tidak Berakal (Non-Human)",
+                      "Benda mati, hewan, tempat, konsep, bagian tubuh (`جِبَالٌ`, `بِحَارٌ`, `وُجُوهٌ`, `كُتُبٌ`).",
+                      "SELALU DIPERLAKUKAN SEBAGAI TUNGGAL FEMININ (1F)!",
+                      "`الْجِبَالَ` ➔ Status: Nasb, Sifat: 1F (Tunggal Feminin)\n`وُجُوهٌ` ➔ Status: Rafa', Sifat: 1F (Tunggal Feminin)"
+                    ],
+                    [
+                      "Jamak Taksir Berakal (Human Plural)",
+                      "Manusia, Malaikat, Jin (`نِسَاءٌ`, `عُلَمَاءُ`, `رُسُلٌ`, `مَلَائِكَةٌ`, `كَفَرَةٌ`).",
+                      "MEMILIKI 2 OPSI JAWABAN:\n• Opsi 1 (Gramatika): 1F (Tunggal Feminin)\n• Opsi 2 (Hakiki/Logika): 3M atau 3F sesuai jenis aslinya!",
+                      "`نِسَاءً` ➔ Nasb 1F (Gramatika) ATAU Nasb 3F (Hakiki)\n`الْمَلَائِكَةُ` ➔ Rafa' 1F (Gramatika) ATAU Rafa' 3M (Hakiki)"
+                    ]
+                  ]
+                },
+                {
+                  "type": "callout",
+                  "style": "gold",
+                  "title": "Peringatan Mengapa Wajah (Wujooh) Termasuk Non-Berakal!",
+                  "text": "Meskipun wajah adalah bagian tubuh manusia, anggota badan dianggap sebagai benda (*it / non-human*), sehingga `وُجُوهٌ` (Wajah-wajah) diperlakukan sebagai **Tunggal Feminin (1F)** saja, tidak memiliki opsi kedua."
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d2_human_treatment",
+                  "question": "Apakah dua perlakuan gramatikal yang sah untuk kata `عُلَمَاءُ` (Ulama / Orang-orang berilmu)?",
+                  "options": [
+                    {
+                      "text": "Rafa' 1F (Tunggal Feminin secara gramatika) ATAU Rafa' 3M (Jamak Maskulin secara hakiki)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Hanya Rafa' 3M saja",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Hanya Rafa' 1F saja",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Sebagai Jamak Taksir Berakal (Human Broken Plural), kata 'Ulama' dapat diperlakukan sebagai 1F menurut kaidah gramatika Arab, atau 3M menurut hakikat maknanya."
+                }
+              ]
+            },
+            {
+              "id": "i2-d2-bedah-kasus-malaikah-dan-kafarah",
+              "number": "06",
+              "title": "Bedah Kasus Spesial: Mengapa Ta Marbuthah pada `الْمَلَائِكَةُ` Bukan Feminin",
+              "icon": "fa-certificate",
+              "readTime": "15 menit",
+              "summary": "Mematahkan mitos Ta Marbuthah selalu wanita lewat kasus Al-Mala'ikah & Kafarah, serta rangkuman spektakuler Day 2.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Banyak pemula mengira bahwa setiap kata berakhiran Ta Marbuthah (`ـَة`) pasti berjenis kelamin perempuan. Kasus `الْمَلَائِكَةُ` dan `كَفَرَةٌ` membuktikan bahwa pemikiran tersebut keliru:"
+                },
+                {
+                  "type": "case_study",
+                  "title": "Bedah 2 Kasus Spesial Jamak Taksir Ber-Ta Marbuthah",
+                  "points": [
+                    {
+                      "label": "1. Kata 'الْمَلَائِكَةُ' (Para Malaikat):",
+                      "desc": "Ta Marbuthah pada kata ini adalah penanda pembentukan Jamak Taksir, BUKAN penanda feminin (Malaikat bukan wanita!). Perlakuan: **Rafa' 1F** (karena kaidah broken plural) ATAU **Rafa' 3M** (karena hakikat makhluk berakal non-wanita)."
+                    },
+                    {
+                      "label": "2. Kata 'كَفَرَةٌ' (Orang-orang Kafir):",
+                      "desc": "Bentuk jamak dari 'Kafir'. Ta Marbuthah di sini adalah pola jamak taksir (wazan fa'alah). Perlakuan: **Rafa' 1F** (Gramatika) ATAU **Rafa' 3M** (Hakiki para pendosa)."
+                    }
+                  ]
+                },
+                {
+                  "type": "summary_card",
+                  "title": "Rangkuman Spektakuler Intensive 2 Day 2! 🌟",
+                  "points": [
+                    "Membedakan Lam Harf Jar (membuat Majroor) vs Lam at-Tawkid (penekanan tanpa merubah harakat).",
+                    "Analogi imigrasi 3 fleksibilitas: Fully Flexible (Munsharif), Non-Flexible (Mabni), Partly Flexible (Mamnu' min ash-Sharf).",
+                    "Aturan naturalisasi nama non-Arab 3 huruf (Nuh, Luth, Hud, 'Adn) menjadi Fully Flexible.",
+                    "Keajaiban sastra Al-Qur'an pada palindrom QS. Al-Muddatstsir: 3 (وَرَبَّكَ فَكَبِّرْ).",
+                    "Protokol Jamak Taksir: Jamak dari segi arti + tanpa kombinasi Una/Aatun + akhiran bunyi.",
+                    "Kaidah Emas Penanganan: Non-Human Broken Plural = 1F; Human Broken Plural = 1F ATAU 3M/3F.",
+                    "Ta Marbuthah pada pola jamak (Mala'ikah, Kafarah) adalah penanda struktur jamak, bukan jenis kelamin wanita."
+                  ]
+                }
+              ]
+            }
+          ],
+          "videoUrl": "https://www.youtube.com/live/UjKnWbx8uyg?si=37TidN7Chevita7Q",
+          "pdfUrl": "https://drive.google.com/open?id=18jrecbcqCfWThQ2QI125XLq8Fj3yulYd&usp=drive_copy"
+        },
+        {
+          "day": 3,
+          "title": "Hari 3: 7 Kategori Ma'rifah, Adab Panggilan Nabi ﷺ & Misteri Balaghah Misr",
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 2 Day 3",
+              "url": "https://www.youtube.com/live/SBoEuBZLw5k?si=OlQu0doFvgZ2S2H1"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 2 Day 3",
+              "url": "https://drive.google.com/open?id=1XefTWpq9tA1ds9DhlwSoP-Uv_aTIYmNh&usp=drive_copy"
+            }
+          ],
+          "summary": "Menguasai 7 kategori Ism Ma'rifah (Proper), rahasia adab panggilan Al-Qur'an (Ya Rasulallah vs Ya Ayyuhan-Nabi), kisah prajurit medan perang 15 kata feminin, dan studi kasus balaghah kata Misr (Mesir vs Pedesaan).",
+          "lessons": [
+            {
+              "id": "i2-d3-hakikat-ayat-dan-balaghah-jamak-sedikit-banyak",
+              "number": "01",
+              "title": "Hakikat Kata Ayah & Balaghah Jamak Sedikit vs Jamak Banyak (Sunbulat vs Sanabil)",
+              "icon": "fa-book-open-reader",
+              "readTime": "15 menit",
+              "summary": "Memahami mengapa kata Ayah adalah 'Miraculous Signs' serta menyingkap presisi kata gandum Sunbulat (sedikit) vs Sanabil (banyak).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Kita mengawali Day 3 dengan meluruskan istilah terjemahan: kata **آيَة** (Ayah) tidak tepat jika sekadar diterjemahkan sebagai 'ayat/verse' atau 'kalimat'. Dalam Al-Qur'an, Ayah adalah **Tanda Keajaiban Kekuasaan Allah (Miraculous Sign)** yang memiliki format unik: bisa berupa satu huruf muqatta'ah (`الم`), satu nama agung (`الرَّحْمَٰنُ`), potongan frasa, satu kalimat, hingga satu halaman utuh (ayat hutang)."
+                },
+                {
+                  "type": "deep_dive",
+                  "title": "Studi Kasus Presisi Balaghah: 7 Tangkai Gandum dalam Al-Qur'an",
+                  "items": [
+                    {
+                      "type": "1. Mimpi Raja pada Surah Yusuf: سُنْبُلَاتٍ (Sunbulaat - Jamak Salim Feminin)",
+                      "examples": "Dalam mimpi raja tentang 7 tangkai gandum di masa paceklik yang mengharuskan berhemat, Allah menggunakan wazan jamak salim feminin (Jam'u Qillah / Jamak Sedikit: < 10) karena konteksnya adalah **kelangkaan dan keterbatasan makanan**."
+                    },
+                    {
+                      "type": "2. Perumpamaan Sedekah pada Surah Al-Baqarah [2]: 261: سَنَابِلَ (Sanaabil - Jamak Taksir)",
+                      "examples": "Dalam balasan orang yang berinfak di jalan Allah yang melipatgandakan 1 butir menjadi 7 tangkai dan 700 butir, Allah menggunakan wazan jamak taksir (Jam'u Katsrah / Super Plural) karena konteksnya adalah **kelimpahan pahala berlipat ganda tanpa batas**!"
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d3_sunbulat_sanabil",
+                  "question": "Mengapa Allah menggunakan kata 'سَنَابِلَ' (Sanaabil) pada ayat sedekah (QS. Al-Baqarah: 261) dan bukan 'سُنْبُلَاتٍ'?",
+                  "options": [
+                    {
+                      "text": "Karena 'Sanaabil' adalah pola jamak taksir yang mengindikasikan kelimpahan berlipat ganda (Jam'u Katsrah)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena 'Sanaabil' bermakna tunggal",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena 'Sunbulaat' hanya digunakan untuk makanan hewani",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Bahasa Arab klasik membedakan Jam'u Qillah (jumlah sedikit: Sunbulaat) dan Jam'u Katsrah (jumlah berlimpah ruah: Sanaabil), menunjukkan keajaiban diksi Al-Qur'an yang sangat presisi."
+                }
+              ]
+            },
+            {
+              "id": "i2-d3-kisah-lengkap-prajurit-medan-perang",
+              "number": "02",
+              "title": "Kisah Lengkap Prajurit di Medan Perang (15 Kata Feminin Sima'i)",
+              "icon": "fa-shield-halved",
+              "readTime": "15 menit",
+              "summary": "Menghafal dan menguasai seluruh kosakata yang dianggap feminin karena tradisi lisan bangsa Arab (Feminine because Arabs said so).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Untuk mengingat seluruh kata benda yang dianggap feminin oleh bangsa Arab tanpa tanda lahiriah (*Mu'annats Sima'i*), kita menghafalnya melalui sebuah narasi prajurit di medan perang:"
+                },
+                {
+                  "type": "story_box",
+                  "title": "Kisah Prajurit di Medan Perang (حِكَايَةُ الجُنْدِيّ فِي الحَرْب)",
+                  "story": "Saat berkecamuk perang (`حَرْب`), seorang prajurit melamun menatap langit (`سَمَاء`) hingga matahari (`شَمْس`) terbit. Ketika tersadar, ia mendapati hanya dirinya (`نَفْس`) yang tersisa di medan laga, terkepung kobaran api (`نَار`). Maka ia mengambil ember (`دَلْو`) berisi air untuk membuka jalan (`سَبِيل` / `طَرِيق`) menuju tanah (`أَرْض`) yang aman. Di tengah tiupan angin (`رِيح`) gurun yang membakar, ia mencari sumur (`بِئْر`). Lalu ia menemukan rumah (`دَار`) kosong berisi cangkir (`كَأْس`) penuh khamr (`خَمْر`). Namun karena takut akan neraka (`جَهَنَّم`), ia mengambil tongkatnya (`عَصَا`) lalu menghancurkan minuman itu."
+                },
+                {
+                  "type": "callout",
+                  "style": "moss",
+                  "title": "Status Seluruh Kata dalam Kisah Ini",
+                  "text": "Semua kata di dalam kisah di atas (`حَرْب, سَمَاء, شَمْس, نَفْس, نَار, دَلْو, سَبِيل, طَرِيق, أَرْض, رِيح, بِئْر, دَار, كَأْس, خَمْر, جَهَنَّم, عَصَا`) berjenis kelamin **FEMININ (Mu'annats)** secara default!"
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d3_war_story_gender",
+                  "question": "Apakah gender dari kata 'أَرْض' (Bumi/Tanah) dan 'نَفْس' (Jiwa/Diri) dalam gramatika Al-Qur'an?",
+                  "options": [
+                    {
+                      "text": "Feminin (karena bangsa Arab menetapkannya demikian / Sima'i)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Maskulin secara default",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Bisa maskulin bisa feminin secara bebas",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Kata-kata alam semesta dan benda dalam kisah prajurit (seperti Ardh, Nafs, Syams, Naar) diklasifikasikan sebagai Feminin Sima'i."
+                }
+              ]
+            },
+            {
+              "id": "i2-d3-tujuh-kategori-ism-marifah",
+              "number": "03",
+              "title": "7 Kategori Ism Ma'rifah (Proper / Khusus)",
+              "icon": "fa-list-check",
+              "readTime": "15 menit",
+              "summary": "Membedah 7 kategori mutlak Ism Ma'rifah: Alif Lam, Nama Khusus, Panggilan, Dhamir, Isyarah, Mawshul, dan Mudhaf kepada Ma'rifah.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Dalam sifat ke-4 Ism (**Type / Jenis**), status asal (*default*) setiap kata adalah **Nakirah (Common / Umum)**. Sebuah kata hanya menjadi **Ma'rifah (Proper / Khusus)** jika memenuhi salah satu dari 7 Kategori Mutlak berikut:"
+                },
+                {
+                  "type": "card_grid",
+                  "title": "7 Kategori Ism Ma'rifah dalam Bahasa Arab",
+                  "items": [
+                    {
+                      "icon": "fa-font",
+                      "title": "1. Kata Berawalan Alif Lam (الـ)",
+                      "desc": "Contoh: `الْكِتَابُ`, `الْمَسْجِدُ`, `الْبَلَدُ`. Keberadaan Alif Lam menggugurkan tanwin."
+                    },
+                    {
+                      "icon": "fa-signature",
+                      "title": "2. Nama Diri Khusus ('Alam)",
+                      "desc": "Nama orang (`مُحَمَّدٌ`, `مَرْيَمُ`, `نُوحٌ`) atau nama tempat (`مَكَّةُ`, `تَكْسَاسُ`). Meskipun bertanwin, nama Arab tetap Ma'rifah!"
+                    },
+                    {
+                      "icon": "fa-bullhorn",
+                      "title": "3. Kata yang Dipanggil (Munada)",
+                      "desc": "Kata yang diawali huruf panggilan `يَا` (seperti `يَا نُوحُ`, `يَا آدَمُ`, `يَا رَسُولَ اللَّهِ`)."
+                    },
+                    {
+                      "icon": "fa-user-group",
+                      "title": "4. Kata Ganti (Dhamir)",
+                      "desc": "14 Dhamir Munfashil (`هُوَ, هُمَا, هُمْ...`) dan 14 Dhamir Muttashil (`ـهُ, ـهُمَا, ـهُمْ...`)."
+                    },
+                    {
+                      "icon": "fa-hand-point-right",
+                      "title": "5. Kata Tunjuk (Asma'ul Isyarah)",
+                      "desc": "Kata tunjuk dekat (`هَذَا, هَذِهِ, هَؤُلَاءِ`) dan jauh (`ذَلِكَ, تِلْكَ, أُولَئِكَ`)."
+                    },
+                    {
+                      "icon": "fa-link",
+                      "title": "6. Kata Sambung (Ism Mawshul)",
+                      "desc": "Kata penghubung yang berarti 'yang' (`الَّذِي, الَّتِي, الَّذِينَ`)."
+                    },
+                    {
+                      "icon": "fa-sitemap",
+                      "title": "7. Mudhaf kepada Ism Ma'rifah",
+                      "desc": "Kata kepemilikan pertama yang bersandar pada kata Ma'rifah (`رَسُولُ اللَّهِ`, `كِتَابُ مُحَمَّدٍ`, `مَالُهُ`)."
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d3_marifah_seven",
+                  "question": "Apakah status type (jenis) dari kata 'رَسُولُ' pada frasa 'رَسُولُ اللَّهِ'?",
+                  "options": [
+                    {
+                      "text": "Ma'rifah (Proper), karena bersandar pada Mudhaf Ilayh yang Ma'rifah ('Lafadz Jalalah')",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Nakirah (Common), karena tidak memiliki Alif Lam",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Tidak dapat ditentukan",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Mudhaf mewarisi status Type (Ma'rifah/Nakirah) dari Mudhaf Ilayh-nya. Karena 'Allah' adalah Ma'rifah, maka 'Rasul' menjadi Ma'rifah."
+                }
+              ]
+            },
+            {
+              "id": "i2-d3-adab-panggilan-munada-dan-kemuliaan-nabi",
+              "number": "04",
+              "title": "Hukum Munada (Panggilan) & Keagungan Adab Al-Qur'an terhadap Nabi ﷺ",
+              "icon": "fa-heart",
+              "readTime": "15 menit",
+              "summary": "Memahami 'I'rab panggilan tunggal (Rafa' Ringan) vs panggilan Mudhaf (Nasb Ringan) dan penghormatan ilahi kepada Nabi Muhammad ﷺ.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Ketika kita memanggil seseorang menggunakan partikel `يَا`, berlaku kaidah tata bahasa khusus yang sangat penting:"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Kaidah 'I'rab Kata yang Dipanggil (Munada)",
+                  "headers": [
+                    "Bentuk Kata",
+                    "Kaidah Status & Bentuk",
+                    "Contoh Panggilan"
+                  ],
+                  "rows": [
+                    [
+                      "1. Kata Tunggal / Nama Lepas (Mufrad 'Alam)",
+                      "Berstatus RAFA' dan WAJIB RINGAN (Tanpa Tanwin / Satu Dhommah)!",
+                      "`يَا نُوحُ` (bukan Ya Nuhun)\n`يَا آدَمُ` (bukan Ya Adamu)\n`يَا إِبْرَاهِيمُ`"
+                    ],
+                    [
+                      "2. Frasa Kepemilikan (Mudhaf)",
+                      "Berstatus NASB dan WAJIB RINGAN (Satu Fathah)!",
+                      "`يَا رَسُولَ اللَّهِ` (bukan Ya Rasulullah)\n`يَا عَبْدَ اللَّهِ` (bukan Ya Abdullah)\n`يَا أَبَا بَكْرٍ`"
+                    ],
+                    [
+                      "3. Kata Benda Umum Ber-Al (Ma'rifah bil-Al)",
+                      "WAJIB disisipkan 'Ayyuha' (`يَا أَيُّهَا`)!",
+                      "`يَا أَيُّهَا النَّاسُ`\n`يَا أَيُّهَا الرَّسُولُ`\n`يَا أَيُّهَا الْمُزَّمِّلُ`"
+                    ]
+                  ]
+                },
+                {
+                  "type": "deep_dive",
+                  "title": "Mutiara Adab Ilahi: Mengapa Tidak Ada 'Ya Muhammad' dalam Al-Qur'an?",
+                  "items": [
+                    {
+                      "type": "Penghormatan Khusus bagi Rasulullah ﷺ",
+                      "examples": "Allah memanggil nabi-nabi lain langsung dengan nama mereka: `يَا آدَمُ`, `يَا نُوحُ`, `يَا مُوسَى`, `يَا عِيسَى`. Namun kepada Nabi Muhammad ﷺ, Allah TIDAK PERNAH memanggil dengan 'Ya Muhammad'! Allah selalu menyapa dengan gelar kemuliaan: `يَا أَيُّهَا النَّبِيُّ`, `يَا أَيُّهَا الرَّسُولُ`, `يَا أَيُّهَا الْمُزَّمِّلُ`, `يَا أَيُّهَا الْمُدَّثِّرُ`. Bahkan ketika orang badui memanggil 'Ya Muhammad', Allah menurunkan teguran keras di Surah Al-Hujurat ayat 2-4!"
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d3_munada_rules",
+                  "question": "Bagaimanakah lafaz yang benar secara tata bahasa Arab ketika memanggil seseorang yang bernama 'Abdullah'?",
+                  "options": [
+                    {
+                      "text": "يَا عَبْدَ اللَّهِ (Berstatus Nasb karena merupakan Mudhaf)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "يَا عَبْدُ اللَّهِ (Berstatus Rafa')",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "يَا عَبْدِ اللَّهِ (Berstatus Jar)",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Ketika kata yang dipanggil bertindak sebagai Mudhaf (seperti Abda-llahi, Rasula-llahi), maka statusnya wajib menjadi Nasb (fathah)."
+                }
+              ]
+            },
+            {
+              "id": "i2-d3-studi-kasus-balaghah-misr",
+              "number": "05",
+              "title": "Misteri Balaghah Kata Misr: Mesir Kerajaan (Partly) vs Pedesaan (Fully)",
+              "icon": "fa-pyramid-scale",
+              "readTime": "15 menit",
+              "summary": "Membedah rahasia gramatika dan balaghah kata Misr: mengapa negeri Mesir Partly Flexible, sedangkan pedesaan pada QS. Al-Baqarah: 61 Fully Flexible bertanwin.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Salah satu bahasan paling memukau di Day 3 adalah analisis linguistik dan sejarah kata **مِصْر** (Misr):"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Perbandingan Dua Kata 'Misr' dalam Al-Qur'an",
+                  "headers": [
+                    "Kata",
+                    "Fleksibilitas & Harakat",
+                    "Makna Hakiki",
+                    "Contoh Ayat Al-Qur'an"
+                  ],
+                  "rows": [
+                    [
+                      "مِصْرُ / مِصْرَ",
+                      "Partly Flexible (Mamnu' min ash-Sharf: Tanpa Tanwin)",
+                      "Nama khusus imperium / negara kerajaan Mesir kuno.",
+                      "`أَلَيْسَ لِي مُلْكُ مِصْرَ` ('Bukankah milikku kerajaan Mesir?' - Perkataan Firaun, QS. Az-Zukhruf: 51)."
+                    ],
+                    [
+                      "مِصْرًا",
+                      "Fully Flexible (Munsharif: Bertanwin Fathatain)",
+                      "Kata benda umum bahasa Arab yang berarti 'pedesaan / lahan pertanian biasa'.",
+                      "`اهْبِطُوا مِصْرًا فَإِنَّ لَكُمْ مَا سَأَلْتُمْ` ('Pergilah ke suatu pedesaan, pasti kamu dapat apa yang kamu minta' - QS. Al-Baqarah: 61)."
+                    ]
+                  ]
+                },
+                {
+                  "type": "case_study",
+                  "title": "Sindiran Tajam Nabi Musa kepada Bani Israil",
+                  "points": [
+                    {
+                      "label": "1. Keajaiban Nikmat Pembebasan & Manna-Salwa:",
+                      "desc": "Setelah diselamatkan dari perbudakan Firaun dan diberi naungan awan serta makanan surga (Manna dan Salwa) setiap hari di padang pasir, Bani Israil mengeluh bosan dan merindukan bawang putih, kacang adas, dan mentimun yang biasa mereka makan di masa perbudakan Mesir."
+                    },
+                    {
+                      "label": "2. Pilihan Diksi 'Misran' yang Sarcastic:",
+                      "desc": "Nabi Musa menegur keras: *'Apakah kalian ingin menukar yang mulia (kemerdekaan & rezeki Allah) dengan yang hina?'* Beliau tidak berkata 'Kembalilah ke Mesir (Misra)', melainkan memakai kata 'Misran' (suatu desa biasa) sebagai sindiran: *'Kalian begitu merindukan masa perbudakan Mesir hingga rela mencari desa tani mana saja hanya demi bawang!'*"
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d3_misr_case",
+                  "question": "Mengapa kata 'مِصْرًا' pada ayat `اهْبِطُوا مِصْرًا` (QS. Al-Baqarah: 61) berstatus Fully Flexible (memiliki tanwin)?",
+                  "options": [
+                    {
+                      "text": "Karena berarti 'suatu pedesaan / kota biasa' (kata benda umum), bukan nama khusus imperium negara Mesir",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena dieja dengan 5 huruf",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena merupakan kata pinjaman dari Yunani",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Kata 'Misran' bertanwin karena merupakan Ism Nakirah asli bahasa Arab yang bermakna pedesaan umum, bukan nama khusus kerajaan Mesir."
+                }
+              ]
+            },
+            {
+              "id": "i2-d3-mastery-empat-sifat-ism-sekaligus",
+              "number": "06",
+              "title": "Mastery 4 Sifat Ism Sekaligus (Status, Number, Gender, Type - SNGT)",
+              "icon": "fa-award",
+              "readTime": "15 menit",
+              "summary": "Menguji ketangkasan bedah cepat 4 sifat Ism sekaligus (Status, Number, Gender, Type) dengan notasi kode profesional.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Kini kita telah menyatukan ke-4 pilar sifat Ism: **Status (S), Number (N), Gender (G), dan Type (T)**. Mari kita gunakan notasi singkat profesional untuk menganalisis kata dalam hitungan detik:"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Laboratorium Bedah 4 Sifat Ism (SNGT Code)",
+                  "headers": [
+                    "Kata Al-Qur'an",
+                    "Status (S)",
+                    "Number (N)",
+                    "Gender (G)",
+                    "Type (T)",
+                    "Notasi Lengkap & Keterangan"
+                  ],
+                  "rows": [
+                    [
+                      "نُوحًا",
+                      "Nasb",
+                      "1 (Tunggal)",
+                      "M (Pria)",
+                      "P (Proper / Nama)",
+                      "`N1MP` (Nama Nabi 3 huruf bertanwin)"
+                    ],
+                    [
+                      "مَاكِثِينَ",
+                      "Nasb/Jar",
+                      "3 (Jamak)",
+                      "M (Pria)",
+                      "C (Common / Tanpa Al)",
+                      "`NJ3MC` (Kombinasi Jamak Maskulin)"
+                    ],
+                    [
+                      "إِبْرَاهِيمَ",
+                      "Nasb/Jar",
+                      "1 (Tunggal)",
+                      "M (Pria)",
+                      "P (Proper / Nama)",
+                      "`NJ1MP` (Nama Non-Arab Partly Flexible)"
+                    ],
+                    [
+                      "أُمَّةً",
+                      "Nasb",
+                      "1 (Tunggal)",
+                      "F (Feminin / Ta)",
+                      "C (Common / Tanpa Al)",
+                      "`N1FC` (Tunggal Feminin bertanwin)"
+                    ],
+                    [
+                      "أُمٍّ",
+                      "Jar",
+                      "1 (Tunggal)",
+                      "F (Feminin Hakiki)",
+                      "C (Common)",
+                      "`J1FC` (Ibu adalah feminin hakiki)"
+                    ],
+                    [
+                      "الْقَرْنَيْنِ",
+                      "Nasb/Jar",
+                      "2 (Dual)",
+                      "M (Maskulin)",
+                      "P (Proper / Al)",
+                      "`NJ2MP` (Kombinasi Dual ber-Alif Lam)"
+                    ]
+                  ]
+                },
+                {
+                  "type": "summary_card",
+                  "title": "Rangkuman Spektakuler Intensive 2 Day 3! 🌟",
+                  "points": [
+                    "Ayah adalah Miraculous Sign; Diksi Sunbulaat (sedikit) vs Sanaabil (banyak) membuktikan mukjizat Al-Qur'an.",
+                    "Menguasai 15 kosakata feminin sima'i melalui narasi prajurit di medan perang.",
+                    "7 Kategori Ism Ma'rifah: Alif Lam, Nama Diri, Panggilan (Munada), Dhamir, Asma'ul Isyarah, Ism Mawshul, dan Mudhaf Ma'rifah.",
+                    "Kaidah Munada: Nama tunggal = Rafa' Ringan (`يَا نُوحُ`); Mudhaf = Nasb Ringan (`يَا رَسُولَ اللَّهِ`).",
+                    "Keagungan adab ilahi: Allah menyapa Nabi Muhammad ﷺ dengan gelar mulia (`يَا أَيُّهَا الرَّسُولُ`).",
+                    "Misteri balaghah Misr: Negeri Mesir (Partly Flexible: Misra) vs Pedesaan umum (Fully Flexible: Misran).",
+                    "Menguasai analisis terpadu 4 sifat Ism (SNGT Code: R/N/J, 1/2/3, M/F, C/P)."
+                  ]
+                }
+              ]
+            }
+          ],
+          "videoUrl": "https://www.youtube.com/live/SBoEuBZLw5k?si=OlQu0doFvgZ2S2H1",
+          "pdfUrl": "https://drive.google.com/open?id=1XefTWpq9tA1ds9DhlwSoP-Uv_aTIYmNh&usp=drive_copy"
+        },
+        {
+          "day": 4,
+          "title": "Hari 4: 4 Kondisi Dhamir Muttashil (Nasb vs Jar), Anatomi Hijab & Misteri Al-Husna",
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 2 Day 4",
+              "url": "https://www.youtube.com/live/53MwDht85kM?si=rQxy-MoM4akNRZ1A"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 2 Day 4",
+              "url": "https://drive.google.com/open?id=1XLIaMzFn3csTk9UeY6fM8FsEZ-lTcJtI&usp=drive_copy"
+            }
+          ],
+          "summary": "Menguasai 4 kondisi mutlak Dhamir Muttashil (kapan Jar dan kapan Nasb), anatomi kata ringan, hakikat kata Hijab dalam Al-Qur'an, dan rahasia gramatika frasa Al-Asma'ul Husna.",
+          "lessons": [
+            {
+              "id": "i2-d4-anatomi-kata-ringan-dan-rahasia-hijab",
+              "number": "01",
+              "title": "Filosofi Kata Ringan & Hakikat Kata Hijab dalam Al-Qur'an (Mahjubun)",
+              "icon": "fa-feather",
+              "readTime": "15 menit",
+              "summary": "Memahami mengapa kata Ringan bisa diketahui Status/Number/Gender-nya namun Type-nya menggantung, serta menyingkap makna hakiki kata Hijab.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Ketika sebuah Ism berstatus **Ringan (Light)** tanpa Alif Lam (seperti `مُسْلِمُو` atau `نِسَاءَ`), kita dapat langsung memastikan **Status**, **Number**, dan **Gender**-nya. Namun sifat ke-4 (**Type / Ma'rifah vs Nakirah**) tidak dapat ditentukan sampai kita menemukan pasangannya (apakah ia Mudhaf kepada kata Ma'rifah atau Nakirah)."
+                },
+                {
+                  "type": "deep_dive",
+                  "title": "Koreksi Konseptual: Apa Arti 'Hijab' dalam Bahasa Al-Qur'an?",
+                  "items": [
+                    {
+                      "type": "1. Hijab Bukan Sekadar Penutup Kepala (Khimar)",
+                      "examples": "Penutup kepala wanita dalam bahasa Al-Qur'an disebut `خِمَار` (Khimar). Kata `حِجَاب` (Hijab) dalam Al-Qur'an bermakna **Tirai, Dinding Pembatas, atau Layar Penghalang** yang memisahkan dua ruang sehingga satu pihak tidak dapat melihat pihak lain."
+                    },
+                    {
+                      "type": "2. Makna Kata مَحْجُوبُونَ (QS. Al-Muthaffifin: 15)",
+                      "examples": "Orang-orang kafir di hari kiamat disifati sebagai `مَحْجُوبُونَ` (terhijab / terhalang) — artinya mata hati dan pandangan mereka terhalang tirai pekat sehingga tidak dapat melihat kemuliaan dan rahmat Allah."
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d4_hijab_meaning",
+                  "question": "Apakah makna terminologis kata 'حِجَاب' (Hijab) dalam kosakata Al-Qur'an?",
+                  "options": [
+                    {
+                      "text": "Tirai / Layar / Dinding pembatas yang menghalangi pandangan ke sisi seberang",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Pakaian jubah luar",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Hiasan dinding rumah",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Dalam Al-Qur'an, kata Hijab berarti tirai atau layar pembatas antara dua ruang (seperti dinding pemisah atau tirai pembatas pandangan)."
+                }
+              ]
+            },
+            {
+              "id": "i2-d4-masterclass-dhamir-munfashil-vs-muttashil",
+              "number": "02",
+              "title": "Masterclass Dhamir: 14 Munfashil (Rafa') vs 14 Muttashil (Nasb/Jar)",
+              "icon": "fa-users-viewfinder",
+              "readTime": "15 menit",
+              "summary": "Membedakan kata ganti mandiri (Munfashil) yang selalu berstatus Rafa' dengan kata ganti bersambung (Muttashil) yang berstatus Nasb atau Jar.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Dhamir (Kata Ganti) terbagi menjadi dua kelompok besar yang wajib dikuasai luar kepala:"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "14 Dhamir Munfashil (Rafa') vs 14 Dhamir Muttashil (Nasb/Jar)",
+                  "headers": [
+                    "Makna & Orang",
+                    "Dhamir Munfashil (Selalu RAFA')",
+                    "Dhamir Muttashil (NASB / JAR)"
+                  ],
+                  "rows": [
+                    [
+                      "Dia (1 Pria)",
+                      "`هُوَ` (Huwa)",
+                      "`ـهُ / ـهِ` (-hu / -hi)"
+                    ],
+                    [
+                      "Mereka (2 Pria)",
+                      "`هُمَا` (Humaa)",
+                      "`ـهُمَا / ـهِمَا` (-humaa / -himaa)"
+                    ],
+                    [
+                      "Mereka (3+ Pria)",
+                      "`هُمْ` (Hum)",
+                      "`ـهُمْ / ـهِمْ` (-hum / -him)"
+                    ],
+                    [
+                      "Dia (1 Wanita)",
+                      "`هِيَ` (Hiya)",
+                      "`ـهَا` (-haa)"
+                    ],
+                    [
+                      "Mereka (2 Wanita)",
+                      "`هُمَا` (Humaa)",
+                      "`ـهُمَا / ـهِمَا` (-humaa / -himaa)"
+                    ],
+                    [
+                      "Mereka (3+ Wanita)",
+                      "`هُنَّ` (Hunna)",
+                      "`ـهُنَّ / ـهِنَّ` (-hunna / -hinna)"
+                    ],
+                    [
+                      "Kamu (1 Pria)",
+                      "`أَنْتَ` (Anta)",
+                      "`ـكَ` (-ka)"
+                    ],
+                    [
+                      "Kalian (2 Pria/Wanita)",
+                      "`أَنْتُمَا` (Antumaa)",
+                      "`ـكُمَا` (-kumaa)"
+                    ],
+                    [
+                      "Kalian (3+ Pria)",
+                      "`أَنْتُمْ` (Antum)",
+                      "`ـكُمْ` (-kum)"
+                    ],
+                    [
+                      "Kamu (1 Wanita)",
+                      "`أَنْتِ` (Anti)",
+                      "`ـكِ` (-ki)"
+                    ],
+                    [
+                      "Kalian (3+ Wanita)",
+                      "`أَنْتُنَّ` (Antunna)",
+                      "`ـكُنَّ` (-kunna)"
+                    ],
+                    [
+                      "Saya (1 Pria/Wanita)",
+                      "`أَنَا` (Anaa)",
+                      "`ـنِي / ـي` (-nee / -ee)"
+                    ],
+                    [
+                      "Kami / Kita (2+ Pria/Wanita)",
+                      "`نَحْنُ` (Nahnu)",
+                      "`ـنَا` (-naa)"
+                    ]
+                  ]
+                },
+                {
+                  "type": "callout",
+                  "style": "moss",
+                  "title": "Kunci Emas Mengingat Huruf Awal Dhamir",
+                  "text": "Semua kata ganti orang ke-3 (jauh / gaib) diawali huruf **H** (`هُوَ, هُمَا, هُمْ...`). Semua kata ganti orang ke-2 (lawan bicara langsung) diawali **ANT** (`أَنْتَ, أَنْتُمْ...`) dan bentuk bersambungnya menggunakan **K** (`ـكَ, ـكُمْ...`). Jangan pernah menukar 'Hunna' (mereka wanita) dengan 'Antunna / -kunna' (kalian wanita)!"
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d4_pronoun_prefix",
+                  "question": "Apakah bentuk dhamir muttashil untuk kata 'أَنْتُمْ' (kalian pria)?",
+                  "options": [
+                    {
+                      "text": "ـكُمْ (-kum)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "ـهُمْ (-hum)",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "ـنَا (-naa)",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Kata ganti orang ke-2 jamak pria 'Antum' bersambung menjadi akhiran '-kum' (misal: Rabbukum, Dinarukum)."
+                }
+              ]
+            },
+            {
+              "id": "i2-d4-dua-kondisi-dhamir-jar",
+              "number": "03",
+              "title": "2 Kondisi Mutlak Dhamir Muttashil Berstatus JAR",
+              "icon": "fa-link-slash",
+              "readTime": "15 menit",
+              "summary": "Membedah 2 alasan mengapa kata ganti bersambung pasti berstatus Jar: menempel pada Ism (Mudhaf Ilayh) atau Harf Jar (Majroor).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Dhamir Muttashil dapat berstatus Nasb atau Jar. Namun, ada **2 kondisi pasti di mana dhamir tersebut 100% berstatus JAR**:"
+                },
+                {
+                  "type": "card_grid",
+                  "title": "2 Kasus Dhamir Muttashil Menjadi JAR",
+                  "items": [
+                    {
+                      "icon": "fa-book",
+                      "title": "1. Menempel pada ISM (Menjadi Mudhaf Ilayh)",
+                      "desc": "Setiap kali Ism + Dhamir bersambung, terbentuk frasa kepemilikan (Idhafah). Ism menjadi Mudhaf dan Dhamir menjadi Mudhaf Ilayh (wajib JAR). Contoh: `كِتَابُهُ` (bukunya), `أُسْتَاذُكُمْ` (guru kalian), `دِينِي` (agamaku), `رَبُّنَا` (Tuhan kami)."
+                    },
+                    {
+                      "icon": "fa-magnet",
+                      "title": "2. Menempel pada HARF JAR (Menjadi Majroor)",
+                      "desc": "Setiap kali Harf Jar bertemu Dhamir, dhamir tersebut langsung ditarik menjadi Majroor (wajib JAR). Contoh: `بِهِ` (dengannya), `لَكُمْ` (bagi kalian), `فِيهَا` (di dalamnya), `عَلَيْهِمْ` (atas mereka), `إِلَيْنَا` (kepada kami)."
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d4_dhamir_jar_cases",
+                  "question": "Mengapa dhamir 'ـكُمْ' pada frasa 'دِينُكُمْ' (agamamu sekalian) berstatus Jar?",
+                  "options": [
+                    {
+                      "text": "Karena menempel pada Ism (Deen) sehingga bertindak sebagai Mudhaf Ilayh",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena didahului Harf Nasb",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena merupakan subjek pelaku",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Setiap dhamir yang menempel pada kata benda (Ism) otomatis menjadi Mudhaf Ilayh yang berstatus Jar."
+                }
+              ]
+            },
+            {
+              "id": "i2-d4-dua-kondisi-dhamir-nasb",
+              "number": "04",
+              "title": "2 Kondisi Mutlak Dhamir Muttashil Berstatus NASB",
+              "icon": "fa-bolt-lightning",
+              "readTime": "15 menit",
+              "summary": "Membedah 2 alasan mengapa kata ganti bersambung pasti berstatus Nasb: menempel pada Fi'il (Objek) atau Harf Nasb (Ism Inna/dkk).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Sebaliknya, ada **2 kondisi pasti di mana Dhamir Muttashil 100% berstatus NASB**:"
+                },
+                {
+                  "type": "card_grid",
+                  "title": "2 Kasus Dhamir Muttashil Menjadi NASB",
+                  "items": [
+                    {
+                      "icon": "fa-person-running",
+                      "title": "1. Menempel pada FI'IL (Kata Kerja / Objek)",
+                      "desc": "Ketika kata kerja (Fi'il) menempel langsung dengan Dhamir, dhamir tersebut bertindak sebagai Objek Penderita (Maf'ul Bih) yang wajib berstatus NASB. Contoh: `نَصَرَهُ` (ia menolong-nya), `خَلَقَكُمْ` (Dia menciptakan kalian), `يَعْلَمُهُ` (Dia mengetahuinya)."
+                    },
+                    {
+                      "icon": "fa-circle-exclamation",
+                      "title": "2. Menempel pada HARF NASB (Inna & Saudari-saudarinya)",
+                      "desc": "Ketika Harf Nasb (`إِنَّ`, `أَنَّ`, `كَأَنَّ`, `لَكِنَّ`, `لَيْتَ`, `لَعَلَّ`) bertemu Dhamir, dhamir tersebut menjadi Ism Harf Nasb (wajib NASB). Contoh: `إِنَّهُ` (sesungguhnya ia), `إِنَّكُمْ` (sesungguhnya kalian), `لَعَلَّكَ` (mudah-mudahan kamu), `إِنَّا` (sesungguhnya kami)."
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d4_dhamir_nasb_cases",
+                  "question": "Apakah status dhamir 'ـكَ' pada kata 'لَعَلَّكَ' (mudah-mudahan kamu)?",
+                  "options": [
+                    {
+                      "text": "NASB (karena menempel pada Harf Nasb 'La'alla')",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "JAR (karena menempel pada Ism)",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "RAFA' (karena mandiri)",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "La'alla adalah Harf Nasb, sehingga setiap dhamir yang menempel padanya otomatis berstatus Nasb."
+                }
+              ]
+            },
+            {
+              "id": "i2-d4-laboratorium-harf-jar-bersambung-dhamir",
+              "number": "05",
+              "title": "Laboratorium Praktik Harf Jar + Dhamir (Bihi, Lakum, Alayhim, Ilayna)",
+              "icon": "fa-flask-vial",
+              "readTime": "15 menit",
+              "summary": "Melatih kelincahan membedah dan menerjemahkan kombinasi Harf Jar dengan kata ganti dalam ayat-ayat Al-Qur'an.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Mari kita latih ketajaman membaca dan menerjemahkan partikel Harf Jar ketika bersambung dengan dhamir muttashil:"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Tabel Konjugasi Harf Jar + Dhamir Populer dalam Al-Qur'an",
+                  "headers": [
+                    "Harf Jar",
+                    "Makna Dasar",
+                    "Bentuk Bersambung",
+                    "Makna Terjemahan"
+                  ],
+                  "rows": [
+                    [
+                      "`بِـ` (Bi)",
+                      "Dengan / Demi",
+                      "`بِهِ` / `بِهِمْ` / `بِي`",
+                      "Dengannya (Laki-laki) / Dengan mereka / Denganku"
+                    ],
+                    [
+                      "`لَـ / لِـ` (La/Li)",
+                      "Untuk / Bagi",
+                      "`لَهُ` / `لَكُمْ` / `لِي` / `لَنَا`",
+                      "Baginya / Bagi kalian / Bagiku (`لِي وَلَكُمْ`) / Bagi kami"
+                    ],
+                    [
+                      "`مِنْ` (Min)",
+                      "Dari",
+                      "`مِنْهُ` / `مِنْكُمْ` / `مِنِّي` / `مِنَّا`",
+                      "Darinya / Dari kalian / Dariku (Minnee) / Dari kami (Minnaa)"
+                    ],
+                    [
+                      "`فِي` (Fee)",
+                      "Di dalam",
+                      "`فِيهِ` / `فِيهَا` / `فِيَّ` / `فِينَا`",
+                      "Di dalamnya (Laki-laki) / Di dalamnya (Wanita/Jamak) / Di dalamku / Di dalam kami"
+                    ],
+                    [
+                      "`عَنْ` (An)",
+                      "Tentang / Dari",
+                      "`عَنْهُ` / `عَنْهَا` / `عَنِّي` / `عَنَّا`",
+                      "Tentangnya / Tentang wanita itu / Tentangku / Tentang kami"
+                    ],
+                    [
+                      "`عَلَى` (Ala ➔ Alay)",
+                      "Di atas / Atas",
+                      "`عَلَيْهِ` / `عَلَيْهِمْ` / `عَلَيْكَ` / `عَلَيَّ`",
+                      "Atasnya / Atas mereka / Atasmu / Atasku (Alayya)"
+                    ],
+                    [
+                      "`إِلَى` (Ila ➔ Ilay)",
+                      "Kepada / Menuju",
+                      "`إِلَيْهِ` / `إِلَيْكُمْ` / `إِلَيَّ` / `إِلَيْنَا`",
+                      "Kepadanya / Kepada kalian / Kepadaku (Ilayya) / Kepada kami (Ilaynaa)"
+                    ]
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d4_harf_jar_alayna",
+                  "question": "Apakah makna dari lafaz 'عَلَيْنَا' (Alaynaa)?",
+                  "options": [
+                    {
+                      "text": "Atas kami / Kepada tanggungan kami ('Ala + Nahnu)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Dari kami",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Di dalam kami",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "'Ala (atas) + Naa (kami/nahnu) = Alaynaa (atas kami / tanggungan kami)."
+                }
+              ]
+            },
+            {
+              "id": "i2-d4-studi-kasus-balaghah-asmaul-husna",
+              "number": "06",
+              "title": "Studi Kasus Balaghah: Analisis Gramatika Frasa Al-Asma'ul Husna",
+              "icon": "fa-gem",
+              "readTime": "15 menit",
+              "summary": "Membedah keajaiban keserasian 4 sifat Ism pada frasa 'Al-Asma'ul Husna' (QS. Al-Isra' [17]: 110).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Dalam Surah Al-Isra' [17]: 110, Allah berfirman: `فَلَهُ الْأَسْمَاءُ الْحُسْنَى` (*'Maka hanya milik-Nya nama-nama yang paling indah'*). Mengapa kata 'Al-Husna' berbentuk feminin padahal 'Al-Asma'' berarti nama-nama?"
+                },
+                {
+                  "type": "case_study",
+                  "title": "Laboratorium Bedah Gramatika: الْأَسْمَاءُ الْحُسْنَى",
+                  "points": [
+                    {
+                      "label": "1. Kata Pertama: الْأَسْمَاءُ (Al-Asmaa' - Mawshuf)",
+                      "desc": "Status: **Rafa'** (Dhommah `ـُ`) | Number: **Jamak Taksir Tidak Berakal** (Non-Human Broken Plural) ➔ Diperlakukan sebagai **1F (Tunggal Feminin)** | Gender: **Feminin** | Type: **Ma'rifah / Proper** (ada Alif Lam)."
+                    },
+                    {
+                      "label": "2. Kata Kedua: الْحُسْنَى (Al-Husnaa - Sifah / Kata Sifat)",
+                      "desc": "Status: **Rafa'** (Non-Flexible Alif Maqshurah) | Number: **1 (Tunggal Superlatif)** | Gender: **Feminin** (Wazan Fu'laa `فُعْلَى`) | Type: **Ma'rifah / Proper** (ada Alif Lam)."
+                    },
+                    {
+                      "label": "3. Kesimpulan Spektakuler:",
+                      "desc": "Kedua kata memiliki 4 sifat yang **100% COCOK SEMPURNA**: `R1FP` (Rafa', Tunggal, Feminin, Proper)! Karena cocok, 'Al-Husna' menjadi Sifah (Adjective) bagi 'Al-Asma'' (Mawshuf) dengan terjemahan: *'Nama-Nama yang Paling Indah'*."
+                    }
+                  ]
+                },
+                {
+                  "type": "summary_card",
+                  "title": "Rangkuman Pelajaran Intensive 2 Day 4! 🌟",
+                  "points": [
+                    "Kata Ringan membuka 3 sifat (S/N/G), namun Type (Ma'rifah/Nakirah) menunggu Mudhaf Ilayh.",
+                    "Hijab dalam Al-Qur'an adalah tirai pemisah ruang (Mahjubun = terhalang dari rahmat Allah).",
+                    "14 Dhamir Munfashil selalu Rafa'; 14 Dhamir Muttashil berstatus Nasb atau Jar.",
+                    "Dhamir Muttashil WAJIB JAR jika menempel pada ISM (Mudhaf Ilayh) atau HARF JAR (Majroor).",
+                    "Dhamir Muttashil WAJIB NASB jika menempel pada FI'IL (Objek) atau HARF NASB (Ism Inna dkk).",
+                    "Praktik konjugasi Harf Jar: Bihi, Lakum, Minna, Feeha, Anhu, Alaykum, Ilayna.",
+                    "Frasa 'Al-Asma'ul Husna' adalah Mawshuf-Sifah yang serasi sempurna pada kode sifat R1FP."
+                  ]
+                }
+              ]
+            }
+          ],
+          "videoUrl": "https://www.youtube.com/live/53MwDht85kM?si=rQxy-MoM4akNRZ1A",
+          "pdfUrl": "https://drive.google.com/open?id=1XLIaMzFn3csTk9UeY6fM8FsEZ-lTcJtI&usp=drive_copy"
+        },
+        {
+          "day": 5,
+          "title": "Hari 5: Special Mudhaf (Zharf), Sifat Mengikuti Mawshuf & Simetri Ar-Rahim Al-Ghafur",
+          "videos": [
+            {
+              "label": "Video Rekaman Asli Intensive 2 Day 5",
+              "url": "https://www.youtube.com/live/hueo7GbJxSs?si=EbxzRwnBHUolCu5C"
+            }
+          ],
+          "slides": [
+            {
+              "label": "Slide Presentasi Intensive 2 Day 5",
+              "url": "https://drive.google.com/open?id=1Vy2N3WhgvlejtiW5m3xAamWtRe3fso5v&usp=drive_copy"
+            }
+          ],
+          "summary": "Menguasai Special Mudhaf (Zharf tempat/waktu), hukum Mawshuf-Sifah yang boleh berjarak, 3 aturan benturan struktur, dan mukjizat simetri Ar-Rahim Al-Ghafur pada QS. Saba': 2.",
+          "lessons": [
+            {
+              "id": "i2-d5-translasi-dhamir-dan-penyelarasan-fonetik",
+              "number": "01",
+              "title": "Ketepatan Terjemahan Dhamir & Misteri Fonetik 'Kitabihi' vs 'Kitabuhu'",
+              "icon": "fa-language",
+              "readTime": "15 menit",
+              "summary": "Memahami mengapa harakat dhamir berubah demi keserasian fonetik (Tanafur) serta akurasi penerjemahan kepemilikan bahasa Arab ke bahasa Indonesia.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Banyak pembelajar bingung mengapa terkadang tertulis `كِتَابُهُ` (Kitabuhu) namun terkadang `كِتَابِهِ` (Kitabihi) atau `عَلَيْهِمْ` (Alayhim). Apakah status dhamirnya berubah?"
+                },
+                {
+                  "type": "deep_dive",
+                  "title": "Rahasia Fonetik: Keserasian Bunyi (Tanafur al-Huruf)",
+                  "items": [
+                    {
+                      "type": "1. Mengapa 'Kitabihi' Memakai Kasrah?",
+                      "examples": "Status dhamir `ـهُ / ـهِ` pada kedua kata tersebut sama persis: yaitu **JAR** sebagai Mudhaf Ilayh! Harakat 'hi' pada `كِتَابِهِ` berubah dari dhommah menjadi kasrah semata-mata demi **keserasian bunyi fonetik (Phonetic Harmony)** setelah huruf 'ba' berharakat kasrah (`كِتَابِـ`)."
+                    },
+                    {
+                      "type": "2. Mengapa Terjemahan Harus Presisi?",
+                      "examples": "Frasa `أَمْرُنَا` wajib diterjemahkan *'Perintah kami'* (karena `أَمْر` adalah Ism / Kata Benda), BUKAN *'Kami memerintah'* (yang merupakan kata kerja / Fi'il). Demikian pula `رَبِّكِ` adalah *'Tuhanmu (wanita)'*, bukan *'Tuhannya'*."
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d5_phonetic_harmony",
+                  "question": "Mengapa pada lafaz 'بِهِ' dan 'فِيهِ' dhamir dibaca dengan kasrah ('hi') dan bukan dhommah ('hu')?",
+                  "options": [
+                    {
+                      "text": "Demi keselarasan fonetik (Phonetic Harmony) setelah harakat kasrah / huruf Ya",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena statusnya berubah menjadi Rafa'",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena kata bendanya berbentuk jamak",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Perubahan harakat dhamir 'hu' menjadi 'hi' adalah kaidah fonetik bangsa Arab agar pelafalan mengalir harmonis setelah kasrah atau ya."
+                }
+              ]
+            },
+            {
+              "id": "i2-d5-mengenal-special-mudhaf",
+              "number": "02",
+              "title": "Mengenal Special Mudhaf (Zharf Tempat & Waktu): Mengapa Mereka ISM?",
+              "icon": "fa-compass",
+              "readTime": "15 menit",
+              "summary": "Membedah kelompok Special Mudhaf (Zharf) yang selalu menjadi Mudhaf tanpa perlu pembuktian rumit dan alasan mengapa mereka adalah ISM.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Di halaman 22, kita mempelajari kelompok kata yang disebut **Special Mudhaf (Mudhaf Khusus / Zharf)**. Kata-kata ini memiliki keistimewaan luar biasa:"
+                },
+                {
+                  "type": "card_grid",
+                  "title": "Daftar Special Mudhaf Utama dalam Al-Qur'an",
+                  "items": [
+                    {
+                      "icon": "fa-arrow-down",
+                      "title": "تَحْتَ (Tahta)",
+                      "desc": "Artinya: 'Di bawah'. Contoh: `تَحْتَ الشَّجَرَةِ` (di bawah pohon — QS. Al-Fath: 18)."
+                    },
+                    {
+                      "icon": "fa-arrow-up",
+                      "title": "فَوْقَ (Fawqa)",
+                      "desc": "Artinya: 'Di atas'. Contoh: `يَدُ اللَّهِ فَوْقَ أَيْدِيهِمْ` (Tangan Allah di atas tangan mereka — QS. Al-Fath: 10)."
+                    },
+                    {
+                      "icon": "fa-arrows-left-right",
+                      "title": "بَيْنَ (Bayna)",
+                      "desc": "Artinya: 'Di antara'. Contoh: `بَيْنَ أَخَوَيْكُمْ` (di antara kedua saudaramu), `بَيْنَهُمَا` (di antara keduanya)."
+                    },
+                    {
+                      "icon": "fa-user-group",
+                      "title": "مَعَ (Ma'a)",
+                      "desc": "Artinya: 'Bersama'. Contoh: `مَعَ الصَّابِرِينَ` (bersama orang-orang yang sabar), `مَعَنَا` (bersama kami)."
+                    },
+                    {
+                      "icon": "fa-ban",
+                      "title": "دُونَ (Doona)",
+                      "desc": "Artinya: 'Selain / Tanpa / Di bawah level'. Contoh: `مِنْ دُونِ اللَّهِ` (selain Allah), `دُونَ ذَلِكَ` (selain itu)."
+                    },
+                    {
+                      "icon": "fa-clock-rotate-left",
+                      "title": "قَبْلَ & بَعْدَ (Qabla & Ba'da)",
+                      "desc": "Artinya: 'Sebelum' & 'Sesudah'. Contoh: `مِنْ قَبْلِكُمْ` (sebelum kalian), `مِنْ بَعْدِ مَوْتِهَا` (setelah kematiannya)."
+                    },
+                    {
+                      "icon": "fa-location-dot",
+                      "title": "عِنْدَ & لَدُنْ ('Inda & Ladun)",
+                      "desc": "Artinya: 'Di sisi / Pada / Memiliki'. Contoh: `عِنْدَ اللَّهِ` (di sisi Allah), `مِنْ لَدُنَّا` (khusus dari sisi Kami)."
+                    }
+                  ]
+                },
+                {
+                  "type": "callout",
+                  "style": "moss",
+                  "title": "Bukti Bahwa Special Mudhaf adalah ISM (Bukan Harf)",
+                  "text": "Banyak buku modern salah mengira kata-kata ini sebagai preposisi (Harf). Bukti mutlak bahwa mereka adalah **ISM**: mereka bisa dimasuki Harf Jar (`مِنْ بَعْدِهِ`, `مِنْ دُونِ اللَّهِ`, `مِنْ عِنْدِنَا`). Harf Jar tidak pernah bisa memukul Harf lain; Harf Jar HANYA bisa memukul ISM!"
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d5_special_mudhaf_proof",
+                  "question": "Bagaimanakah kita membuktikan secara tata bahasa bahwa kata 'بَعْدَ' (Ba'da) adalah Ism dan bukan Harf?",
+                  "options": [
+                    {
+                      "text": "Karena bisa dimasuki Harf Jar seperti pada 'مِنْ بَعْدِهِ' dan berstatus Jar",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena memiliki 5 huruf",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena selalu bertanwin",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Kemampuan kata menerima Harf Jar (seperti Min Ba'dihi) adalah bukti tak terbantahkan bahwa kata tersebut adalah Ism."
+                }
+              ]
+            },
+            {
+              "id": "i2-d5-empat-pengecualian-special-mudhaf",
+              "number": "03",
+              "title": "4 Kata Fleksibel Special Mudhaf (Ayyu, Ghayru, Kullu, Ba'dhu)",
+              "icon": "fa-scale-balanced",
+              "readTime": "15 menit",
+              "summary": "Memahami 4 kata yang 99% menjadi Mudhaf namun kehilangan status Mudhaf jika bertanwin.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Di bagian bawah halaman 22, terdapat 4 kata khusus yang 99% menjadi Mudhaf, namun memiliki fleksibilitas:"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "4 Kata Fleksibel: Kapan Mudhaf vs Kapan Lepas",
+                  "headers": [
+                    "Kata",
+                    "Ketika Bertindak Sebagai MUDHAF (Ringan)",
+                    "Ketika BUKAN Mudhaf (Bertanwin / Mandiri)"
+                  ],
+                  "rows": [
+                    [
+                      "`كُلُّ` (Kullu - Setiap/Semua)",
+                      "`كُلُّ شَيْءٍ` ('Setiap sesuatu' - Mudhaf)",
+                      "`كُلٌّ فِي فَلَكٍ يَسْبَحُونَ` ('Masing-masing beredar...' - Bertanwin `كُلٌّ` = BUKAN Mudhaf!)"
+                    ],
+                    [
+                      "`بَعْضُ` (Ba'dhu - Sebagian)",
+                      "`بَعْضُكُمْ` ('Sebagian kalian' - Mudhaf)",
+                      "`بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ` ('...sebagian yang lain' - Bertanwin `بَعْضٍ` = BUKAN Mudhaf!)"
+                    ],
+                    [
+                      "`غَيْرُ` (Ghayru - Selain/Bukan)",
+                      "`غَيْرِ الْمَغْضُوبِ` ('Bukan orang yang dimurkai' - Mudhaf)",
+                      "`إِنَّهُ عَمَلٌ غَيْرُ صَالِحٍ` ('amal yang tidak saleh' - Sifah)"
+                    ],
+                    [
+                      "`أَيُّ` (Ayyu - Mana saja/Yang mana)",
+                      "`أَيُّكُمْ` ('Siapakah di antara kalian' - Mudhaf)",
+                      "`أَيًّا مَا تَدْعُوا` ('Nama mana saja yang kamu seru' - Mandiri)"
+                    ]
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d5_kullun_mudhaf",
+                  "question": "Apakah kata 'كُلٌّ' pada ayat `كُلٌّ فِي فَلَكٍ يَسْبَحُونَ` (QS. Yasin: 40) bertindak sebagai Mudhaf?",
+                  "options": [
+                    {
+                      "text": "Bukan Mudhaf, karena bertanwin (Heavy), sedangkan syarat Mudhaf wajib Ringan (Light)",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Ya, selalu Mudhaf dalam segala kondisi",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Bertindak sebagai Harf Jar",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Syarat mutlak Mudhaf adalah Ringan (Light / tanpa tanwin). Kata 'Kullun' bertanwin, sehingga bukan Mudhaf."
+                }
+              ]
+            },
+            {
+              "id": "i2-d5-anatomi-mawshuf-sifah-jarak-jauh",
+              "number": "04",
+              "title": "Anatomi Mawshuf & Sifah: Keserasian 4 Sifat & Sifat yang Berjarak",
+              "icon": "fa-arrows-split-up-and-left",
+              "readTime": "15 menit",
+              "summary": "Memahami 4 sifat wajib serasi antara kata benda (Mawshuf) dan sifat (Sifah), serta fleksibilitas Sifah yang boleh terpisah beberapa kata.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Berbeda dengan Idhafah (Mudhaf-Mudhaf Ilayh) yang tidak perlu mencocokkan sifat, **Mawshuf (Kata Benda yang Disifati) dan Sifah (Kata Sifat)** WAJIB COCOK DALAM KE-4 SIFATNYA (Status, Number, Gender, Type):"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Karakteristik Hubungan Mawshuf dan Sifah",
+                  "headers": [
+                    "Pola Mawshuf",
+                    "Pola Sifah (Pengikut)",
+                    "Contoh Ayat Al-Qur'an",
+                    "Terjemahan"
+                  ],
+                  "rows": [
+                    [
+                      "Tunggal Maskulin Rafa' Nakirah",
+                      "Tunggal Maskulin Rafa' Nakirah",
+                      "`قَوْلٌ ثَقِيلٌ`",
+                      "Perkataan yang berat"
+                    ],
+                    [
+                      "Tunggal Feminin Rafa' Ma'rifah",
+                      "Tunggal Feminin Rafa' Ma'rifah",
+                      "`الطَّامَّةُ الْكُبْرَى`",
+                      "Malapetaka yang sangat besar"
+                    ],
+                    [
+                      "Dual Maskulin Jar Nakirah",
+                      "Dual Maskulin Jar Nakirah",
+                      "`لِغُلَامَيْنِ يَتِيمَيْنِ`",
+                      "Bagi dua anak yatim laki-laki"
+                    ],
+                    [
+                      "Jamak Taksir Tidak Berakal (1F)",
+                      "Tunggal Feminin (1F)",
+                      "`سُرُرٌ مَرْفُوعَةٌ`\n`كُتُبٌ قَيِّمَةٌ`",
+                      "Dipan-dipan yang ditinggikan\nKitab-kitab yang lurus"
+                    ]
+                  ]
+                },
+                {
+                  "type": "deep_dive",
+                  "title": "Perbedaan Karakter Antara Idhafah vs Mawshuf-Sifah",
+                  "items": [
+                    {
+                      "type": "1. Mudhaf & Mudhaf Ilayh Tidak Boleh Terpisah",
+                      "examples": "Mudhaf dan Mudhaf Ilayh harus menempel berdampingan erat, tidak boleh diselingi kata lain."
+                    },
+                    {
+                      "type": "2. Sifah Boleh Berjarak dari Mawshuf-nya!",
+                      "examples": "Contoh pada QS. Al-Baqarah: 49: `بَلَاءٌ مِنْ رَبِّكُمْ عَظِيمٌ` ➔ Kata `عَظِيمٌ` (Sifah) berjarak 2 kata dari `بَلَاءٌ` (Mawshuf), namun keduanya tetap bersambung sebagai Mawshuf-Sifah (*'Ujian yang besar dari Tuhanmu'*)."
+                    }
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d5_sifah_distance",
+                  "question": "Mengapa kata 'عَظِيمٌ' pada frasa 'بَلَاءٌ مِنْ رَبِّكُمْ عَظِيمٌ' menjadi kata sifat (Sifah) bagi 'بَلَاءٌ' meskipun terpisah frasa 'مِنْ رَبِّكُمْ'?",
+                  "options": [
+                    {
+                      "text": "Karena Sifah boleh berjarak asalkan ke-4 sifatnya (R1MC) tetap cocok sempurna dengan Mawshuf",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Karena 'Azheem' adalah Harf Jar",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Karena 'Rabbikum' adalah kata kerja",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Sifat (Sifah) memiliki fleksibilitas dalam balaghah Al-Qur'an untuk ditempatkan berjarak dari kata yang disifati asalkan ke-4 sifatnya tetap cocok sempurna."
+                }
+              ]
+            },
+            {
+              "id": "i2-d5-tiga-hukum-benturan-struktur",
+              "number": "05",
+              "title": "Hukum Benturan Struktur: Dua Kata Hanya Boleh Memiliki 1 Hubungan",
+              "icon": "fa-shield-halved",
+              "readTime": "15 menit",
+              "summary": "Memahami aturan emas sintaksis: dua kata tidak boleh merangkap dua hubungan gramatika sekaligus (hanya salah satu: Idhafah, Mawshuf-Sifah, Harf Jar, atau Harf Nasb).",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Banyak pemula bertanya: *'Bisakah dua kata menjadi Mudhaf-Mudhaf Ilayh sekaligus menjadi Mawshuf-Sifah?'* Jawabannya adalah **TIDAK BISA PERNAH (IMPOSSIBLE)**!"
+                },
+                {
+                  "type": "comparison_table",
+                  "title": "Proses Eliminasi Hubungan Antara Dua Kata",
+                  "headers": [
+                    "Hubungan Gramatika",
+                    "Ciri Khas Bentuk",
+                    "Apakah Ada Kata 'of'?"
+                  ],
+                  "rows": [
+                    [
+                      "1. Idhafah (Mudhaf + Mudhaf Ilayh)",
+                      "Kata ke-1 Ringan (tanpa Al/Tanwin), kata ke-2 JAR.",
+                      "YA (Kecuali Special Mudhaf)"
+                    ],
+                    [
+                      "2. Mawshuf + Sifah (Noun + Adjective)",
+                      "Kedua kata 100% cocok dalam 4 Sifat (SNGT).",
+                      "TIDAK (Diterjemahkan kata ke-2 lalu kata ke-1)"
+                    ],
+                    [
+                      "3. Jar + Majroor (Harf Jar + Ism)",
+                      "Harf Jar diikuti Ism Majroor.",
+                      "Tergantung arti Harf Jar"
+                    ],
+                    [
+                      "4. Harf Nasb + Ism-nya",
+                      "Harf Nasb (`إِنَّ` dkk) diikuti Ism Mansub.",
+                      "Tergantung arti Harf Nasb"
+                    ]
+                  ]
+                },
+                {
+                  "type": "quiz",
+                  "id": "q_i2_d5_single_relationship",
+                  "question": "Apakah hubungan antara dua kata 'كِتَابُ الْحَقِّ' (Kitabul Haqqi)?",
+                  "options": [
+                    {
+                      "text": "HANYA Mudhaf & Mudhaf Ilayh ('Buku kebenaran'), tidak bisa menjadi Mawshuf-Sifah",
+                      "isCorrect": true
+                    },
+                    {
+                      "text": "Bisa menjadi Mawshuf-Sifah sekaligus Mudhaf",
+                      "isCorrect": false
+                    },
+                    {
+                      "text": "Harf Jar dan Majroor",
+                      "isCorrect": false
+                    }
+                  ],
+                  "explanation": "Antara dua kata hanya boleh ada satu jenis hubungan gramatika. Karena kata pertama tidak ber-Al dan kata kedua ber-Al serta Jar, hubungannya mutlak Idhafah."
+                }
+              ]
+            },
+            {
+              "id": "i2-d5-mukjizat-simetri-ar-rahim-al-ghafur",
+              "number": "06",
+              "title": "Mukjizat Balaghah: Mengapa Ar-Rahim Mendahului Al-Ghafur pada QS. Saba': 2?",
+              "icon": "fa-heart-circle-bolt",
+              "readTime": "15 menit",
+              "summary": "Menyingkap keajaiban simetri arsitektur Al-Qur'an pada QS. Saba' [34]: 2 dalam penempatan nama Ar-Rahim Al-Ghafur.",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "text": "Di lebih dari 70 tempat dalam Al-Qur'an, Allah selalu mendahulukan nama pengampunan sebelum kasih sayang: `الْغَفُورُ الرَّحِيمُ` (*Al-Ghafuur Ar-Rahiim*). Namun, hanya ada **SATU AYAT TUNGGAL** di seluruh Al-Qur'an di mana Allah membalik urutannya menjadi `الرَّحِيمُ الْغَفُورُ` (*Ar-Rahiim Al-Ghafuur*), yaitu pada **Surah Saba' [34]: 2**!"
+                },
+                {
+                  "type": "case_study",
+                  "title": "Bedah Simetri Sempurna Surah Saba' [34]: 2",
+                  "points": [
+                    {
+                      "label": "Teks Ayat:",
+                      "desc": "`يَعْلَمُ مَا يَلِجُ فِي الْأَرْضِ وَمَا يَخْرُجُ مِنْهَا وَمَا يَنْزِلُ مِنَ السَّمَاءِ وَمَا يَعْرُجُ فِيهَا وَهُوَ الرَّحِيمُ الْغَفُورُ`"
+                    },
+                    {
+                      "label": "1. Komponen Pertama — Butuh Kasih Sayang (Ar-Rahim):",
+                      "desc": "• *Apa yang masuk ke dalam bumi:* Air dan benih tanaman (serta jenazah manusia saat wafat) ➔ Membutuhkan pemeliharaan penuh cinta (*Loving Care / Rahmah*).\n• *Apa yang turun dari langit:* Hujan dan rezeki kehidupan ➔ Manifestasi kasih sayang Allah (*Rahmah*)."
+                    },
+                    {
+                      "label": "2. Komponen Kedua — Butuh Pengampunan (Al-Ghafur):",
+                      "desc": "• *Apa yang keluar dari bumi:* Manusia dibangkitkan pada hari kiamat ➔ Sangat membutuhkan ampunan (*Maghfirah*).\n• *Apa yang naik ke langit:* Roh manusia dan catatan amal perbuatan setiap hari ➔ Sangat membutuhkan ampunan (*Maghfirah*)."
+                    },
+                    {
+                      "label": "3. Simetri Ilahi yang Menggetarkan Hati:",
+                      "desc": "Karena dua hal pertama (`يَلِجُ فِي الْأَرْضِ` & `يَنْزِلُ مِنَ السَّمَاءِ`) berkaitan dengan Kasih Sayang (*Rahmah*), sedangkan dua hal kedua (`يَخْرُجُ مِنْهَا` & `يَعْرُجُ فِيهَا`) berkaitan dengan Pengampunan (*Maghfirah*), maka ayat ini ditutup secara presisi dengan: **وَهُوَ الرَّحِيمُ (Maha Pengasih) الْغَفُورُ (Maha Pengampun)**!"
+                    }
+                  ]
+                },
+                {
+                  "type": "summary_card",
+                  "title": "Rangkuman Spektakuler Intensive 2 Day 5! 🌟",
+                  "points": [
+                    "Perubahan harakat dhamir (Kitabuhu ➔ Kitabihi) terjadi demi keselarasan fonetik (Phonetic Harmony).",
+                    "Special Mudhaf (Tahta, Fawqa, Bayna, Ma'a, Doona, Qabla, Ba'da, 'Inda, Ladun) adalah ISM karena bisa dimasuki Harf Jar.",
+                    "4 Kata Fleksibel: Kullu, Ba'dhu, Ghayru, Ayyu (kehilangan status mudhaf jika bertanwin).",
+                    "Mawshuf dan Sifah wajib cocok dalam 4 Sifat (SNGT); Sifah boleh berjarak dari Mawshuf.",
+                    "Hukum Benturan Struktur: Antara dua kata hanya boleh ada SATU hubungan gramatika.",
+                    "Keajaiban simetri Surah Saba': 2 membuktikan bahwa Al-Qur'an adalah firman Allah yang maha sempurna dan presisi."
+                  ]
+                }
+              ]
+            }
+          ],
+          "videoUrl": "https://www.youtube.com/live/hueo7GbJxSs?si=EbxzRwnBHUolCu5C",
+          "pdfUrl": "https://drive.google.com/open?id=1Vy2N3WhgvlejtiW5m3xAamWtRe3fso5v&usp=drive_copy"
         }
       ]
     }

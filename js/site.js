@@ -30,6 +30,7 @@ window.SITE = {
       stack: "Laravel · Blade · MySQL",
       category: "laravel",
       badge: "Dibangun Mandiri",
+      image: "images/projects/bidangdakwah.webp",
       blurb: "Website profil resmi Bidang Dakwah Masjid Salman ITB. Dilengkapi fitur alumni, dashboard arsip rekaman materi & bahan belajar Sekolah Pranikah (SPN), serta modul Taaruf SPN.",
       features: [
         "Sistem database alumni & peserta Sekolah Pranikah (SPN)",
@@ -48,6 +49,7 @@ window.SITE = {
       stack: "Laravel · Blade · Tailwind CSS",
       category: "laravel",
       badge: "Dibangun Mandiri",
+      image: "images/projects/pusathalal.webp",
       blurb: "Website profil Pusat Halal Masjid Salman ITB & Lembaga Pemeriksa Halal (LPH) YPM Salman ITB. Media informasi sertifikasi halal, layanan audit, dan edukasi syariah.",
       features: [
         "Pusat informasi sertifikasi halal & regulasi syariah resmi",
@@ -66,6 +68,7 @@ window.SITE = {
       stack: "Laravel · React.js · Express.js",
       category: "fullstack",
       badge: "Lead & Kolaborasi",
+      image: "images/projects/fitalenta.webp",
       blurb: "Platform ekosistem Fitalenta. Website utama dibangun awal oleh saya (Laravel) lalu dilanjutkan anak magang; portal registrasi dibangun anak magang (React & Express), disempurnakan oleh saya, dan dikembangkan bersama.",
       features: [
         "Platform ekosistem talenta muda & program persiapan karir",
@@ -86,6 +89,7 @@ window.SITE = {
       stack: "Tailwind CSS · Alpine.js · HTML5 Audio",
       category: "interactive",
       badge: "Aplikasi Edukasi",
+      image: "images/projects/dream-arabic.webp",
       blurb: "Aplikasi web interaktif pembelajaran tata bahasa Arab Al-Qur'an (metode Dream Bayyinah TV). Menyajikan kartu materi Nahwu/Sharaf dinamis dan pemutar audio latihan.",
       features: [
         "Kartu materi interaktif tanpa reload halaman (SPA feel)",
@@ -104,6 +108,7 @@ window.SITE = {
       stack: "JavaScript ES6+ · Algoritma Falak · SVG",
       category: "interactive",
       badge: "Komputasi Falak",
+      image: "images/projects/hijriah.webp",
       blurb: "Aplikasi kalkulator hisab kalender Hijriah global & visualisasi fase bulan astronomis real-time, mengombinasikan latar belakang Sains Falak ITB dengan rekayasa web modern.",
       features: [
         "Perhitungan hisab astronomis presisi tinggi murni di sisi browser",
@@ -122,6 +127,7 @@ window.SITE = {
       stack: "HTML5 · Tailwind CSS · Alpine.js · GitHub Pages",
       category: "frontend",
       badge: "Sistem Desain",
+      image: "images/projects/personal-portfolio.webp",
       blurb: "Situs personal & ekosistem portofolio modern dengan performa tinggi, Dark Mode anti-flicker, tipografi editorial elegan, dan deployment otomatis via GitHub Pages.",
       features: [
         "Desain editorial modern dengan glassmorphism & tipografi harmoni",

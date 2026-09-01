@@ -362,65 +362,88 @@
 
           </div>
 
-          <!-- Right Content: Profile Visual Card & Highlights -->
+          <!-- Right Content: GitHub Developer Profile Showcase Card -->
           <div class="lg:col-span-5 flex justify-center">
-            <div class="w-full max-w-md">
-              <div class="glass-panel relative rounded-3xl p-6 sm:p-7 shadow-xl border border-ink/10 dark:border-white/10 overflow-hidden">
-                <!-- Top ambient light accent -->
-                <div class="absolute -top-12 -right-12 h-36 w-36 rounded-full bg-gold/20 blur-2xl dark:bg-gold/30"></div>
-                <div class="absolute -bottom-12 -left-12 h-36 w-36 rounded-full bg-emerald-light/20 blur-2xl dark:bg-emerald-brand/30"></div>
+            <div class="w-full max-w-lg">
+              <div class="glass-panel relative rounded-3xl p-5 sm:p-6 shadow-2xl border border-ink/10 dark:border-white/10 overflow-hidden group">
+                <!-- Ambient Glow Accents -->
+                <div class="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-emerald-light/20 blur-3xl dark:bg-emerald-brand/30"></div>
+                <div class="absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-gold/20 blur-3xl dark:bg-gold/30"></div>
 
-                <div class="relative z-10 space-y-5">
-                  <!-- Header badge inside card -->
-                  <div class="flex items-center justify-between pb-4 border-b border-ink/10 dark:border-white/10">
-                    <div class="flex items-center gap-3">
-                      <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-moss text-gold shadow-sm dark:bg-gold dark:text-ink">
-                        <i class="fa-solid fa-code text-lg"></i>
-                      </div>
-                      <div>
-                        <h4 class="font-display text-lg font-bold text-ink dark:text-white leading-tight">Teknologi & Pendekatan</h4>
-                        <p class="text-[11px] text-ink-muted dark:text-gray-400">Web Engineering Rigor</p>
-                      </div>
+                <div class="relative z-10 space-y-4">
+                  
+                  <!-- Browser/IDE Mockup Header -->
+                  <div class="flex items-center justify-between pb-3 border-b border-ink/10 dark:border-white/10">
+                    <div class="flex items-center gap-2">
+                      <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                      <span class="ml-2 flex items-center gap-1.5 text-xs font-mono font-semibold text-ink dark:text-gray-200">
+                        <i class="fa-brands fa-github text-sm"></i>
+                        <span>github.com/junlandaime</span>
+                      </span>
                     </div>
-                    <span class="rounded-md bg-gold/15 px-2 py-0.5 text-[10px] font-bold text-gold-dark dark:bg-gold/25 dark:text-gold-light">
-                      ITB Mindset
+                    <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-[10px] font-bold text-moss dark:bg-emerald-brand/30 dark:text-emerald-light">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      <span>Active Contributor</span>
                     </span>
                   </div>
 
-                  <!-- Quick Stats Grid -->
-                  <div class="grid grid-cols-2 gap-3">
-                    <div class="rounded-2xl bg-white/70 p-3.5 text-center shadow-xs border border-ink/5 dark:bg-white/[0.04] dark:border-white/5">
-                      <p class="font-display text-2xl sm:text-3xl font-bold text-moss dark:text-emerald-light">Production</p>
-                      <p class="text-[11px] font-semibold text-ink-muted dark:text-gray-400 mt-0.5">Sistem Web Live</p>
-                    </div>
-                    <div class="rounded-2xl bg-white/70 p-3.5 text-center shadow-xs border border-ink/5 dark:bg-white/[0.04] dark:border-white/5">
-                      <p class="font-display text-2xl sm:text-3xl font-bold text-gold-dark dark:text-gold-light">Laravel</p>
-                      <p class="text-[11px] font-semibold text-ink-muted dark:text-gray-400 mt-0.5">Backend Core</p>
-                    </div>
-                    <div class="rounded-2xl bg-white/70 p-3.5 text-center shadow-xs border border-ink/5 dark:bg-white/[0.04] dark:border-white/5">
-                      <p class="font-display text-2xl sm:text-3xl font-bold text-ink dark:text-white">Full-Stack</p>
-                      <p class="text-[11px] font-semibold text-ink-muted dark:text-gray-400 mt-0.5">End-to-End Dev</p>
-                    </div>
-                    <div class="rounded-2xl bg-white/70 p-3.5 text-center shadow-xs border border-ink/5 dark:bg-white/[0.04] dark:border-white/5">
-                      <p class="font-display text-2xl sm:text-3xl font-bold text-emerald-brand dark:text-emerald-light">Modern UI</p>
-                      <p class="text-[11px] font-semibold text-ink-muted dark:text-gray-400 mt-0.5">Tailwind & Alpine</p>
-                    </div>
-                  </div>
-
-                  <!-- Mini Card Quote / Commitment -->
-                  <div class="rounded-2xl bg-sand/40 p-4 dark:bg-emerald-brand/10 border border-gold/20 text-xs text-ink-soft dark:text-gray-300 leading-relaxed">
-                    <i class="fa-solid fa-quote-left text-gold-dark text-xs mr-1 opacity-70"></i>
-                    Fokus saya adalah menciptakan website yang tidak hanya indah secara visual, namun juga <strong>berstruktur database solid, berkecepatan tinggi, dan solutif</strong> bagi tujuan bisnis maupun kebutuhan institusi Anda.
-                  </div>
-
-                  <!-- Quick Action inside Card -->
+                  <!-- GitHub Preview Screenshot in Mockup Container -->
                   <a
-                    href="#kontak"
-                    class="flex items-center justify-between rounded-xl bg-ink/5 hover:bg-ink hover:text-white px-4 py-2.5 text-xs font-bold text-ink transition-all dark:bg-white/5 dark:text-gray-200 dark:hover:bg-gold dark:hover:text-ink"
+                    :href="site.github"
+                    target="_blank"
+                    rel="noopener"
+                    class="block relative overflow-hidden rounded-2xl border border-ink/10 dark:border-white/10 shadow-md bg-[#0d1117] transition-all duration-300 hover:shadow-xl hover:border-gold/50"
+                    title="Buka Profil GitHub @junlandaime"
                   >
-                    <span>Mulai Diskusi Kebutuhan Web Anda</span>
+                    <div class="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden">
+                      <img
+                        src="images/projects/junlandaime-github.png"
+                        alt="GitHub Profile Preview @junlandaime"
+                        class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <!-- Subtle Hover Overlay Prompt -->
+                    <div class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
+                      <span class="rounded-xl bg-ink/90 dark:bg-black/90 px-3.5 py-1.5 text-xs font-bold text-gold border border-gold/40 shadow-lg flex items-center gap-2">
+                        <i class="fa-brands fa-github"></i>
+                        <span>Kunjungi Profil GitHub</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                      </span>
+                    </div>
+                  </a>
+
+                  <!-- Quick Stats Chips -->
+                  <div class="grid grid-cols-3 gap-2 pt-1 text-center">
+                    <div class="rounded-xl bg-white/70 p-2.5 shadow-xs border border-ink/5 dark:bg-white/[0.04] dark:border-white/5">
+                      <p class="font-display text-lg sm:text-xl font-bold text-moss dark:text-emerald-light">32</p>
+                      <p class="text-[10px] font-semibold text-ink-muted dark:text-gray-400">Repositories</p>
+                    </div>
+                    <div class="rounded-xl bg-white/70 p-2.5 shadow-xs border border-ink/5 dark:bg-white/[0.04] dark:border-white/5">
+                      <p class="font-display text-lg sm:text-xl font-bold text-gold-dark dark:text-gold-light">95+</p>
+                      <p class="text-[10px] font-semibold text-ink-muted dark:text-gray-400">Yearly Commits</p>
+                    </div>
+                    <div class="rounded-xl bg-white/70 p-2.5 shadow-xs border border-ink/5 dark:bg-white/[0.04] dark:border-white/5">
+                      <p class="font-display text-lg sm:text-xl font-bold text-ink dark:text-white">Laravel</p>
+                      <p class="text-[10px] font-semibold text-ink-muted dark:text-gray-400">Stack Utama</p>
+                    </div>
+                  </div>
+
+                  <!-- Direct GitHub CTA -->
+                  <a
+                    :href="site.github"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center justify-between rounded-xl bg-ink/5 hover:bg-ink hover:text-white px-4 py-2.5 text-xs font-bold text-ink transition-all duration-200 dark:bg-white/5 dark:text-gray-200 dark:hover:bg-gold dark:hover:text-ink shadow-xs"
+                  >
+                    <div class="flex items-center gap-2">
+                      <i class="fa-brands fa-github text-sm"></i>
+                      <span>Jelajahi Repositori & Aktivitas Coding</span>
+                    </div>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                   </a>
+
                 </div>
               </div>
             </div>
@@ -493,10 +516,47 @@
         <!-- Projects Grid Layout -->
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <template x-for="p in filteredProjects" :key="p.title">
-            <div class="card-hover flex flex-col justify-between rounded-3xl border border-ink/10 bg-white p-6 shadow-sm dark:bg-[#0c241a] dark:border-white/10">
+            <div class="card-hover group flex flex-col justify-between rounded-3xl border border-ink/10 bg-white p-5 sm:p-6 shadow-sm dark:bg-[#0c241a] dark:border-white/10 overflow-hidden">
               
               <!-- Card Header & Content -->
               <div>
+                <!-- Mockup Browser Preview with Screenshot -->
+                <a
+                  :href="p.url"
+                  target="_blank"
+                  rel="noopener"
+                  class="block mb-4 overflow-hidden rounded-2xl border border-ink/10 bg-black/5 dark:bg-black/40 dark:border-white/10 shadow-xs transition-all duration-300 hover:border-moss/50 dark:hover:border-emerald-light/50"
+                  :title="'Buka landing page ' + p.title"
+                >
+                  <!-- Mockup Browser Header Bar -->
+                  <div class="flex items-center justify-between border-b border-ink/5 bg-sand/40 px-3 py-2 dark:border-white/5 dark:bg-white/[0.03]">
+                    <div class="flex items-center gap-1.5">
+                      <span class="h-2 w-2 rounded-full bg-red-400/80"></span>
+                      <span class="h-2 w-2 rounded-full bg-amber-400/80"></span>
+                      <span class="h-2 w-2 rounded-full bg-emerald-400/80"></span>
+                    </div>
+                    <div class="truncate max-w-[180px] text-[10px] font-mono text-ink-muted/80 dark:text-gray-400" x-text="p.url.replace(/^https?:\/\//, '')"></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-ink-muted/60 dark:text-gray-400"></i>
+                  </div>
+                  
+                  <!-- Screenshot Image with Hover Zoom -->
+                  <div class="aspect-[16/9] w-full overflow-hidden bg-ink/5 dark:bg-black/30 relative">
+                    <template x-if="p.image">
+                      <img
+                        :src="p.image"
+                        :alt="'Screenshot Landing Page ' + p.title"
+                        class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </template>
+                    <template x-if="!p.image">
+                      <div class="flex h-full w-full items-center justify-center text-ink-muted dark:text-gray-400">
+                        <i :class="p.icon || 'fa-solid fa-laptop-code'" class="text-3xl opacity-30"></i>
+                      </div>
+                    </template>
+                  </div>
+                </a>
+
                 <!-- Badge and Category Row -->
                 <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
                   <span class="rounded-md bg-sand/60 px-2.5 py-1 text-[11px] font-bold text-moss dark:bg-emerald-brand/30 dark:text-emerald-light" x-text="p.stack"></span>

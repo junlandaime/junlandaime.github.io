@@ -348,8 +348,24 @@
             Pelajari tata bahasa Al-Qur'an secara visual, bertahap, dan intuitif. Mengikuti urutan transkrip materi asli Ustaz Nouman dengan pendekatan komparasi padanan <strong>Bahasa Indonesia</strong>.
           </p>
 
+          <!-- Intensive Level Selector Pills / Tabs -->
+          <div class="mt-5 flex flex-wrap items-center gap-2 border-b border-ink/10 pb-4 dark:border-white/10">
+            <div class="text-xs font-bold text-ink-muted dark:text-gray-400 mr-2">Pilih Program:</div>
+            <template x-for="(intv, iIdx) in data.intensives" :key="intv.id">
+              <button
+                type="button"
+                @click="selectedIntensiveIndex = iIdx; selectedDayIndex = 0; selectedLessonIndex = 0"
+                :class="selectedIntensiveIndex === iIdx ? 'bg-moss text-paper font-bold shadow-md dark:bg-gold dark:text-ink' : 'bg-white/80 border border-ink/10 text-ink-soft hover:bg-white dark:bg-white/10 dark:border-white/10 dark:text-gray-300'"
+                class="rounded-xl px-4 py-2 text-xs transition-all duration-200 flex items-center gap-2"
+              >
+                <i class="fa-solid fa-graduation-cap text-xs"></i>
+                <span x-text="intv.number + ': ' + (intv.id === 1 ? 'Fondasi (Nahwu & Sharaf)' : 'Sintaksis & Sharaf Lanjutan')"></span>
+              </button>
+            </template>
+          </div>
+
           <!-- Day selector pills -->
-          <div class="mt-6 flex flex-wrap items-center gap-2">
+          <div class="mt-4 flex flex-wrap items-center gap-2">
             <div class="text-xs font-bold text-ink-muted dark:text-gray-400 mr-2">Pilih Hari:</div>
             <template x-for="(day, dIdx) in currentIntensive.days" :key="dIdx">
               <button
@@ -362,9 +378,19 @@
                 <span x-text="day.title.split(':')[0]"></span>
               </button>
             </template>
-            <span class="rounded-xl border border-gold/40 bg-gold/10 px-3 py-1.5 text-[11px] font-semibold text-gold dark:border-gold/30 dark:bg-gold/20 dark:text-gold">
+            <span
+              x-show="selectedIntensiveIndex === 0"
+              class="rounded-xl border border-gold/40 bg-gold/10 px-3 py-1.5 text-[11px] font-semibold text-gold dark:border-gold/30 dark:bg-gold/20 dark:text-gold"
+            >
               <i class="fa-solid fa-circle-check text-[10px] mr-1"></i>
               Intensive 1 Lengkap (10 Hari + Sesi Q&A) 🎉
+            </span>
+            <span
+              x-show="selectedIntensiveIndex === 1"
+              class="rounded-xl border border-emerald-brand/40 bg-emerald-brand/10 px-3 py-1.5 text-[11px] font-semibold text-emerald-brand dark:border-emerald-light/30 dark:bg-emerald-brand/20 dark:text-emerald-light"
+            >
+              <i class="fa-solid fa-rocket text-[10px] mr-1"></i>
+              <span x-text="'Intensive 2 Berjalan (Day ' + currentIntensive.days.length + ' / 14 Hari) 🚀'"></span>
             </span>
           </div>
         </div>
@@ -495,6 +521,18 @@
                   </template>
                 </div>
               </template>
+              <template x-if="!currentDay.videos && currentDay.videoUrl">
+                <a
+                  :href="currentDay.videoUrl"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex items-center gap-2.5 rounded-xl bg-red-600/10 p-2 text-xs font-bold text-red-700 hover:bg-red-600 hover:text-white transition-colors dark:bg-red-500/20 dark:text-red-300 dark:hover:bg-red-600 dark:hover:text-white"
+                >
+                  <i class="fa-brands fa-youtube text-sm"></i>
+                  <span x-text="'Tonton Rekaman ' + currentDay.title.split(':')[0]" class="text-[11px]"></span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-auto"></i>
+                </a>
+              </template>
 
               <template x-if="currentDay.slides && currentDay.slides.length">
                 <div class="space-y-1.5 pt-1">
@@ -511,6 +549,18 @@
                     </a>
                   </template>
                 </div>
+              </template>
+              <template x-if="!currentDay.slides && currentDay.pdfUrl">
+                <a
+                  :href="currentDay.pdfUrl"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex items-center gap-2.5 rounded-xl bg-emerald-brand/10 p-2 text-xs font-bold text-emerald-brand hover:bg-emerald-brand hover:text-white transition-colors dark:bg-emerald-brand/20 dark:text-emerald-light dark:hover:bg-emerald-brand dark:hover:text-white"
+                >
+                  <i class="fa-solid fa-file-pdf text-sm"></i>
+                  <span x-text="'Unduh Slide ' + currentDay.title.split(':')[0]" class="text-[11px]"></span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-auto"></i>
+                </a>
               </template>
             </div>
           </div>
@@ -688,6 +738,74 @@
                 <i :class="isCompleted(selectedIntensiveIndex, selectedDayIndex, selectedLessonIndex) ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle'" class="text-sm"></i>
                 <span x-text="isCompleted(selectedIntensiveIndex, selectedDayIndex, selectedLessonIndex) ? 'Selesai Dipelajari' : 'Tandai Selesai'"></span>
               </button>
+            </div>
+
+            <!-- Quick Reference Action Buttons (YouTube & Slide PDF) -->
+            <div class="flex flex-wrap items-center gap-2.5 mb-6 p-3 rounded-2xl bg-ink/[0.03] border border-ink/5 dark:bg-white/[0.03] dark:border-white/5">
+              <span class="text-[11px] font-bold text-ink-muted dark:text-gray-400 mr-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-link text-[10px]"></i>
+                Referensi Hari Ini:
+              </span>
+              
+              <!-- Video Buttons -->
+              <template x-if="currentDay.videos && currentDay.videos.length">
+                <div class="flex flex-wrap items-center gap-2">
+                  <template x-for="(vid, vIdx) in currentDay.videos" :key="vIdx">
+                    <a
+                      :href="vid.url"
+                      target="_blank"
+                      rel="noopener"
+                      class="inline-flex items-center gap-1.5 rounded-xl bg-red-600/10 px-3 py-1.5 text-xs font-bold text-red-700 hover:bg-red-600 hover:text-white transition-colors dark:bg-red-500/20 dark:text-red-300 dark:hover:bg-red-600 dark:hover:text-white shadow-xs"
+                    >
+                      <i class="fa-brands fa-youtube text-sm"></i>
+                      <span x-text="vid.label.includes('(') ? vid.label : 'Tonton ' + vid.label" class="text-[11px]"></span>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+                    </a>
+                  </template>
+                </div>
+              </template>
+              <template x-if="!currentDay.videos && currentDay.videoUrl">
+                <a
+                  :href="currentDay.videoUrl"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-1.5 rounded-xl bg-red-600/10 px-3 py-1.5 text-xs font-bold text-red-700 hover:bg-red-600 hover:text-white transition-colors dark:bg-red-500/20 dark:text-red-300 dark:hover:bg-red-600 dark:hover:text-white shadow-xs"
+                >
+                  <i class="fa-brands fa-youtube text-sm"></i>
+                  <span x-text="'Tonton Rekaman ' + currentDay.title.split(':')[0]" class="text-[11px]"></span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+                </a>
+              </template>
+
+              <!-- Slide PDF Buttons -->
+              <template x-if="currentDay.slides && currentDay.slides.length">
+                <div class="flex flex-wrap items-center gap-2">
+                  <template x-for="(sld, sIdx) in currentDay.slides" :key="sIdx">
+                    <a
+                      :href="sld.url"
+                      target="_blank"
+                      rel="noopener"
+                      class="inline-flex items-center gap-1.5 rounded-xl bg-emerald-brand/10 px-3 py-1.5 text-xs font-bold text-emerald-brand hover:bg-emerald-brand hover:text-white transition-colors dark:bg-emerald-brand/20 dark:text-emerald-light dark:hover:bg-emerald-brand dark:hover:text-white shadow-xs"
+                    >
+                      <i class="fa-solid fa-file-pdf text-sm"></i>
+                      <span x-text="sld.label.includes('(') ? sld.label : 'Unduh ' + sld.label" class="text-[11px]"></span>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+                    </a>
+                  </template>
+                </div>
+              </template>
+              <template x-if="!currentDay.slides && currentDay.pdfUrl">
+                <a
+                  :href="currentDay.pdfUrl"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-1.5 rounded-xl bg-emerald-brand/10 px-3 py-1.5 text-xs font-bold text-emerald-brand hover:bg-emerald-brand hover:text-white transition-colors dark:bg-emerald-brand/20 dark:text-emerald-light dark:hover:bg-emerald-brand dark:hover:text-white shadow-xs"
+                >
+                  <i class="fa-solid fa-file-pdf text-sm"></i>
+                  <span x-text="'Unduh Slide ' + currentDay.title.split(':')[0]" class="text-[11px]"></span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[9px] opacity-70"></i>
+                </a>
+              </template>
             </div>
 
             <!-- Dynamic Lesson Content Renderer -->
