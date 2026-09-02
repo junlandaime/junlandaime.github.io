@@ -1,24 +1,24 @@
 :root {
-  --ink: #0d1e16;
-  --ink-soft: #233a30;
-  --ink-muted: #536b61;
-  --paper: #fbf9f4;
-  --paper-soft: #f4efe4;
+  --ink: #0a192f;
+  --ink-soft: #1e293b;
+  --ink-muted: #475569;
+  --paper: #f8fafc;
+  --paper-soft: #f1f5f9;
   --paper-card: #ffffff;
   --gold: #c59b27;
   --gold-light: #e5b945;
-  --emerald-brand: #0f766e;
-  --emerald-light: #10b981;
+  --emerald-brand: #0284c7;
+  --emerald-light: #0ea5e9;
 }
 
 html.dark {
   color-scheme: dark;
-  --paper: #07150f;
-  --paper-soft: #0c2018;
-  --paper-card: #0e271d;
-  --ink: #f1f5f3;
-  --ink-soft: #d3dfd9;
-  --ink-muted: #8ca398;
+  --paper: #070f1e;
+  --paper-soft: #0a162b;
+  --paper-card: #0e1e38;
+  --ink: #f1f5f9;
+  --ink-soft: #cbd5e1;
+  --ink-muted: #94a3b8;
 }
 
 [x-cloak] {
@@ -31,7 +31,7 @@ html {
 }
 
 ::selection {
-  background-color: #10b981;
+  background-color: #0ea5e9;
   color: #ffffff;
 }
 
@@ -43,18 +43,18 @@ html {
   background: var(--paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #94a3b8;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #64748b;
 }
 
 html.dark ::-webkit-scrollbar-thumb {
-  background: #1e3d30;
+  background: #162a45;
 }
 html.dark ::-webkit-scrollbar-thumb:hover {
-  background: #2a5543;
+  background: #233e66;
 }
 
 body {
@@ -69,18 +69,18 @@ body {
   background-color: var(--paper);
   background-image:
     radial-gradient(at 15% 10%, rgba(197, 155, 39, 0.08) 0px, transparent 50%),
-    radial-gradient(at 85% 18%, rgba(16, 185, 129, 0.08) 0px, transparent 55%),
-    radial-gradient(at 50% 90%, rgba(15, 61, 42, 0.06) 0px, transparent 50%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230f3d2a' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    radial-gradient(at 85% 18%, rgba(14, 165, 233, 0.09) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(16, 55, 92, 0.06) 0px, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230e3a60' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 html.dark .geom-bg {
-  background-color: #07150f;
+  background-color: #070f1e;
   background-image:
     radial-gradient(at 15% 10%, rgba(197, 155, 39, 0.12) 0px, transparent 50%),
-    radial-gradient(at 85% 18%, rgba(16, 185, 129, 0.14) 0px, transparent 55%),
-    radial-gradient(at 50% 90%, rgba(15, 61, 42, 0.3) 0px, transparent 50%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    radial-gradient(at 85% 18%, rgba(14, 165, 233, 0.16) 0px, transparent 55%),
+    radial-gradient(at 50% 90%, rgba(16, 55, 92, 0.35) 0px, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .gold-rule {
@@ -90,26 +90,26 @@ html.dark .geom-bg {
 
 .emerald-rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.25) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.3) 50%, transparent 100%);
 }
 
 /* Glassmorphism Classes */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(13, 30, 22, 0.08);
+  border: 1px solid rgba(10, 25, 47, 0.08);
 }
 
 html.dark .glass-panel {
-  background: rgba(12, 34, 25, 0.8);
+  background: rgba(14, 30, 56, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-panel-dark {
-  background: rgba(10, 31, 22, 0.85);
+  background: rgba(10, 22, 44, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -122,12 +122,12 @@ html.dark .glass-panel {
 
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px -8px rgba(11, 28, 21, 0.08);
+  box-shadow: 0 12px 30px -8px rgba(10, 25, 47, 0.1);
   border-color: rgba(197, 155, 39, 0.4);
 }
 
 html.dark .card-hover:hover {
-  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.5);
   border-color: rgba(229, 185, 69, 0.4);
 }
 
@@ -139,18 +139,18 @@ html.dark .card-hover:hover {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(13, 30, 22, 0.12);
+  border: 1px solid rgba(10, 25, 47, 0.12);
   background-color: #ffffff;
   color: var(--ink-soft);
   transition: all 0.2s ease-in-out;
 }
 
 .social-icon-btn:hover {
-  background-color: #0d1e16;
+  background-color: #0a192f;
   color: #c59b27;
-  border-color: #0d1e16;
+  border-color: #0a192f;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(13, 30, 22, 0.15);
+  box-shadow: 0 4px 12px rgba(10, 25, 47, 0.15);
 }
 
 html.dark .social-icon-btn {
@@ -161,7 +161,7 @@ html.dark .social-icon-btn {
 
 html.dark .social-icon-btn:hover {
   background-color: #c59b27;
-  color: #07150f;
+  color: #070f1e;
   border-color: #c59b27;
   box-shadow: 0 4px 14px rgba(197, 155, 39, 0.3);
 }

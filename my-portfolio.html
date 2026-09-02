@@ -53,23 +53,23 @@
             },
             colors: {
               ink: {
-                DEFAULT: "#0d1e16",
-                soft: "#1e382b",
-                muted: "#52685e",
+                DEFAULT: "#0a192f",
+                soft: "#1e293b",
+                muted: "#475569",
               },
               moss: {
-                DEFAULT: "#154d36",
-                dark: "#0b2b1e",
-                light: "#236d4f",
+                DEFAULT: "#10375c",
+                dark: "#0a2239",
+                light: "#1e56a0",
               },
               emerald: {
-                brand: "#0f766e",
-                light: "#10b981",
-                soft: "#d1fae5",
+                brand: "#0284c7",
+                light: "#0ea5e9",
+                soft: "#e0f2fe",
               },
               paper: {
-                DEFAULT: "#fbf9f4",
-                soft: "#f4efe4",
+                DEFAULT: "#f8fafc",
+                soft: "#f1f5f9",
                 card: "#ffffff",
               },
               sand: "#ede6d6",
@@ -99,7 +99,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
   </head>
   <body
-    class="font-sans geom-bg text-ink dark:text-[#f1f5f3] antialiased selection:bg-emerald-light selection:text-white transition-colors duration-300 min-h-screen flex flex-col justify-between"
+    class="font-sans geom-bg text-ink dark:text-[#f1f5f9] antialiased selection:bg-emerald-light selection:text-white transition-colors duration-300 min-h-screen flex flex-col justify-between"
     x-data="{
       open: false,
       isDark: document.documentElement.classList.contains('dark'),
@@ -141,7 +141,7 @@
       <div class="glass-panel flex items-center justify-between rounded-2xl px-4 sm:px-5 py-3 shadow-sm dark:border-white/10">
         <!-- Logo & Brand Badge -->
         <a href="index.html" class="group flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
-          <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-gold/40 bg-ink text-xs font-bold tracking-widest text-gold shadow-inner transition-colors group-hover:border-gold dark:bg-[#071710] dark:border-gold/60">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-gold/40 bg-ink text-xs font-bold tracking-widest text-gold shadow-inner transition-colors group-hover:border-gold dark:bg-[#071426] dark:border-gold/60">
             JA
           </span>
           <div class="flex flex-col">
@@ -516,7 +516,7 @@
         <!-- Projects Grid Layout -->
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <template x-for="p in filteredProjects" :key="p.title">
-            <div class="card-hover group flex flex-col justify-between rounded-3xl border border-ink/10 bg-white p-5 sm:p-6 shadow-sm dark:bg-[#0c241a] dark:border-white/10 overflow-hidden">
+            <div class="card-hover group flex flex-col justify-between rounded-3xl border border-ink/10 bg-white p-5 sm:p-6 shadow-sm dark:bg-[#0e1e38] dark:border-white/10 overflow-hidden">
               
               <!-- Card Header & Content -->
               <div>
@@ -662,7 +662,7 @@
         <div class="grid gap-6 md:grid-cols-3">
           
           <!-- Column 1: Backend & Database -->
-          <div class="card-hover rounded-3xl border border-ink/10 bg-white/80 p-6 shadow-sm dark:bg-[#0c241a] dark:border-white/10 flex flex-col justify-between">
+          <div class="card-hover rounded-3xl border border-ink/10 bg-white/80 p-6 shadow-sm dark:bg-[#0e1e38] dark:border-white/10 flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-3 mb-4">
                 <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-500/15 text-red-600 dark:bg-red-500/25 dark:text-red-400 text-xl">
@@ -695,7 +695,7 @@
           </div>
 
           <!-- Column 2: Frontend & UI/UX -->
-          <div class="card-hover rounded-3xl border border-ink/10 bg-white/80 p-6 shadow-sm dark:bg-[#0c241a] dark:border-white/10 flex flex-col justify-between">
+          <div class="card-hover rounded-3xl border border-ink/10 bg-white/80 p-6 shadow-sm dark:bg-[#0e1e38] dark:border-white/10 flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-3 mb-4">
                 <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-brand/15 text-emerald-brand dark:bg-emerald-brand/25 dark:text-emerald-light text-xl">
@@ -728,7 +728,7 @@
           </div>
 
           <!-- Column 3: Tools & Hosting -->
-          <div class="card-hover rounded-3xl border border-ink/10 bg-white/80 p-6 shadow-sm dark:bg-[#0c241a] dark:border-white/10 flex flex-col justify-between">
+          <div class="card-hover rounded-3xl border border-ink/10 bg-white/80 p-6 shadow-sm dark:bg-[#0e1e38] dark:border-white/10 flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-3 mb-4">
                 <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/15 text-gold-dark dark:bg-gold/25 dark:text-gold-light text-xl">
@@ -780,7 +780,7 @@
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <template x-for="service in site.web_services" :key="service.title">
-            <div class="card-hover rounded-3xl border border-ink/10 bg-white p-6 shadow-xs flex flex-col justify-between dark:bg-[#0c241a] dark:border-white/10">
+            <div class="card-hover rounded-3xl border border-ink/10 bg-white p-6 shadow-xs flex flex-col justify-between dark:bg-[#0e1e38] dark:border-white/10">
               <div>
                 <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-moss/10 text-moss text-xl mb-4 dark:bg-emerald-brand/20 dark:text-emerald-light">
                   <i :class="service.icon"></i>
@@ -801,7 +801,7 @@
 
       <!-- SECTION: Workflow / How We Work -->
       <section id="alur-kerja" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 md:px-8">
-        <div class="rounded-3xl bg-sand/40 p-6 sm:p-10 border border-ink/10 dark:bg-[#091f16] dark:border-white/10">
+        <div class="rounded-3xl bg-sand/40 p-6 sm:p-10 border border-ink/10 dark:bg-[#091b33] dark:border-white/10">
           <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold">
               <span class="h-1.5 w-1.5 rounded-full bg-gold"></span>
@@ -817,7 +817,7 @@
 
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             <!-- Step 1 -->
-            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c281c] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
+            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c203a] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-2">
                   <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-gold font-bold text-xs dark:bg-gold dark:text-ink">1</span>
@@ -831,7 +831,7 @@
             </div>
 
             <!-- Step 2 -->
-            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c281c] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
+            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c203a] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-2">
                   <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-gold font-bold text-xs dark:bg-gold dark:text-ink">2</span>
@@ -845,7 +845,7 @@
             </div>
 
             <!-- Step 3 -->
-            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c281c] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
+            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c203a] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-2">
                   <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-gold font-bold text-xs dark:bg-gold dark:text-ink">3</span>
@@ -859,7 +859,7 @@
             </div>
 
             <!-- Step 4 -->
-            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c281c] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
+            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c203a] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-2">
                   <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-gold font-bold text-xs dark:bg-gold dark:text-ink">4</span>
@@ -873,7 +873,7 @@
             </div>
 
             <!-- Step 5 -->
-            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c281c] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
+            <div class="rounded-2xl bg-white p-4 shadow-xs dark:bg-[#0c203a] border border-ink/5 dark:border-white/5 flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-2">
                   <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-gold font-bold text-xs dark:bg-gold dark:text-ink">5</span>
@@ -907,7 +907,7 @@
         <div class="grid gap-6 md:grid-cols-3">
           
           <!-- Card 1: Direct Email Pitch Card -->
-          <div class="rounded-3xl border border-ink/10 bg-white p-6 sm:p-7 shadow-sm dark:bg-[#0c241a] dark:border-white/10 flex flex-col justify-between">
+          <div class="rounded-3xl border border-ink/10 bg-white p-6 sm:p-7 shadow-sm dark:bg-[#0e1e38] dark:border-white/10 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between">
                 <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-brand/15 text-emerald-brand dark:bg-emerald-brand/25 dark:text-emerald-light text-xl">
@@ -951,7 +951,7 @@
           </div>
 
           <!-- Card 2: Free Portfolio Setup / GitHub Offer -->
-          <div class="rounded-3xl border border-emerald-brand/30 bg-gradient-to-b from-emerald-soft/50 to-white p-6 sm:p-7 shadow-sm dark:from-[#082218] dark:to-[#0c241a] dark:border-emerald-light/20 flex flex-col justify-between">
+          <div class="rounded-3xl border border-emerald-brand/30 bg-gradient-to-b from-emerald-soft/50 to-white p-6 sm:p-7 shadow-sm dark:from-[#081e36] dark:to-[#0e1e38] dark:border-emerald-light/20 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between">
                 <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-gold dark:bg-gold dark:text-ink text-xl">
@@ -987,7 +987,7 @@
           </div>
 
           <!-- Card 3: Developer Networks & Socials -->
-          <div class="rounded-3xl bg-[#0d2218] p-6 sm:p-7 text-paper shadow-md border border-white/10 flex flex-col justify-between">
+          <div class="rounded-3xl bg-[#0b223d] p-6 sm:p-7 text-paper shadow-md border border-white/10 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between">
                 <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-light/20 text-emerald-light text-xl font-bold">
@@ -1045,7 +1045,7 @@
         
         <div class="flex flex-col items-center justify-between gap-4 text-xs text-ink-muted sm:flex-row dark:text-gray-400">
           <div class="flex items-center gap-2.5">
-            <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-[10px] font-bold text-gold dark:bg-[#0c241a] dark:border dark:border-gold/40">JA</span>
+            <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-[10px] font-bold text-gold dark:bg-[#0e1e38] dark:border dark:border-gold/40">JA</span>
             <p>© <span x-text="new Date().getFullYear()"></span> Jundi Abdullah · Web Developer & Astronomi ITB</p>
           </div>
           <div class="flex items-center gap-3 flex-wrap justify-center">
